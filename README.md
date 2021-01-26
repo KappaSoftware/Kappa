@@ -16,7 +16,12 @@ Kappa es un servicio de GeoRefenciación social orientado a brindar un acceso si
 
 ## Objetivo <a name = "Objetivo"></a>
 
-- Desarrollar una interface rápida y simple que permita al usuario - mediante un bot de telegram - georeferenciar ubicaciones de iterés común 
+- Desarrollar una interface rápida y simple que permita al usuario - mediante un bot de Telegram - georeferenciar ubicaciones de iterés común tales como
+  -  Recursos (alimentos, medicinas, ferretería, talleres de reparación, etc.)
+  -  Estado de las vías
+  -  Centros médicos, odontológicos, etc.
+  -  etc.
+ y consultar mediante una interface web las ubicacines referenciadas.
 
 
 ## Documentos Clave <a name = "Documentos_Clave"></a>
