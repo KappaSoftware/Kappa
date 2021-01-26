@@ -12,9 +12,11 @@ Bienvenid@ al proyecto **Kappa**, aquí puede encontrar toda la información sob
 
 ![coverage](https://img.shields.io/badge/estado-0%25-blue?style=for-the-badge)
 
-Este proyecto está en una temprana etapa de desarrollo.
+Kappa es un servicio de GeoRefenciación social orientado a brindar un acceso simple y rápido para la consulta de información georeferenciada y la creación de capas y puntos en el mapa de acuerdo a nuestras políticas y objetivos. Utiliza como cliente un bot de Telegram para alimentar las diferentes capas existentes o definir una nueva capa.
 
 ## Objetivo <a name = "Objetivo"></a>
+
+- Desarrollar una interface rápida y simple que permita al usuario - mediante un bot de telegram - georeferenciar ubicaciones de iterés común 
 
 
 ## Documentos Clave <a name = "Documentos_Clave"></a>
