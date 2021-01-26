@@ -21,6 +21,7 @@ Kappa es un servicio de GeoRefenciación social orientado a brindar un acceso si
   -  Estado de las vías
   -  Centros médicos, odontológicos, etc.
   -  etc.
+  
  y consultar mediante una interface web las ubicacines referenciadas.
 
 
