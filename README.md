@@ -16,13 +16,28 @@ Kappa es un servicio de GeoRefenciación social orientado a brindar un acceso si
 
 ## Objetivo <a name = "Objetivo"></a>
 
-Desarrollar una interface rápida y simple que permita al usuario - mediante un bot de Telegram - georeferenciar ubicaciones de interés común tales como
-  -  Recursos (alimentos, medicinas, ferretería, talleres de reparación, etc.)
-  -  Estado de las vías
-  -  Centros médicos, odontológicos, etc.
-  -  etc.
-  
- y consultar mediante una interface web las ubicacines referenciadas.
+Desarrollar la implementación de una herramienta de georeferenciación (Google Maps, OpenStreet Map, Ushahidi) con enfoque social orientada al posicionamiento de recursos (médicos, alimenticios, etc.), instituciones y centros de educación, eventos de seguridad (atracos, hurto, etc.) entre otros.
+
+La implementación consta de dos partes:
+1. Una plataforma de visualización web
+2. Un cliente vía Telegram para el registro de ubicaciones de interés
+
+Los *Usuarios* de la plataforma serán clasificados en:
+* **Consultores:** utilizan únicamente la interfaz web para encontrar ubicaciones de interés.
+* **Mapeadores:** utilizan el cliente Telegram para registrar ubicaciones de interés.
+* **Verificadores:** utilizan el cliente Telegram para reportar ubicaciones falsas o problemáticas.
+
+## Categorías
+1. Bienes -> alimentos y repuestos
+2. Servicios -> refrigeración, salud, puntos de reciclaje
+3. Ayuda -> alertas, centros de donaciones
+
+### Sprint 1 
+- Consultar API Mapas y conocer el funcionamiento del API: Fausto y Paola
+- Diseño App: Octavio y Germán
+- Consultar API Telegram y conocer el funcionamiento del API: Jorge y Char
+
+### Sprint 2
 
 
 ## Documentos Clave <a name = "Documentos_Clave"></a>
