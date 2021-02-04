@@ -7,40 +7,43 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   sodipodi:docname="kappa.svg"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   id="svg8"
-   version="1.1"
-   viewBox="0 0 47.340256 47.340255"
+   inkscape:export-ydpi="150"
+   inkscape:export-xdpi="150"
+   inkscape:export-filename="/home/tr0n/GIT/kappa/imagenes/logo/kappa.png"
+   width="47.340256mm"
    height="47.340256mm"
-   width="47.340256mm">
+   viewBox="0 0 47.340256 47.340255"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="kappa.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
-     fit-margin-bottom="0"
-     fit-margin-right="0"
-     fit-margin-left="0"
-     fit-margin-top="0"
-     inkscape:window-maximized="1"
-     inkscape:window-y="27"
-     inkscape:window-x="0"
-     inkscape:window-height="1016"
-     inkscape:window-width="1920"
-     inkscape:guide-bbox="true"
-     showguides="true"
-     showgrid="false"
-     inkscape:document-rotation="0"
-     inkscape:current-layer="layer1"
-     inkscape:document-units="mm"
-     inkscape:cy="71.309575"
-     inkscape:cx="107.2421"
-     inkscape:zoom="0.98994949"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     borderopacity="1.0"
-     bordercolor="#666666"
+     id="base"
      pagecolor="#ffffff"
-     id="base" />
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="107.2421"
+     inkscape:cy="71.309575"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -49,36 +52,36 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(4308.6335,5303.1511)"
-     id="layer1"
+     inkscape:label="Capa 1"
      inkscape:groupmode="layer"
-     inkscape:label="Capa 1">
+     id="layer1"
+     transform="translate(4308.6335,5303.1511)">
     <circle
-       r="23.420128"
-       cy="-5279.481"
-       cx="-4284.9634"
+       style="fill:#009999;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none"
        id="path1032"
-       style="fill:#009999;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none" />
+       cx="-4284.9634"
+       cy="-5279.481"
+       r="23.420128" />
     <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:58.8479px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="-4295.1089"
+       id="text839-6-4-0-1-2-0-7"
        y="-5338.812"
-       id="text839-6-4-0-1-2-0-7"><tspan
-         sodipodi:role="line"
-         id="tspan837-2-6-2-6-2-4-1"
-         x="-4295.1089"
+       x="-4295.1089"
+       style="font-style:normal;font-weight:normal;font-size:58.8479px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          y="-5338.812"
-         style="fill:#ffffff;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /><tspan
-         sodipodi:role="line"
          x="-4295.1089"
-         y="-5265.252"
+         id="tspan837-2-6-2-6-2-4-1"
+         sodipodi:role="line" /><tspan
+         id="tspan841-9-4-7-7-1-8-9"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Whatever BRK';-inkscape-font-specification:'Whatever BRK';fill:#ffffff;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="tspan841-9-4-7-7-1-8-9">k</tspan></text>
+         y="-5265.252"
+         x="-4295.1089"
+         sodipodi:role="line">k</tspan></text>
   </g>
 </svg>
