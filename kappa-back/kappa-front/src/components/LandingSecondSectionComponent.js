@@ -8,13 +8,17 @@ export default function LandingSecondSection() {
     <section className="landing-secondsection" id="ldSecondSec">
       <Container fluid>
         <Row>
-          <Col className="landing-firstsection-col">
-            <div className="landing-secondsection-divText">
-              <h1 className="landing-secondsection-titleText">
-                Find your locations by categories
-              </h1>
-            </div>
+          <div className="hidden-xs col-sm-2" />
+          <Col className="landing-secondsection-col">
+            <img src="/assets/images/Blog.jpg" alt="Blog" />
           </Col>
+          <Col className="landing-secondsection-col">
+            <img src="/assets/images/Blog.jpg" alt="Blog" />
+          </Col>
+          <Col className="landing-secondsection-col">
+            <img src="/assets/images/Blog.jpg" alt="Blog" />
+          </Col>
+          <div className="hidden-xs col-sm-2" />
         </Row>
       </Container>
     </section>

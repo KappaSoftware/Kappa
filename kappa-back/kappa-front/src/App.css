@@ -135,12 +135,13 @@ Landing
 }
 
 .landing-secondsection {
-  background-color: #efefef;
-  opacity: 52%;
-  padding: 5vw;
-  top: -10vw;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding-top: 3vw;
+  padding-bottom: 3vw;
+  top: -11vw;
+  margin-bottom: -11vw;
+  z-index: 1;
   position: relative;
-  margin-bottom: -10vw;
 }
 
 .landing-secondsection-col {
@@ -150,9 +151,18 @@ Landing
   vertical-align: middle;
 }
 
+.landing-secondsection-col > img {
+  background-color: white;
+  width: 16vw;
+  height: 16vw;
+}
+
 .landing-thirdsection {
   background-color: #2b5566;
+  padding-top: 11vw;
   position: relative;
+  top: -11vw;
+  margin-bottom: -11vw;
 }
 
 .landing-thirdsection-col {
@@ -197,23 +207,10 @@ Landing
   }
 }
 
+/**
+  Pantallas a partir de 576px
+*/
 @media screen and (min-width: 576px) {
-  .landing-firstsection-row {
-    max-height: 90vh;
-  }
-
-  .landing-firstsection-titleText {
-    font-weight: 700;
-    font-size: x-large;
-  }
-
-  .landing-firstsection-buttonSignUp {
-    margin: 2vw;
-    font-size: large;
-  }
-}
-
-@media screen and (min-width: 768px) {
   .landing-firstsection-row {
     max-height: 90vh;
   }
@@ -227,12 +224,34 @@ Landing
     margin: 2vw;
     font-size: large;
   }
+}
+
+/**
+  Pantallas a partir de 768px
+*/
+@media screen and (min-width: 768px) {
+  .landing-firstsection-row {
+    max-height: 90vh;
+  }
+
+  .landing-firstsection-titleText {
+    font-weight: 700;
+    font-size: 40px;
+  }
+
+  .landing-firstsection-buttonSignUp {
+    margin: 2vw;
+    font-size: large;
+  }
 
   .landing-thirdsection-titleText {
     font-size: 20px;
   }
 }
 
+/**
+  Pantallas a partir de 1200px
+*/
 @media screen and (min-width: 1200px) {
   .landing-firstsection {
     width: 100%;
@@ -244,7 +263,7 @@ Landing
   }
 
   .landing-firstsection-titleText {
-    font-size: 40px;
+    font-size: 48px;
   }
 
   .landing-thirdsection-titleText {
