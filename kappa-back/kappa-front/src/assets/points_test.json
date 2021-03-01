@@ -2,7 +2,7 @@
     {
         "type":"Feature",
         "properties":{
-            "Icon":"assets/images/recicle.png",
+            "Icon":"assets/images/road.png",
             "Categoria":"M",
             "Popup":"Medicamento"
         },
@@ -14,7 +14,7 @@
      {
          "type":"Feature",
          "properties":{
-            "Icon":"assets/images/recicle.png",
+            "Icon":"assets/images/vacine.png",
              "Categoria":"S",
              "Popup":"Servicio"
          },
@@ -26,7 +26,7 @@
      {
          "type":"Feature",
          "properties":{
-             "Icon":"assets/images/medicine.png",
+             "Icon":"assets/images/vacine.png",
              "Categoria":"S",
              "Popup":"Servicio"
          },
@@ -38,7 +38,7 @@
      {
          "type": "Feature",
           "properties": {
-            "Icon":"assets/images/recicle.png",
+            "Icon":"assets/images/road.png",
               "Categoria": "M",
               "Popup": "Medicamento"
          },
@@ -50,7 +50,7 @@
       {
          "type": "Feature",
           "properties": {
-            "Icon":"assets/images/medicine.png",
+            "Icon":"assets/images/vacine.png",
               "Categoria": "R",
               "Popup": "R"
          },
