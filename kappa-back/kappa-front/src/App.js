@@ -1,22 +1,13 @@
-import logo from "./logo.svg";
-import MainComponent from "./components/MainComponent";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import { ConfigureStore } from "./redux/configureStore";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-
-const store = ConfigureStore();
+import React from 'react'
+import MainComponent from './components/MainComponent'
+import MapComponent from './components/MapComponent'
+import './App.css';
 
 function App() {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <div className="App">
-          <MainComponent></MainComponent>
-        </div>
-      </BrowserRouter>
-    </Provider>
+    <div className="App">
+      <MapComponent/>
+    </div>
   );
 }
 
