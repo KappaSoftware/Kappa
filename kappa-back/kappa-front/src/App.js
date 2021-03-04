@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import MainComponent from "./components/MainComponent";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";

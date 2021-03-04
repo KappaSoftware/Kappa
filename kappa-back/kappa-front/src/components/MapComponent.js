@@ -1,11 +1,10 @@
 import React from "react";
 import L from "leaflet";
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import points from "../assets/points_test.json";
 
 export default function Map() {
-  // const position = [49.0091, 67.9834];
   return (
     <div>
       <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
@@ -19,7 +18,6 @@ export default function Map() {
               icon={L.icon({
                 iconUrl: item.properties.Icon,
                 iconSize: [25, 25],
-                iconAnchor: [22, 94],
                 popupAnchor: [-3, -76],
                 shadowUrl: null,
                 shadowSize: null,
