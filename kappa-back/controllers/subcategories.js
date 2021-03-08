@@ -1,8 +1,8 @@
 const { mongoUtils, dataBase } = require("../lib/utils/mongo");
 const { ObjectId } = require("mongodb");
-const COLLECTION_NAME = "Users";
+const COLLECTION_NAME = "Subcategories";
 
-function getUsers() {
+function getSubcategories() {
   return mongoUtils.conn().then((client) => {
     return client
       .db(dataBase)
@@ -13,46 +13,48 @@ function getUsers() {
   });
 }
 
-function getUser(userId) {
+function getSubcategory(subcategoryId) {
   return mongoUtils.conn().then((client) => {
     return client
       .db(dataBase)
       .collection(COLLECTION_NAME)
-      .findOne({ _id: ObjectId(userId) })
+      .findOne({ _id: ObjectId(subcategoryId) })
       .finally(() => client.close());
   });
 }
 
-function insertUser(newUser) {
+function insertSubcategory(newSubcategory) {
   return mongoUtils.conn().then((client) => {
     return client
       .db(dataBase)
       .collection(COLLECTION_NAME)
       .insertOne({
-        username: newUser.username,
-        email: newUser.email,
-        role: newUser.role,
-        password: newUser.password,
+        Name_en: newSubcategory.Name_en,
+        Name_es: newSubcategory.Name_es,
+        Popup_en: newSubcategory.Popup_en,
+        Popup_es: newSubcategory.Popup_es,
+        Icon: newSubcategory.Icon,
       })
       .finally(() => client.close());
   });
 }
 
-function updateUser(userId, body) {
+function updateSubcategory(subcategoryId, body) {
   return mongoUtils.conn().then((client) => {
     return client
       .db(dataBase)
       .collection(COLLECTION_NAME)
       .updateOne(
         {
-          _id: ObjectId(userId),
+          _id: ObjectId(subcategoryId),
         },
         {
           $set: {
-            username: body.username,
-            email: body.email,
-            role: body.role,
-            password: body.password,
+            Name_en: body.Name_en,
+            Name_es: body.Name_es,
+            Popup_en: body.Popup_en,
+            Popup_es: body.Popup_es,
+            Icon: body.Icon,
           },
         }
       )
@@ -60,14 +62,20 @@ function updateUser(userId, body) {
   });
 }
 
-function deleteUser(userId) {
+function deleteSubcategory(subcategoryId) {
   return mongoUtils.conn().then((client) => {
     client
       .db(dataBase)
       .collection(COLLECTION_NAME)
-      .deleteOne({ _id: ObjectId(userId) })
+      .deleteOne({ _id: ObjectId(subcategoryId) })
       .finally(() => client.close());
   });
 }
 
-module.exports = [getUsers, getUser, insertUser, updateUser, deleteUser];
+module.exports = [
+  getSubcategories,
+  getSubcategory,
+  insertSubcategory,
+  updateSubcategory,
+  deleteSubcategory,
+];
