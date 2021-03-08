@@ -12,7 +12,7 @@ Bienvenid@ al proyecto **Kappa**, aquí puede encontrar toda la información sob
 
 ![coverage](https://img.shields.io/badge/estado-0%25-blue?style=for-the-badge)
 
-Kappa es un servicio de GeoRefenciación social orientado a brindar un acceso simple y rápido para la consulta de información georeferenciada y la creación de capas y puntos en el mapa de acuerdo a nuestras políticas y objetivos. Utiliza como cliente un bot de Telegram para alimentar las diferentes capas existentes o definir una nueva capa.
+Kappa es un servicio de GeoRefenciación con objetivos de índole social orientado a brindar un acceso simple y rápido para la consulta de información georeferenciada y la creación de capas y puntos en el mapa de acuerdo a nuestras políticas y objetivos. Utiliza como cliente un bot de Telegram para alimentar las diferentes capas existentes o definir una nueva capa.
 
 ## Objetivo <a name = "Objetivo"></a>
 
@@ -20,7 +20,7 @@ Desarrollar la implementación de una herramienta de georeferenciación (Google 
 
 La implementación consta de dos partes:
 1. Una plataforma de visualización web
-2. Un cliente vía Telegram para el registro de ubicaciones de interés
+2. Un cliente vía Telegram para el registro o solicitud de ubicaciones de interés
 
 Los *Usuarios* de la plataforma serán clasificados en:
 * **Consultores:** utilizan únicamente la interfaz web para encontrar ubicaciones de interés.
@@ -32,12 +32,36 @@ Los *Usuarios* de la plataforma serán clasificados en:
 2. Servicios -> refrigeración, salud, puntos de reciclaje
 3. Ayuda -> alertas, centros de donaciones
 
-### Sprint 1 
+A continuación se presentan las etapas de desarrollo del proyecto: 
+
+### Sprint 1 (De 1 a 12 de Febrero de 2021)
 - Consultar API Mapas y conocer el funcionamiento del API: Fausto y Paola
 - Diseño App: Octavio y Germán
 - Consultar API Telegram y conocer el funcionamiento del API: Jorge y Char
 
-### Sprint 2
+### Sprint 2 (De 15 a 26 de Febrero de 2021)
+- Creación de la primera versión de código para presentación de capas en el mapa (Python y React)
+- Redacción de primera versión de la Politica de Privacidad de Kappa Software
+- Revisión de adecuación de los objetivos y políticas de Kappa Software a las politicas de privacidad de Telegram (primera parte)
+- Migración de código del Bot desde su primera versión en Elixir a lenguaje Python
+- Definición de formato de contenido del archivo .json generado a través de Telegram para ser transmitido al backend
+- Definición actualizada de las categorias de busqueda: 
+     - Registro de huecos en carreteras y de eventos como subcategorias de "Servicios"
+     - Registro de puntos de vacunación como subcategoria de "Ayuda"
+
+### Sprint 3 (De 1 a 12 de Marzo de 2021)
+- Puesta en marcha de la página web en el servidor 
+      - Definición de secciones y presentación
+- Establecer comunicación Telegram-Node y Node-Mapa
+- Producir primera versión de mapa con iconos "personalizados" utilizando lenguaje React
+- Revisión y definición de asuntos legales relacionados a la adecuación a las politicas de Privacidad de Telegram y Términos de uso
+- Diseño y administración del uso de Máquinas virtuales.
+
+### Sprint 4 (De 15 a 26 de Marzo de 2021)
+- Diseño de funcionalidades del bot 
+- Definición de las políticas de aceptación de usuários por categoria
+- Definición de filtros de texto para la categoria Eventos 
+- Implementación de filtros para lenguaje inapropiado
 
 
 ## Documentos Clave <a name = "Documentos_Clave"></a>
