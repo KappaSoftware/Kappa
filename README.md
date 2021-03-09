@@ -27,10 +27,23 @@ Los *Usuarios* de la plataforma serán clasificados en:
 * **Mapeadores:** utilizan el cliente Telegram para registrar ubicaciones de interés.
 * **Verificadores:** utilizan el cliente Telegram para reportar ubicaciones falsas o problemáticas.
 
-## Categorías
+## Categorías v1
 1. Bienes -> alimentos y repuestos
 2. Servicios -> refrigeración, salud, puntos de reciclaje
 3. Ayuda -> alertas, centros de donaciones
+
+## Categorias v2 (a discutir en reunión)
+1. Encontrar cosas (donde hay?)
+     1.1 Alimentos, 
+     1.2 Medicinas,
+     1.3 Huecos en la via,
+     1.4 Repuestos
+2. Encontrar personas (donde hacen?)
+     2.1 Manutención de refrigeradores
+     2.2 Aplicación de vacunas
+     4.2 Recolección/Entrega de donaciones
+     5.3 Recolección de material reciclable
+     6.4 Organización de eventos 
 
 A continuación se presentan las etapas de desarrollo del proyecto: 
 
