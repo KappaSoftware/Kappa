@@ -41,9 +41,9 @@ Los *Usuarios* de la plataforma serán clasificados en:
 2. Encontrar personas (donde hacen?)
      2.1 Manutención de refrigeradores
      2.2 Aplicación de vacunas
-     4.2 Recolección/Entrega de donaciones
-     5.3 Recolección de material reciclable
-     6.4 Organización de eventos 
+     2.3 Recolección/Entrega de donaciones
+     2.4 Recolección de material reciclable
+     2.5 Organización de eventos 
 
 A continuación se presentan las etapas de desarrollo del proyecto: 
 
