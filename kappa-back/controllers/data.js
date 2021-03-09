@@ -1,6 +1,6 @@
 const { mongoUtils, dataBase } = require("../lib/utils/mongo");
 const { ObjectId } = require("mongodb");
-const COLLECTION_NAME = "data";
+const COLLECTION_NAME = "Data";
 
 function getTotalData() {
   return mongoUtils.conn().then((client) => {
@@ -28,7 +28,8 @@ function getSubcategoryData(subcategoryId) {
     return client
       .db(dataBase)
       .collection(COLLECTION_NAME)
-      .find({ properties: { Subcategory: ObjectId(subcategoryId) } })
+      .find({ "properties.Subcategory": ObjectId(subcategoryId) })
+      .toArray()
       .finally(() => client.close());
   });
 }
@@ -39,6 +40,7 @@ function getOneData(dataId) {
       .db(dataBase)
       .collection(COLLECTION_NAME)
       .findOne({ _id: ObjectId(dataId) })
+      .toArray()
       .finally(() => client.close());
   });
 }

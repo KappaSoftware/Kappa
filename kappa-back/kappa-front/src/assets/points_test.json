@@ -16,7 +16,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Icon": "/assets/images/vacine.png",
+        "Icon": "/assets/images/vaccine.png",
         "Categoria": "S",
         "Popup": "Servicio"
       },
@@ -28,7 +28,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Icon": "/assets/images/vacine.png",
+        "Icon": "/assets/images/vaccine.png",
         "Categoria": "S",
         "Popup": "Servicio"
       },
@@ -52,7 +52,7 @@
     {
       "type": "Feature",
       "properties": {
-        "Icon": "/assets/images/vacine.png",
+        "Icon": "/assets/images/vaccine.png",
         "Categoria": "R",
         "Popup": "R"
       },
