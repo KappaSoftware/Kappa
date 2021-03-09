@@ -33,12 +33,12 @@ Los *Usuarios* de la plataforma serán clasificados en:
 3. Ayuda -> alertas, centros de donaciones
 
 ## Categorias v2 (a discutir en reunión)
-1. Encontrar cosas (donde hay?)
+1. Encontrar cosas (bienes, donde hay?)
      1.1 Alimentos, 
      1.2 Medicinas,
      1.3 Huecos en la via,
      1.4 Repuestos
-2. Encontrar personas (donde hacen?)
+2. Encontrar personas (servicios, donde hacen?)
      2.1 Manutención de refrigeradores
      2.2 Aplicación de vacunas
      2.3 Recolección/Entrega de donaciones
@@ -59,8 +59,8 @@ A continuación se presentan las etapas de desarrollo del proyecto:
 - Migración de código del Bot desde su primera versión en Elixir a lenguaje Python
 - Definición de formato de contenido del archivo .json generado a través de Telegram para ser transmitido al backend
 - Definición actualizada de las categorias de busqueda: 
-     - Registro de huecos en carreteras y de eventos como subcategorias de "Servicios"
-     - Registro de puntos de vacunación como subcategoria de "Ayuda"
+     - Registro de huecos en carreteras y de eventos como subcategorias de "Bienes"
+     - Registro de puntos de vacunación como subcategoria de "Servicios"
 
 ### Sprint 3 (De 1 a 12 de Marzo de 2021)
 - Puesta en marcha de la página web en el servidor 
