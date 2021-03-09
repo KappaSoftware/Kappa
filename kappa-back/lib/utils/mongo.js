@@ -1,8 +1,8 @@
 const MongoClient = require("mongodb").MongoClient;
 const url =
-  "mongodb+srv://admin:wkDcCjUFM3evmOrc@kappa.qosht.mongodb.net/kappaDB?retryWrites=true&w=majority";
+  "mongodb+srv://admin:XV1CLDFp7dumBnEn@kappa.qosht.mongodb.net/KappaDB?retryWrites=true&w=majority";
 
-const dataBase = "kappaDB";
+const dataBase = "KappaDB";
 
 function MongoUtils() {
   const mu = {};

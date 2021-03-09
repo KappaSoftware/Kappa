@@ -6,6 +6,8 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var categoriesRouter = require("./routes/categories");
+var dataRouter = require("./routes/data");
 var botRouter = require("./routes/bot");
 
 var app = express();
@@ -22,6 +24,8 @@ app.use(express.static(path.join(__dirname, "kappa-front/build")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/kappa/categories", categoriesRouter);
+app.use("/kappa/data", dataRouter);
 app.use("/kappa/bot", botRouter);
 
 // catch 404 and forward to error handler
