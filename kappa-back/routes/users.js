@@ -7,7 +7,7 @@ var [
   insertUser,
   updateUser,
   deleteUser,
-] = require("../controllers/users");
+] = require("../controllers/user");
 
 const userLogic = require("../logic/userLogic");
 

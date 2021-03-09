@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import MainComponent from "./components/MainComponent";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -13,7 +12,7 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <div className="App">
-          <MainComponent></MainComponent>
+          <MainComponent />
         </div>
       </BrowserRouter>
     </Provider>
