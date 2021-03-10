@@ -16,7 +16,7 @@ export default function LandingFirstSection() {
                 <Carousel.Item interval={3000}>
                   <img
                     className="d-block w-100 landing-firstsection-imageCarousel"
-                    src="/assets/images/LandingFirstSection-Handsmap.jpg"
+                    src="/assets/images/LandingFirstSection-HandsMap.jpg"
                     alt="First slide"
                   />
                 </Carousel.Item>
