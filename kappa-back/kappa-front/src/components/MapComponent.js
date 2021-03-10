@@ -1,14 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import L from "leaflet";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import points from "../assets/points_test.json";
 const axios = require("axios");
 
 export default function Map() {
   const [data, setData] = useState([]);
 
-  let url = "/kappa/data";
+  let url = "kappa/data/lookup/subcategory";
   let loadingData = "Loading data";
 
   useEffect(() => {
@@ -16,7 +15,7 @@ export default function Map() {
       if (sessionStorage.getItem("Data") === "") {
         setData(loadingData);
       } else {
-        setData(JSON.parse(sessionStorage.getItem("Actividad")));
+        setData(JSON.parse(sessionStorage.getItem("Data")));
       }
     } else {
       axios
@@ -41,11 +40,12 @@ export default function Map() {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {points.features.map((item) => {
+        {data.map((item) => {
           return (
             <Marker
+              key={item._id}
               icon={L.icon({
-                iconUrl: item.properties.Icon,
+                iconUrl: "assets/images/" + item.properties.Subcategory[0].Icon,
                 iconSize: [25, 25],
                 popupAnchor: [-3, -76],
                 shadowUrl: null,
@@ -57,11 +57,9 @@ export default function Map() {
                 item.geometry.coordinates[0],
               ]}
             >
-              {item.properties.Categoria && (
-                <Popup>
-                  <span>{item.properties.Popup}</span>
-                </Popup>
-              )}
+              <Popup>
+                <span>{item.properties.Popup_en}</span>
+              </Popup>
             </Marker>
           );
         })}
