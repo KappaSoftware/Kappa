@@ -13,6 +13,17 @@ function getSubcategories() {
   });
 }
 
+function getSubcategoriesWithCategory(categoryId) {
+  return mongoUtils.conn().then((client) => {
+    return client
+      .db(dataBase)
+      .collection(COLLECTION_NAME)
+      .find({ Category: ObjectId(categoryId) })
+      .toArray()
+      .finally(() => client.close());
+  });
+}
+
 function getSubcategory(subcategoryId) {
   return mongoUtils.conn().then((client) => {
     return client
@@ -74,6 +85,7 @@ function deleteSubcategory(subcategoryId) {
 
 module.exports = [
   getSubcategories,
+  getSubcategoriesWithCategory,
   getSubcategory,
   insertSubcategory,
   updateSubcategory,

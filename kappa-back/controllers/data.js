@@ -13,17 +13,7 @@ function getTotalData() {
   });
 }
 
-function getCategoryData(categoryId) {
-  return mongoUtils.conn().then((client) => {
-    return client
-      .db(dataBase)
-      .collection(COLLECTION_NAME)
-      .find({ properties: { Category: ObjectId(categoryId) } })
-      .finally(() => client.close());
-  });
-}
-
-function getSubcategoryData(subcategoryId) {
+function getDataWithSubcategory(subcategoryId) {
   return mongoUtils.conn().then((client) => {
     return client
       .db(dataBase)
@@ -106,8 +96,7 @@ function deleteData(dataId) {
 
 module.exports = [
   getTotalData,
-  getCategoryData,
-  getSubcategoryData,
+  getDataWithSubcategory,
   getOneData,
   insertData,
   updateData,
