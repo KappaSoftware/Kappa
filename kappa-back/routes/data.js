@@ -3,8 +3,7 @@ var router = express.Router();
 
 var [
   getTotalData,
-  getCategoryData,
-  getSubcategoryData,
+  getDataWithSubcategory,
   getOneData,
   insertData,
   updateData,
@@ -17,7 +16,7 @@ router.get("/", async function (req, res, next) {
 });
 
 router.get("/category/:id", async function (req, res, next) {
-  const data = await getCategoryData(req.params.id);
+  const data = await getDataWithCategory(req.params.id);
 
   if (data === null)
     return res
@@ -32,7 +31,7 @@ router.get("/category/:id", async function (req, res, next) {
 });
 
 router.get("/subcategory/:id", async function (req, res, next) {
-  const data = await getSubcategoryData(req.params.id);
+  const data = await getDataWithSubcategory(req.params.id);
 
   if (data === null)
     return res
