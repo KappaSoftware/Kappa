@@ -1,6 +1,7 @@
 const { mongoUtils, dataBase } = require("../lib/utils/mongo");
 const { ObjectId } = require("mongodb");
 const COLLECTION_NAME = "Data";
+const COLLECTION_SUBCATEGORY_NAME = "Subcategories";
 
 function getTotalData() {
   return mongoUtils.conn().then((client) => {
@@ -13,12 +14,55 @@ function getTotalData() {
   });
 }
 
+function getTotalDataLookupSubcategory() {
+  return mongoUtils.conn().then((client) => {
+    return client
+      .db(dataBase)
+      .collection(COLLECTION_NAME)
+      .aggregate([
+        {
+          $lookup: {
+            from: COLLECTION_SUBCATEGORY_NAME,
+            localField: "properties.Subcategory",
+            foreignField: "_id",
+            as: "properties.Subcategory",
+          },
+        },
+      ])
+      .toArray()
+      .finally(() => client.close());
+  });
+}
+
 function getDataWithSubcategory(subcategoryId) {
   return mongoUtils.conn().then((client) => {
     return client
       .db(dataBase)
       .collection(COLLECTION_NAME)
       .find({ "properties.Subcategory": ObjectId(subcategoryId) })
+      .toArray()
+      .finally(() => client.close());
+  });
+}
+
+function getDataWithSubcategoryLookupSubcategory(subcategoryId) {
+  return mongoUtils.conn().then((client) => {
+    return client
+      .db(dataBase)
+      .collection(COLLECTION_NAME)
+      .aggregate([
+        {
+          $match: { "properties.Subcategory": ObjectId(subcategoryId) },
+        },
+        {
+          $lookup: {
+            from: COLLECTION_SUBCATEGORY_NAME,
+            localField: "properties.Subcategory",
+            foreignField: "_id",
+            as: "properties.Subcategory",
+          },
+        },
+      ])
       .toArray()
       .finally(() => client.close());
   });
@@ -96,7 +140,9 @@ function deleteData(dataId) {
 
 module.exports = [
   getTotalData,
+  getTotalDataLookupSubcategory,
   getDataWithSubcategory,
+  getDataWithSubcategoryLookupSubcategory,
   getOneData,
   insertData,
   updateData,
