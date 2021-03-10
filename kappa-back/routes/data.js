@@ -3,7 +3,9 @@ var router = express.Router();
 
 var [
   getTotalData,
+  getTotalDataLookupSubcategory,
   getDataWithSubcategory,
+  getDataWithSubcategoryLookupSubcategory,
   getOneData,
   insertData,
   updateData,
@@ -15,19 +17,16 @@ router.get("/", async function (req, res, next) {
   res.send(totalData);
 });
 
-router.get("/category/:id", async function (req, res, next) {
-  const data = await getDataWithCategory(req.params.id);
+router.get("/lookup/subcategory", async function (req, res, next) {
+  const totalData = await getTotalDataLookupSubcategory();
+  res.send(totalData);
+});
 
-  if (data === null)
-    return res
-      .status(404)
-      .send(
-        "The data with the given category id was not found. " +
-          req.params.id +
-          typeof req.params.id
-      );
-
-  res.send(data);
+router.get("/lookup/subcategory/:id", async function (req, res, next) {
+  const getDataWithSubcategory = await getDataWithSubcategoryLookupSubcategory(
+    req.params.id
+  );
+  res.send(getDataWithSubcategory);
 });
 
 router.get("/subcategory/:id", async function (req, res, next) {
