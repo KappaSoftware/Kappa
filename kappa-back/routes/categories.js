@@ -3,6 +3,7 @@ var router = express.Router();
 
 var [
   getCategories,
+  getSubcategoriesWithCategory,
   getCategory,
   insertCategory,
   updateCategory,
