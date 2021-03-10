@@ -61,7 +61,21 @@ Cualquiera sea el modo en el cual se atiendan peticiones en paralelo en un host,
 ![NodeJS Horizontral](https://miro.medium.com/max/796/1*ryiL00dESNJTL_jRnUyAyA.png)
 
 
+## Telegram Bot
 
+El desarrollo del bot de telegram usa Python3 como lenguaje de programación y la librería (https://github.com/python-telegram-bot/python-telegram-bot) la cual contiene las funciones para la integración con la API de Telegram. Esto condiciona especialmente el diseño de funcionamiento para trabajar en cluster, ya que explícitamente se restringe la ejecución simultánea de mas de una instancia vinculada a la API de esta red social (ver https://telegram.org/faq#p-puedo-ejecutar-telegram-usando-mi-propio-servidor).
+
+Asimismo, la clusterización de instancias de un proceso en distintos hosts no es una funcionalidad propia del lenguaje de programación Python (tanto en las versiones 2.x y 3.x) de manera que se requiere un desarrollo adicional que se coloque sobre este servicio para poderlo sindicar dentro una estructura de cluster.
+
+Por estas razones, la solución propuesta resuelve la alta disponibilidad, pero no contempla el balanceo de carga:
+
+Se creará un esquema de cluster activo-pasivo usando Pacemaker y Corosync (ver https://wiki.debian.org/Debian-HA/ClustersFromScratch) donde es posible la existencia de múltiples nodos pero restringiendo la ejecución simultánea, de manera que existirá sólo un nodo activo y en caso de alguna falla se llevará a cabo un relevo automático de la instancia que presenta el error, enrutando las peticiones hacia un nuevo nodo activo e inmediatamente activando una acción de STONITH sobre el inactivo.
+
+**TODO: imagen del esquema activo-pasivo**
+
+## DNS
+
+**TODO**
 
 
 
