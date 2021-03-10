@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "buildFront": "cd front && npm install && npm run build"
+    "buildFront": "cd kappa-front && npm install && npm run build"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
