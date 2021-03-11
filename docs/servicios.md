@@ -18,7 +18,7 @@ Junto a los componentes anteriores, se añaden los siguientes servicios externos
 
 En la siguiente imagen se pueden observar estos elementos y la forma en la que interoperan:
 
-![Diseño General de Servicios](https://github.com/KappaSoftware/Kappa/blob/main/imagenes/dise%C3%B1o-de-servicios.png)
+![Diseño General de Servicios](https://github.com/KappaSoftware/Kappa/blob/main/imagenes/doc/dise%C3%B1o-de-servicios.png)
 
 El diseño propuesto permite ajustar la capacidad de cómputo y respuesta en función de la demanda desde los clientes de cada servicio, de manera de proveer balanceo de carga y alta disponibilidad, a su vez permitiendo la escalabilidad del sistema ante el aumento de peticiones externas e internas. La siguiente imagen ilustra el esquema de funcionamiento de esta escalabilidad:
 
