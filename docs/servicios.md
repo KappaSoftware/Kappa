@@ -73,6 +73,8 @@ Se creará un esquema de cluster activo-pasivo usando Pacemaker y Corosync (ver 
 
 **TODO: imagen del esquema activo-pasivo**
 
+El diseño de cluster propuesto para este componente consta de 3 nodos, de manera de poder configurar un diseño que prevenga las situaciones de split-brain, ya que de esta manera se puede asegurar que ningún nodo pueda operar si no ve al menos uno mas activo. Como nota de recordatorio, se necesita diseñar y configurar el método para activar STONITH a las máquinas virtuales o contenedores en los cuales se estén ejecutando nodos que requieran ser desactivados.
+
 ## DNS
 
 **TODO**
