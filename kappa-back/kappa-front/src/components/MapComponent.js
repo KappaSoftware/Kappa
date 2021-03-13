@@ -21,13 +21,11 @@ export default function Map() {
       axios
         .get(url)
         .then((response) => {
-          // Obtenemos los datos
           console.log(response);
           setData(response.data);
           sessionStorage.setItem("Data", JSON.stringify(response.data));
         })
         .catch((e) => {
-          // Capturamos los errores
           console.log(e);
         });
     }
