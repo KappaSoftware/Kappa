@@ -71,13 +71,37 @@ Por estas razones, la solución propuesta resuelve la alta disponibilidad, pero 
 
 Se creará un esquema de cluster activo-pasivo usando Pacemaker y Corosync (ver https://wiki.debian.org/Debian-HA/ClustersFromScratch) donde es posible la existencia de múltiples nodos pero restringiendo la ejecución simultánea, de manera que existirá sólo un nodo activo y en caso de alguna falla se llevará a cabo un relevo automático de la instancia que presenta el error, enrutando las peticiones hacia un nuevo nodo activo e inmediatamente activando una acción de STONITH sobre el inactivo.
 
-**TODO: imagen del esquema activo-pasivo**
+![Cluster para BOT de Telegram](https://github.com/KappaSoftware/Kappa/blob/main/imagenes/doc/bot-telegram-cluster.png)
 
 El diseño de cluster propuesto para este componente consta de 3 nodos, de manera de poder configurar un diseño que prevenga las situaciones de split-brain, ya que de esta manera se puede asegurar que ningún nodo pueda operar si no ve al menos uno mas activo. Como nota de recordatorio, se necesita diseñar y configurar el método para activar STONITH a las máquinas virtuales o contenedores en los cuales se estén ejecutando nodos que requieran ser desactivados.
 
 ## DNS
 
+El diseño para la resolución de nombres no presenta mayor diferencia con el propio que contiene el funcionamiento de un servicio DNS: se define una zona de autoridad, con 2 o mas nodos entre los cuales se realiza una transferencia de zona del dominio donde se asignan los hosts.
+
+La única característica a añadir es la posible definición de punteros "srv" que eventualmente puedan asignar respuestas en "round robin" sobre los servicios que puedan responder de manera indistinta a los clientes, como es el caso de las instancias HTTP (backend y frontend) que se definen en la sección anterior correspondiente. Esto es necesario que sea evaluado, pues el módulo de proxy reverso que brinda Apache y Nginx ya contiene esta funcionalidad y es posible que no sea recomendable o necesario redundar la alternabilidad.
+
+# Recetas de Instalación
+
+En esta sección se especifican los pasos a seguir para instalar, configurar e implementar los servicios enumerados en este documento, con el diseño de alta disponibilidad y balanceo de carga para cada caso.
+
+## MongoDB
+
 **TODO**
+
+## Frontend: React + Leaflet
+
+**TODO**
+
+## Backend: NodeJS
+
+**TODO**
+
+## Telegram BOT
+
+**TODO**
+
+## DNS
 
 
 
