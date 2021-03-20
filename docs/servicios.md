@@ -85,9 +85,62 @@ La única característica a añadir es la posible definición de punteros "srv" 
 
 En esta sección se especifican los pasos a seguir para instalar, configurar e implementar los servicios enumerados en este documento, con el diseño de alta disponibilidad y balanceo de carga para cada caso.
 
+Se usará el Sistema Operativo GNU/Linux para cada host donde se instancie algún componente de los servicios propios de Kappa. En específico la distribución Debian, versión 10 (nombre código "Buster"), por ser la versión estable para el momento de realizar esta implementación.
+
 ## MongoDB
 
-**TODO**
+La documentación oficial de MongoDB (ver https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/) recomienda no usar la versión instalables desde el administrador de paquetes de la distribución, sino en cambio usar los publicados en el repositorio de los desarrolladores:
+
+```bash
+
+apt update
+
+apt upgrade
+
+apt install gnupg2
+
+wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add -
+
+echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/4.4 main" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+
+apt update
+
+apt install -y mongodb-org
+
+```
+
+Para prevenir que en el futuro se actualice la versión estable que se descsarga al momento de realizar la instalación, se recomienda ejecutar:
+
+```bash
+echo "mongodb-org hold" | dpkg --set-selections
+echo "mongodb-org-server hold" | dpkg --set-selections
+echo "mongodb-org-shell hold" | dpkg --set-selections
+echo "mongodb-org-mongos hold" | dpkg --set-selections
+echo "mongodb-org-tools hold" | dpkg --set-selections
+```
+
+Luego se inicia el servicio y se configura el daemon para que se levante cada vez que el sistema operativo reinicie:
+
+```bash
+
+systemctl start mongod
+
+systemctl status mongod
+
+systemctl enable mongod
+```
+
+En la configuración por defecto, el servicio sólo permite conexiones desde localhost, por lo que se requiere modificar el archivo /etc/mongod.conf de tal manera que las líneas relacionadas con networking queden de la siguiente manera:
+
+```bash
+net:
+  port: 27017
+  bindIp: 0.0.0.0
+```
+
+**NOTA:** esto es un fix inicial, la configuración de control de acceso debe hacerse mediante "Usuarios y Roles" (ver https://docs.mongodb.com/manual/tutorial/manage-users-and-roles/)
+
+**TODO: Cluster**
 
 ## Frontend: React + Leaflet
 
