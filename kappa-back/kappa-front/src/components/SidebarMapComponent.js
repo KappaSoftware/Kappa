@@ -37,20 +37,40 @@ const SidebarMap = ({
       onToggle={handleToggleSidebar}
     >
       <SidebarHeader>
-        <div
-          style={{
-            padding: "24px",
-            textTransform: "uppercase",
-            fontWeight: "bold",
-            fontSize: 14,
-            letterSpacing: "1px",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {intl.formatMessage({ id: "sidebarTitle" })}
-        </div>
+        {collapsed ? (
+          <div
+            style={{
+              padding: "24px",
+              fontSize: 14,
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}
+          >
+            <img
+              src="/kappaLogo.png"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+              alt="React Bootstrap logo"
+            />
+          </div>
+        ) : (
+          <div
+            style={{
+              padding: "24px",
+              textTransform: "uppercase",
+              fontWeight: "bold",
+              fontSize: 14,
+              letterSpacing: "1px",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {intl.formatMessage({ id: "sidebarTitle" })}
+          </div>
+        )}
       </SidebarHeader>
 
       <SidebarContent>
@@ -68,6 +88,7 @@ const SidebarMap = ({
                 offColor="#bbbbbb"
               />
             }
+            onClick={handleCollapsedChange}
           >
             {intl.formatMessage({ id: "collapsed" })}
           </MenuItem>
@@ -85,7 +106,9 @@ const SidebarMap = ({
               />
             }
           >
-            {intl.formatMessage({ id: "rtl" })}
+            <span onClick={handleRtlChange}>
+              {intl.formatMessage({ id: "rtl" })}
+            </span>
           </MenuItem>
         </Menu>
         <Menu iconShape="circle">
