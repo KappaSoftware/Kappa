@@ -1,11 +1,17 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
+import { CategoriesAndSubcategories } from "./categoriesAndSubcategories";
+import { SubcategoriesMap } from "./subcategories";
+
+import thunkMiddleware from "redux-thunk";
 import logger from "redux-logger";
 
 export const ConfigureStore = () => {
   const store = createStore(
-    combineReducers({}),
-    applyMiddleware(thunk, logger)
+    combineReducers({
+      categoriesAndSubcategories: CategoriesAndSubcategories,
+      subcategoriesMap: SubcategoriesMap,
+    }),
+    applyMiddleware(thunkMiddleware, logger)
   );
 
   return store;

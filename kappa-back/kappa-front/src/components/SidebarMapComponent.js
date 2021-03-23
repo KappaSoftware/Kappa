@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { fetchCategoriesAndSubcategories } from "../redux/ActionCreators";
+import { useDispatch, useSelector } from "react-redux";
+
 import { useIntl } from "react-intl";
 import {
   ProSidebar,
@@ -19,15 +22,86 @@ import {
 } from "react-icons/fa";
 import Switch from "react-switch";
 
-const SidebarMap = ({
+export default function SidebarMap({
   collapsed,
   rtl,
   toggled,
   handleToggleSidebar,
   handleCollapsedChange,
   handleRtlChange,
-}) => {
+}) {
   const intl = useIntl();
+
+  const [subcategoriesState, setSubcategoriesState] = useState({});
+
+  const dataCategoriesAndSubcategories = useSelector(
+    (state) => state.categoriesAndSubcategories
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategoriesAndSubcategories());
+  }, [dispatch]);
+
+  let dataCatAndSub;
+
+  if (dataCategoriesAndSubcategories.isLoading) {
+    dataCatAndSub = <h4>Cargando...</h4>;
+  } else if (dataCategoriesAndSubcategories.errMess) {
+    dataCatAndSub = <h4>{dataCategoriesAndSubcategories.errMess}</h4>;
+  } else {
+    dataCatAndSub = dataCategoriesAndSubcategories.categoriesAndSubcategories.map(
+      (catAndSub) => (
+        <SubMenu
+          key={catAndSub._id}
+          title={catAndSub.Name_en}
+          icon={<FaRegLaughWink />}
+        >
+          {catAndSub.subcategories.map((subcategories) => {
+            let isChecked = subcategoriesState[subcategories._id];
+            if (typeof isChecked === "undefined") {
+              setSubcategoriesState(
+                (state) => ({
+                  ...state,
+                  [subcategories._id]: false,
+                }),
+                {}
+              );
+            }
+            return (
+              <MenuItem key={subcategories._id}>
+                <Switch
+                  height={16}
+                  width={30}
+                  checkedIcon={false}
+                  uncheckedIcon={false}
+                  onChange={() => {
+                    setSubcategoriesState((state) => ({
+                      ...state,
+                      [subcategories._id]: !subcategoriesState[
+                        subcategories._id
+                      ],
+                    }));
+                  }}
+                  checked={
+                    typeof subcategoriesState[subcategories._id] === "undefined"
+                      ? false
+                      : subcategoriesState[subcategories._id]
+                  }
+                  onColor="#009696"
+                  offColor="#bbbbbb"
+                  className="switch-itemvertical"
+                />{" "}
+                {subcategories.Name_en}
+              </MenuItem>
+            );
+          })}
+        </SubMenu>
+      )
+    );
+  }
+
   return (
     <ProSidebar
       rtl={rtl}
@@ -84,11 +158,10 @@ const SidebarMap = ({
                 uncheckedIcon={false}
                 onChange={handleCollapsedChange}
                 checked={collapsed}
-                onColor="#219de9"
+                onColor="#009696"
                 offColor="#bbbbbb"
               />
             }
-            onClick={handleCollapsedChange}
           >
             {intl.formatMessage({ id: "collapsed" })}
           </MenuItem>
@@ -101,7 +174,7 @@ const SidebarMap = ({
                 uncheckedIcon={false}
                 onChange={handleRtlChange}
                 checked={rtl}
-                onColor="#219de9"
+                onColor="#009696"
                 offColor="#bbbbbb"
               />
             }
@@ -112,6 +185,8 @@ const SidebarMap = ({
           </MenuItem>
         </Menu>
         <Menu iconShape="circle">
+          {dataCatAndSub}
+
           <MenuItem
             icon={<FaTachometerAlt />}
             suffix={
@@ -191,6 +266,4 @@ const SidebarMap = ({
       </SidebarFooter>
     </ProSidebar>
   );
-};
-
-export default SidebarMap;
+}

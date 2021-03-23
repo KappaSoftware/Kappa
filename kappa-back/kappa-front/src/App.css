@@ -44,6 +44,10 @@ h2 {
   padding: 0%;
 }
 
+.switch-itemvertical {
+  vertical-align: middle;
+}
+
 .row-align-itemvertical {
   align-items: center;
 }

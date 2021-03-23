@@ -1,15 +1,8 @@
 import React from "react";
-import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import Landing from "./LandingComponent";
 import Layout from "./LayoutComponent";
-
-const mapStateToProps = (state) => {
-  return {};
-};
-
-const mapDispatchToProps = (dispatch) => ({});
 
 function Main({ setLocale }) {
   return (
@@ -27,4 +20,4 @@ function Main({ setLocale }) {
   );
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
+export default Main;

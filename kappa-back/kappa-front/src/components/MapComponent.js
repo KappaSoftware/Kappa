@@ -21,7 +21,6 @@ export default function Map() {
       axios
         .get(url)
         .then((response) => {
-          console.log(response);
           setData(response.data);
           sessionStorage.setItem("Data", JSON.stringify(response.data));
         })
