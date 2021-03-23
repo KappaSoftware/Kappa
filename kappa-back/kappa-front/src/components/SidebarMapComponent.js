@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { fetchCategoriesAndSubcategories } from "../redux/ActionCreators";
+import {
+  fetchCategoriesAndSubcategories,
+  postSubcategoryMap,
+} from "../redux/ActionCreators";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useIntl } from "react-intl";
@@ -32,7 +35,7 @@ export default function SidebarMap({
 }) {
   const intl = useIntl();
 
-  const [subcategoriesState, setSubcategoriesState] = useState({});
+  const subcategoriesMap = useSelector((state) => state.subcategoriesMap);
 
   const dataCategoriesAndSubcategories = useSelector(
     (state) => state.categoriesAndSubcategories
@@ -59,15 +62,10 @@ export default function SidebarMap({
           icon={<FaRegLaughWink />}
         >
           {catAndSub.subcategories.map((subcategories) => {
-            let isChecked = subcategoriesState[subcategories._id];
+            let isChecked = subcategoriesMap[subcategories._id];
             if (typeof isChecked === "undefined") {
-              setSubcategoriesState(
-                (state) => ({
-                  ...state,
-                  [subcategories._id]: false,
-                }),
-                {}
-              );
+              dispatch(postSubcategoryMap(subcategories._id, false));
+              isChecked = false;
             }
             return (
               <MenuItem key={subcategories._id}>
@@ -77,18 +75,14 @@ export default function SidebarMap({
                   checkedIcon={false}
                   uncheckedIcon={false}
                   onChange={() => {
-                    setSubcategoriesState((state) => ({
-                      ...state,
-                      [subcategories._id]: !subcategoriesState[
-                        subcategories._id
-                      ],
-                    }));
+                    dispatch(
+                      postSubcategoryMap(
+                        subcategories._id,
+                        !subcategoriesMap[subcategories._id]
+                      )
+                    );
                   }}
-                  checked={
-                    typeof subcategoriesState[subcategories._id] === "undefined"
-                      ? false
-                      : subcategoriesState[subcategories._id]
-                  }
+                  checked={isChecked}
                   onColor="#009696"
                   offColor="#bbbbbb"
                   className="switch-itemvertical"

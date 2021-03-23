@@ -34,7 +34,8 @@ export const loadedCategoriesAndSubcategories = (
 
 export const postSubcategoryMap = (id, value) => (dispatch) => {
   const newSubcategoryMap = {
-    [id]: value,
+    id: id,
+    value: value,
   };
 
   dispatch(addSubcategoriesMap(newSubcategoryMap));
