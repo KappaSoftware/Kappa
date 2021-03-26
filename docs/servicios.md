@@ -166,12 +166,15 @@ db.adminCommand( { shutdown: 1 } )
 nohup mongod --auth --port 27017 --dbpath /var/lib/mongodb --bind_ip 0.0.0.0 &
 
 
-Conectarse:
+Conectarse CLI:
 
 mongo --port 27017  --authenticationDatabase "admin" -u "myUserAdmin" -p
-
 clave: 123
 
+Conexión desde NODE.JS:
+
+mongo mongodb://myUserAdmin:123@192.168.17.103:27017/?authSource=admin
+mongo mongodb://myUserAdmin:123@mongo-kappa.gnuve.org:27017/?authSource=admin
 
 
 ```
@@ -317,163 +320,12 @@ mongo mongodb+srv://admin:XV1CLDFp7dumBnEn@kappa.qosht.mongodb.net/KappaDB?authS
 
 mongo mongodb://myUserAdmin:123@127.0.0.1:27017/?authSource=admin
 mongo mongodb://myUserAdmin:123@192.168.17.103:27017/?authSource=admin
+mongo mongodb://myUserAdmin:123@mongo-kappa.gnuve.org:27017/?authSource=admin
 
-```
-
-Respuesta:
-```
-MongoDB shell version v4.4.4
-connecting to: mongodb://kappa-shard-00-00.qosht.mongodb.net:27017,kappa-shard-00-01.qosht.mongodb.net:27017,kappa-shard-00-02.qosht.mongodb.net:27017/KappaDB?authSource=admin&compressors=disabled&gssapiServiceName=mongodb&replicaSet=atlas-zg30h5-shard-0&ssl=true
-Implicit session: session { "id" : UUID("bcacd754-1697-4b95-966c-a99cfde55922") }
-MongoDB server version: 4.4.4
-Error while trying to show server startup warnings: user is not allowed to do action [getLog] on [admin.]
 ```
 
 Solicitando status de la replica:
 ```
-MongoDB Enterprise atlas-zg30h5-shard-0:PRIMARY> rs.status()
-{
-	"set" : "atlas-zg30h5-shard-0",
-	"date" : ISODate("2021-03-26T01:25:49.844Z"),
-	"myState" : 1,
-	"term" : NumberLong(12),
-	"syncSourceHost" : "",
-	"syncSourceId" : -1,
-	"heartbeatIntervalMillis" : NumberLong(2000),
-	"majorityVoteCount" : 2,
-	"writeMajorityCount" : 2,
-	"votingMembersCount" : 3,
-	"writableVotingMembersCount" : 3,
-	"optimes" : {
-		"lastCommittedOpTime" : {
-			"ts" : Timestamp(1616721949, 2),
-			"t" : NumberLong(12)
-		},
-		"lastCommittedWallTime" : ISODate("2021-03-26T01:25:49.497Z"),
-		"readConcernMajorityOpTime" : {
-			"ts" : Timestamp(1616721949, 2),
-			"t" : NumberLong(12)
-		},
-		"readConcernMajorityWallTime" : ISODate("2021-03-26T01:25:49.497Z"),
-		"appliedOpTime" : {
-			"ts" : Timestamp(1616721949, 2),
-			"t" : NumberLong(12)
-		},
-		"durableOpTime" : {
-			"ts" : Timestamp(1616721949, 2),
-			"t" : NumberLong(12)
-		},
-		"lastAppliedWallTime" : ISODate("2021-03-26T01:25:49.497Z"),
-		"lastDurableWallTime" : ISODate("2021-03-26T01:25:49.497Z")
-	},
-	"lastStableRecoveryTimestamp" : Timestamp(1616721909, 8),
-	"electionCandidateMetrics" : {
-		"lastElectionReason" : "stepUpRequestSkipDryRun",
-		"lastElectionDate" : ISODate("2021-03-24T12:18:13.718Z"),
-		"electionTerm" : NumberLong(12),
-		"lastCommittedOpTimeAtElection" : {
-			"ts" : Timestamp(1616588292, 1),
-			"t" : NumberLong(11)
-		},
-		"lastSeenOpTimeAtElection" : {
-			"ts" : Timestamp(1616588292, 1),
-			"t" : NumberLong(11)
-		},
-		"numVotesNeeded" : 2,
-		"priorityAtElection" : 7,
-		"electionTimeoutMillis" : NumberLong(5000),
-		"priorPrimaryMemberId" : 1,
-		"numCatchUpOps" : NumberLong(0),
-		"newTermStartDate" : ISODate("2021-03-24T12:18:16.117Z"),
-		"wMajorityWriteAvailabilityDate" : ISODate("2021-03-24T12:18:16.357Z")
-	},
-	"members" : [
-		{
-			"_id" : 0,
-			"name" : "kappa-shard-00-00.qosht.mongodb.net:27017",
-			"health" : 1,
-			"state" : 2,
-			"stateStr" : "SECONDARY",
-			"uptime" : 133768,
-			"optime" : {
-				"ts" : Timestamp(1616721948, 11),
-				"t" : NumberLong(12)
-			},
-			"optimeDurable" : {
-				"ts" : Timestamp(1616721948, 11),
-				"t" : NumberLong(12)
-			},
-			"optimeDate" : ISODate("2021-03-26T01:25:48Z"),
-			"optimeDurableDate" : ISODate("2021-03-26T01:25:48Z"),
-			"lastHeartbeat" : ISODate("2021-03-26T01:25:48.634Z"),
-			"lastHeartbeatRecv" : ISODate("2021-03-26T01:25:48.193Z"),
-			"pingMs" : NumberLong(0),
-			"lastHeartbeatMessage" : "",
-			"syncSourceHost" : "kappa-shard-00-02.qosht.mongodb.net:27017",
-			"syncSourceId" : 2,
-			"infoMessage" : "",
-			"configVersion" : 1,
-			"configTerm" : 12
-		},
-		{
-			"_id" : 1,
-			"name" : "kappa-shard-00-01.qosht.mongodb.net:27017",
-			"health" : 1,
-			"state" : 2,
-			"stateStr" : "SECONDARY",
-			"uptime" : 133465,
-			"optime" : {
-				"ts" : Timestamp(1616721949, 2),
-				"t" : NumberLong(12)
-			},
-			"optimeDurable" : {
-				"ts" : Timestamp(1616721949, 2),
-				"t" : NumberLong(12)
-			},
-			"optimeDate" : ISODate("2021-03-26T01:25:49Z"),
-			"optimeDurableDate" : ISODate("2021-03-26T01:25:49Z"),
-			"lastHeartbeat" : ISODate("2021-03-26T01:25:49.838Z"),
-			"lastHeartbeatRecv" : ISODate("2021-03-26T01:25:48.480Z"),
-			"pingMs" : NumberLong(0),
-			"lastHeartbeatMessage" : "",
-			"syncSourceHost" : "kappa-shard-00-02.qosht.mongodb.net:27017",
-			"syncSourceId" : 2,
-			"infoMessage" : "",
-			"configVersion" : 1,
-			"configTerm" : 12
-		},
-		{
-			"_id" : 2,
-			"name" : "kappa-shard-00-02.qosht.mongodb.net:27017",
-			"health" : 1,
-			"state" : 1,
-			"stateStr" : "PRIMARY",
-			"uptime" : 133832,
-			"optime" : {
-				"ts" : Timestamp(1616721949, 2),
-				"t" : NumberLong(12)
-			},
-			"optimeDate" : ISODate("2021-03-26T01:25:49Z"),
-			"syncSourceHost" : "",
-			"syncSourceId" : -1,
-			"infoMessage" : "",
-			"electionTime" : Timestamp(1616588293, 1),
-			"electionDate" : ISODate("2021-03-24T12:18:13Z"),
-			"configVersion" : 1,
-			"configTerm" : 12,
-			"self" : true,
-			"lastHeartbeatMessage" : ""
-		}
-	],
-	"ok" : 1,
-	"$clusterTime" : {
-		"clusterTime" : Timestamp(1616721949, 2),
-		"signature" : {
-			"hash" : BinData(0,"G9VovWa3+KkNz6u0c+8UlPjoSoM="),
-			"keyId" : NumberLong("6927588072976547842")
-		}
-	},
-	"operationTime" : Timestamp(1616721949, 2)
-}
+MongoDB > rs.status()
 ```
 
