@@ -138,6 +138,44 @@ net:
   bindIp: 0.0.0.0
 ```
 
+Crear Usuario Admin con Password:
+
+```
+systemctl stop mongod.service
+mongod --port 27017 --dbpath /var/lib/mongodb
+
+# En otra consola:
+
+mongo --port 27017
+
+use admin
+db.createUser(
+  {
+    user: "myUserAdmin",
+    pwd: passwordPrompt(), // or cleartext password
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
+  }
+)
+
+
+
+Password: 123
+
+db.adminCommand( { shutdown: 1 } )
+
+nohup mongod --auth --port 27017 --dbpath /var/lib/mongodb --bind_ip 0.0.0.0 &
+
+
+Conectarse:
+
+mongo --port 27017  --authenticationDatabase "admin" -u "myUserAdmin" -p
+
+clave: 123
+
+
+
+```
+
 **NOTA:** esto es un fix inicial, la configuración de control de acceso debe hacerse mediante "Usuarios y Roles":
 
 	- https://docs.mongodb.com/manual/tutorial/enable-authentication/
@@ -261,10 +299,25 @@ vim package.json
 
 ## NOTAS (sección temporal)
 
+Comandos para importar/exportar la BD actual:
+
+```bash
+
+mongodump --uri mongodb+srv://admin:XV1CLDFp7dumBnEn@kappa.qosht.mongodb.net/KappaDB?authSource=admin  --out dump
+
+mongorestore dump --port 27017  --authenticationDatabase "admin" -u "myUserAdmin"
+
+```
+
+
 Conectado a la instancia remota usando el siguiente comando:
 
 ```bash
 mongo mongodb+srv://admin:XV1CLDFp7dumBnEn@kappa.qosht.mongodb.net/KappaDB?authSource=admin
+
+mongo mongodb://myUserAdmin:123@127.0.0.1:27017/?authSource=admin
+mongo mongodb://myUserAdmin:123@192.168.17.103:27017/?authSource=admin
+
 ```
 
 Respuesta:
