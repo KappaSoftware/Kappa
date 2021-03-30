@@ -4,6 +4,8 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
 
+import { NavLink } from "react-router-dom";
+
 export default function NavbarLanding() {
   return (
     <header>
@@ -20,8 +22,15 @@ export default function NavbarLanding() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#features">Home</Nav.Link>
-            <Nav.Link href="#pricing">Product</Nav.Link>
+            <NavLink className="nav-link" to="/home">
+              Home
+            </NavLink>
+            <NavLink className="nav-link" to="#ldThirdSec">
+              Product
+            </NavLink>
+            <NavLink className="nav-link" to="/map">
+              Map
+            </NavLink>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -35,16 +44,16 @@ export default function NavbarLanding() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">
+            <NavLink to="#deets">
               <Button variant="primary" className="Landing-navbar-buttonLogIn">
                 Log In
               </Button>
-            </Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            </NavLink>
+            <NavLink eventKey={2} to="#memes">
               <Button variant="light" className="Landing-navbar-buttonSignUp">
                 Sign Up
               </Button>
-            </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
