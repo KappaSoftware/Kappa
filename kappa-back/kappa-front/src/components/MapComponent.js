@@ -1,47 +1,54 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import L from "leaflet";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import {
+  postSubcategoryMapCharge,
+  fetchDataPoints,
+} from "../redux/ActionCreators";
 import "leaflet/dist/leaflet.css";
-const axios = require("axios");
 
 export default function Map() {
   const [data, setData] = useState([]);
   let info = "";
+  const dispatch = useDispatch();
 
   const subcategoriesMap = useSelector((state) => state.subcategoriesMap);
-  for (let key in subcategoriesMap) {
-    if (subcategoriesMap.hasOwnProperty(key)) {
-      if (subcategoriesMap[key] === true) {
-        info = key;
-      }
-    }
-  }
+  const subcategoriesMapCharge = useSelector(
+    (state) => state.subcategoriesMapCharge
+  );
 
-  let url = "kappa/data/lookup/subcategory/" + info;
+  const dataPoints = useSelector((state) => state.dataPoints);
+
   let loadingData = "Loading data";
+  const refUrl = useRef(null);
 
   useEffect(() => {
-    if (!navigator.onLine) {
-      if (sessionStorage.getItem("Data") === "") {
-        setData(loadingData);
-      } else {
-        setData(JSON.parse(sessionStorage.getItem("Data")));
-      }
-    } else {
-      if (info !== "") {
-        axios
-          .get(url)
-          .then((response) => {
-            setData(response.data);
-            sessionStorage.setItem("Data", JSON.stringify(response.data));
-          })
-          .catch((e) => {
-            console.log(e);
-          });
+    for (let key in subcategoriesMap) {
+      if (subcategoriesMap.hasOwnProperty(key)) {
+        if (subcategoriesMap[key] === true) {
+          if (
+            !subcategoriesMapCharge.subcategoriesMapCharge.some(
+              (keyArr) => keyArr === key
+            )
+          ) {
+            //arrSubcategoriesMapCharge.push(key);
+            dispatch(postSubcategoryMapCharge(key));
+            dispatch(fetchDataPoints(key));
+          }
+          refUrl.current = key;
+        }
       }
     }
-  }, [url, loadingData, info]);
+    setData(dataPoints.dataPoints);
+  }, [
+    loadingData,
+    info,
+    dispatch,
+    subcategoriesMap,
+    subcategoriesMapCharge.subcategoriesMapCharge,
+    dataPoints,
+  ]);
 
   return (
     <div>
@@ -51,27 +58,31 @@ export default function Map() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {data.map((item) => {
-          return (
-            <Marker
-              key={item._id}
-              icon={L.icon({
-                iconUrl: "assets/images/" + item.properties.Subcategory[0].Icon,
-                iconSize: [25, 25],
-                popupAnchor: [-3, -76],
-                shadowUrl: null,
-                shadowSize: null,
-                shadowAnchor: null,
-              })}
-              position={[
-                item.geometry.coordinates[1],
-                item.geometry.coordinates[0],
-              ]}
-            >
-              <Popup>
-                <span>{item.properties.Popup_en}</span>
-              </Popup>
-            </Marker>
-          );
+          if (subcategoriesMap[item.properties.Subcategory[0]._id] === true) {
+            return (
+              <Marker
+                key={item._id}
+                icon={L.icon({
+                  iconUrl:
+                    "assets/images/" + item.properties.Subcategory[0].Icon,
+                  iconSize: [25, 25],
+                  popupAnchor: [-3, -76],
+                  shadowUrl: null,
+                  shadowSize: null,
+                  shadowAnchor: null,
+                })}
+                position={[
+                  item.geometry.coordinates[1],
+                  item.geometry.coordinates[0],
+                ]}
+              >
+                <Popup>
+                  <span>{item.properties.Popup_en}</span>
+                </Popup>
+              </Marker>
+            );
+          }
+          return <span key={item._id}></span>;
         })}
       </MapContainer>
     </div>

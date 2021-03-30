@@ -24,10 +24,10 @@ export const categoriesAndSubcategoriesFailed = (errmess) => ({
 });
 
 export const loadedCategoriesAndSubcategories = (
-  categoriesAndSubcategoriesLoading
+  loadedCategoriesAndSubcategories
 ) => ({
   type: ActionTypes.CATEGORIES_AND_SUBCATEGORIES_LOADED,
-  payload: categoriesAndSubcategoriesLoading,
+  payload: loadedCategoriesAndSubcategories,
 });
 
 // MAP
@@ -44,4 +44,30 @@ export const postSubcategoryMap = (id, value) => (dispatch) => {
 export const addSubcategoriesMap = (subcategoryMap) => ({
   type: ActionTypes.ADD_SUBCATEGORIES_MAP,
   payload: subcategoryMap,
+});
+
+export const postSubcategoryMapCharge = (id) => (dispatch) => {
+  dispatch(addSubcategoriesMapCharge(id));
+};
+
+export const addSubcategoriesMapCharge = (id) => ({
+  type: ActionTypes.SUBCATEGORIES_MAP_CHARGE,
+  payload: id,
+});
+
+export const fetchDataPoints = (idSubcategory) => (dispatch) => {
+  return axios
+    .get("kappa/data/lookup/subcategory/" + idSubcategory)
+    .then((response) => dispatch(loadedDataPoints(response.data)))
+    .catch((error) => dispatch(dataPointsFailed(error.message)));
+};
+
+export const dataPointsFailed = (errmess) => ({
+  type: ActionTypes.DATA_POINTS_FAILED,
+  payload: errmess,
+});
+
+export const loadedDataPoints = (loadedDataPoints) => ({
+  type: ActionTypes.DATA_POINTS_LOADED,
+  payload: loadedDataPoints,
 });
