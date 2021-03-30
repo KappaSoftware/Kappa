@@ -66,7 +66,7 @@ export default function Map() {
                   iconUrl:
                     "assets/images/" + item.properties.Subcategory[0].Icon,
                   iconSize: [25, 25],
-                  popupAnchor: [-3, -76],
+                  popupAnchor: [0, -10],
                   shadowUrl: null,
                   shadowSize: null,
                   shadowAnchor: null,
