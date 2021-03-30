@@ -3,8 +3,8 @@ var router = express.Router();
 
 var [
   getCategories,
-  getSubcategoriesWithCategory,
   getCategory,
+  getCategoryLookupSubcategories,
   insertCategory,
   updateCategory,
   deleteCategory,
@@ -28,6 +28,14 @@ router.get("/:id", async function (req, res, next) {
       );
 
   res.send(category);
+});
+
+router.get("/lookup/subcategory", async function (req, res, next) {
+  const data = await getCategoryLookupSubcategories();
+
+  if (data === null) return res.status(404).send("The data was not found");
+
+  res.send(data);
 });
 
 router.post("/", async function (req, res, next) {

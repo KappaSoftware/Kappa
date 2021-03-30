@@ -1,17 +1,10 @@
 import React from "react";
-import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import Landing from "./LandingComponent";
-import Map from "./MapComponent";
+import Layout from "./LayoutComponent";
 
-const mapStateToProps = (state) => {
-  return {};
-};
-
-const mapDispatchToProps = (dispatch) => ({});
-
-function Main() {
+function Main({ setLocale }) {
   return (
     <>
       <Switch>
@@ -19,7 +12,7 @@ function Main() {
           <Landing />
         </Route>
         <Route exact path="/map">
-          <Map />
+          <Layout setLocale={setLocale} />
         </Route>
         <Redirect to="/home" />
       </Switch>
@@ -27,4 +20,4 @@ function Main() {
   );
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
+export default Main;
