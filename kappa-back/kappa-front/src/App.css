@@ -1,6 +1,6 @@
 .leaflet-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 90vh;
 }
 
 /*
@@ -44,8 +44,16 @@ h2 {
   padding: 0%;
 }
 
+.switch-itemvertical {
+  vertical-align: middle;
+}
+
 .row-align-itemvertical {
   align-items: center;
+}
+
+.modal-90w {
+  min-width: 90%;
 }
 
 /*
