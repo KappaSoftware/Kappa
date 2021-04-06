@@ -3,6 +3,7 @@ import NavbarLanding from "./NavbarLandingComponent";
 import LandingFirstSection from "./LandingFirstSectionComponent";
 import LandingSecondSection from "./LandingSecondSectionComponent";
 import LandingThirdSection from "./LandingThirdSectionComponent";
+import LandingFourthSection from "./LandingFourthSectionComponent"
 import HomeModalDisclaimer from "./HomeModalDisclaimer";
 
 export default function Landing() {
@@ -12,6 +13,7 @@ export default function Landing() {
       <LandingFirstSection />
       <LandingSecondSection />
       <LandingThirdSection />
+      <LandingFourthSection />
       <HomeModalDisclaimer />
     </>
   );
