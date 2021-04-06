@@ -87,14 +87,16 @@ function insertData(newData) {
       .insertOne({
         type: newData.Name_en,
         properties: {
-          Category: newData.properties.Category,
           Subcategory: newData.properties.Subcategory,
+          Popup_en: newData.properties.Popup_en,
+          Popup_es: newData.properties.Popup_es,
         },
         geometry: {
           type: "Point",
           coordinates: newData.properties.coordinates,
         },
-        compliants: 0,
+        complaints: 0,
+        creationDate: new Date(),
       })
       .finally(() => client.close());
   });
@@ -111,16 +113,17 @@ function updateData(categoryId, body) {
         },
         {
           $set: {
-            type: newData.Name_en,
+            type: body.Name_en,
             properties: {
-              Category: newData.properties.Category,
-              Subcategory: newData.properties.Subcategory,
+              Subcategory: body.properties.Subcategory,
+              Popup_en: body.properties.Popup_en,
+              Popup_es: body.properties.Popup_es,
             },
             geometry: {
               type: "Point",
-              coordinates: newData.properties.coordinates,
+              coordinates: body.properties.coordinates,
             },
-            compliants: newData.compliants,
+            compliants: body.compliants,
           },
         }
       )

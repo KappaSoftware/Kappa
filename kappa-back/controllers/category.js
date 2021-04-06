@@ -54,6 +54,7 @@ function insertCategory(newCategory) {
         Name_en: newCategory.Name_en,
         Name_es: newCategory.Name_es,
         Nickname: newCategory.Nickname,
+        creationDate: new Date(),
       })
       .finally(() => client.close());
   });
