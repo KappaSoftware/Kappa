@@ -40,11 +40,11 @@ function insertSubcategory(newSubcategory) {
       .db(dataBase)
       .collection(COLLECTION_NAME)
       .insertOne({
+        Category: newSubcategory.Category,
         Name_en: newSubcategory.Name_en,
         Name_es: newSubcategory.Name_es,
-        Popup_en: newSubcategory.Popup_en,
-        Popup_es: newSubcategory.Popup_es,
         Icon: newSubcategory.Icon,
+        creationDate: new Date(),
       })
       .finally(() => client.close());
   });
@@ -61,10 +61,9 @@ function updateSubcategory(subcategoryId, body) {
         },
         {
           $set: {
+            Category: body.Category,
             Name_en: body.Name_en,
             Name_es: body.Name_es,
-            Popup_en: body.Popup_en,
-            Popup_es: body.Popup_es,
             Icon: body.Icon,
           },
         }
