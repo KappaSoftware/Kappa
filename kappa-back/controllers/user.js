@@ -30,9 +30,12 @@ function insertUser(newUser) {
       .collection(COLLECTION_NAME)
       .insertOne({
         username: newUser.username,
-        email: newUser.email,
-        role: newUser.role,
-        password: newUser.password,
+        passwd: body.passwd,
+        tACWeb: false,
+        tACWebBefore: false,
+        tACTelegram: false,
+        tACTelegramBefore: false,
+        creationDate: new Date(),
       })
       .finally(() => client.close());
   });
@@ -50,9 +53,11 @@ function updateUser(userId, body) {
         {
           $set: {
             username: body.username,
-            email: body.email,
-            role: body.role,
-            password: body.password,
+            passwd: body.passwd,
+            tACWeb: body.tACWeb,
+            tACWebBefore: body.tACWebBefore,
+            tACTelegram: body.tACTelegram,
+            tACTelegramBefore: body.tACTelegramBefore,
           },
         }
       )
