@@ -252,6 +252,67 @@ Landing
   height: 100%;
 }
 
+/*
+* Landing fifth section
+*/
+.landing-fifthsection {
+  background-color: #fff;
+  padding-bottom: 2vw;
+}
+
+.landing-fifthsection-div-first {
+  background-image: url("./assets/images/LandingFifthSection-First.jpg");
+  background-size: cover;
+  min-height: 40vh;
+  margin: 40px 40px 15px 40px;
+}
+
+.landing-fifthsection-div-second {
+  background-image: url("./assets/images/LandingFifthSection-Second.jpg");
+  background-size: cover;
+  min-height: 40vh;
+  margin: 40px 40px 15px 40px;
+}
+
+.landing-fifthsection-div-third {
+  background-image: url("./assets/images/LandingFifthSection-Third.jpg");
+  background-size: cover;
+  min-height: 40vh;
+  margin: 40px 40px 15px 40px;
+}
+
+.landing-fifthsection-div-fourth {
+  background-image: url("./assets/images/LandingFifthSection-Fourth.jpg");
+  background-size: cover;
+  min-height: 40vh;
+  margin: 40px 40px 15px 40px;
+}
+
+.landing-fifthsection-title {
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+/*
+* Landing sixth section
+*/
+.landing-sixthsection {
+  background-color: #2b5566;
+}
+
+.landing-sixthsection-row {
+  padding: 6vw 20vw 6vw 20vw;
+  justify-content: center;
+  text-align: center;
+}
+
+.landing-sixthsection-text {
+  color: #fff;
+  font-weight: 600;
+  font-size: 25px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -269,6 +330,10 @@ Landing
 
   .landing-firstsection-buttonSignUp {
     font-size: large;
+  }
+
+  .landing-sixthsection-text {
+    font-size: 30px;
   }
 }
 
@@ -304,6 +369,10 @@ Landing
 
   .landing-thirdsection-titleText {
     font-size: 22px;
+  }
+
+  .landing-sixthsection-text {
+    font-size: 40px;
   }
 }
 
