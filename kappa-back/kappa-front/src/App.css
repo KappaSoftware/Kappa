@@ -294,6 +294,11 @@ Landing
   text-align: center;
 }
 
+.landing-fifthsection-title > h3 {
+  color: #2b5566ce;
+  font-weight: 600;
+}
+
 /*
 * Landing sixth section
 */

@@ -13,18 +13,20 @@ export default function LandingFourthSection() {
               <h2>Find specific maps</h2>
               <br />
               <p>
-                Lorem Ipsum es simplemente el texto de relleno de las imprentas
-                y archivos de texto. Lorem Ipsum ha sido el texto de relleno
-                estándar de las industrias desde el año 1500, cuando un impresor
-                (N. del T. persona que se dedica a la imprenta) desconocido usó
-                una galería de textos y los mezcló de tal manera que logró hacer
-                un libro de textos especimen. No sólo sobrevivió 500 años, sino
-                que tambien ingresó como texto de relleno en documentos
-                electrónicos, quedando esencialmente igual al original. Fue
-                popularizado en los 60s con la creación de las hojas "Letraset",
-                las cuales contenian pasajes de Lorem Ipsum, y más recientemente
-                con software de autoedición, como por ejemplo Aldus PageMaker,
-                el cual incluye versiones de Lorem Ipsum.
+                Kappa es una iniciativa de impacto social liderada por un equipo
+                multidisciplinar que tiene como objeto brindar al usuario una
+                plataforma de georreferenciación basada en tecnologías libres y
+                abiertas. En la versión actual Kappa permite la
+                georreferenciación de huecos o baches de carretera, centros de
+                vacunación (COVID-19) y eventos (conciertos, actos públicos,
+                manifestaciones, etc.). Mediante nuestro bot en Telegram,
+                nuestros usuarios pueden agregar al mapa cualquiera de estas
+                ubicaciones o consultar las que estén cercanas a su ubicación
+                actual.
+              </p>
+              <p>
+                Kappa es Software Libre, cualquier interesado puede contribuir
+                desde nuestro repositorio en GitHub.
               </p>
             </div>
           </Col>
