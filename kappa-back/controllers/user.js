@@ -30,10 +30,10 @@ function insertUser(newUser) {
       .collection(COLLECTION_NAME)
       .insertOne({
         username: newUser.username,
-        passwd: body.passwd,
+        passwd: newUser.passwd,
         tACWeb: false,
         tACWebBefore: false,
-        tACTelegram: false,
+        tACTelegram: newUser.tACTelegram,
         tACTelegramBefore: false,
         creationDate: new Date(),
       })
