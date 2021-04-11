@@ -294,6 +294,11 @@ Landing
   text-align: center;
 }
 
+.landing-fifthsection-title > h3 {
+  color: #2b5566ce;
+  font-weight: 600;
+}
+
 /*
 * Landing sixth section
 */
@@ -311,6 +316,133 @@ Landing
   color: #fff;
   font-weight: 600;
   font-size: 25px;
+}
+
+/*
+* Landing seventh section
+*/
+.landing-seventhsection {
+  background-color: #fff;
+  margin: 6vw 0vw 6vw 0vw;
+}
+
+.landing-seventhsection-row {
+  padding: 0vw 20vw 0vw 20vw;
+  justify-content: center;
+  text-align: center;
+}
+
+.landing-seventhsection-text {
+  color: #cea04a;
+  font-weight: 600;
+}
+
+.landing-seventhsection-hr {
+  height: 5px;
+  width: 3%;
+  background-color: #cea04a;
+  margin-bottom: 3vw;
+}
+
+.landing-seventhsection-row2 {
+  padding: 0vw 10vw 0vw 10vw;
+}
+
+.landing-seventhsection-col {
+  text-align: center;
+}
+
+.image--landing-seventhsection {
+  justify-content: center;
+  justify-items: center;
+  vertical-align: middle;
+  display: flex;
+}
+
+.image--landing-David {
+  height: 15vw;
+  width: 15vw;
+  border-radius: 100%;
+  background-image: url("./assets/images/LandingSeventhSection-DavidMS73.jpg");
+  background-size: cover;
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.8);
+  margin: 2%;
+}
+
+.image--landing-Piratax {
+  height: 15vw;
+  width: 15vw;
+  border-radius: 100%;
+  background-image: url("./assets/images/LandingSeventhSection-Piratax007.jpg");
+  background-size: cover;
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.8);
+  margin: 2%;
+}
+
+.image--landing-Paola {
+  height: 15vw;
+  width: 15vw;
+  border-radius: 100%;
+  background-image: url("./assets/images/LandingSeventhSection-Paola.jpg");
+  background-size: cover;
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.8);
+  margin: 2%;
+}
+
+.image--landing-Octaviotron {
+  height: 15vw;
+  width: 15vw;
+  border-radius: 100%;
+  background-image: url("./assets/images/LandingSeventhSection-Octaviotron.jpg");
+  background-size: cover;
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.8);
+  margin: 2%;
+}
+
+.image--landing-Char {
+  height: 15vw;
+  width: 15vw;
+  border-radius: 100%;
+  background-image: url("./assets/images/LandingSeventhSection-Char.jfif");
+  background-size: cover;
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.8);
+  margin: 2%;
+}
+
+.image--landing-Jorge {
+  height: 15vw;
+  width: 15vw;
+  border-radius: 100%;
+  background-image: url("./assets/images/LandingSeventhSection-Char.jfif");
+  background-size: cover;
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.8);
+  margin: 2%;
+}
+
+/*
+* Landing footer section
+*/
+.landing-footer {
+  background-color: #efefef;
+  padding: 20px 0px 0px 0px;
+}
+
+.landing-footer-container {
+  justify-content: center;
+  text-align: center;
+}
+
+.landing-footer-container > h5 {
+  font-weight: 600;
+}
+
+.landing-footer-container > ul > li {
+  font-size: 14px;
+}
+
+.landing-footer-year {
+  background-color: #dfdfdf;
+  padding: 6px 0px 6px 0px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -335,6 +467,10 @@ Landing
   .landing-sixthsection-text {
     font-size: 30px;
   }
+
+  .landing-seventhsection-text {
+    font-size: 25px;
+  }
 }
 
 /**
@@ -352,6 +488,10 @@ Landing
 
   .landing-thirdsection-titleText {
     font-size: 20px;
+  }
+
+  .landing-seventhsection-text {
+    font-size: 35px;
   }
 }
 
@@ -373,6 +513,10 @@ Landing
 
   .landing-sixthsection-text {
     font-size: 40px;
+  }
+
+  .landing-seventhsection-text {
+    font-size: 43px;
   }
 }
 

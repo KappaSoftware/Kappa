@@ -1,9 +1,8 @@
 import React from "react";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
-export default function LandingSixththSection() {
+export default function LandingSixthSection() {
   return (
     <section className="landing-sixthsection" id="ldSixthSec">
       <Container fluid>

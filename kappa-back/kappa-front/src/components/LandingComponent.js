@@ -1,12 +1,14 @@
 import React from "react";
 import NavbarLanding from "./NavbarLandingComponent";
+import HomeModalDisclaimer from "./HomeModalDisclaimer";
 import LandingFirstSection from "./LandingFirstSectionComponent";
 import LandingSecondSection from "./LandingSecondSectionComponent";
 import LandingThirdSection from "./LandingThirdSectionComponent";
 import LandingFourthSection from "./LandingFourthSectionComponent";
 import LandingFifthSection from "./LandingFifthSectionComponent";
 import LandingSixthSection from "./LandingSixthSectionComponent";
-import HomeModalDisclaimer from "./HomeModalDisclaimer";
+import LandingSeventhSection from "./LandingSeventhSectionComponent";
+import LandingFooterComponent from "./LandingFooterComponent";
 
 export default function Landing() {
   return (
@@ -18,6 +20,8 @@ export default function Landing() {
       <LandingFourthSection />
       <LandingFifthSection />
       <LandingSixthSection />
+      <LandingSeventhSection />
+      <LandingFooterComponent />
       <HomeModalDisclaimer />
     </>
   );
