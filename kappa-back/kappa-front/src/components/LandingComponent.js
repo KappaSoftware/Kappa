@@ -7,7 +7,8 @@ import LandingThirdSection from "./LandingThirdSectionComponent";
 import LandingFourthSection from "./LandingFourthSectionComponent";
 import LandingFifthSection from "./LandingFifthSectionComponent";
 import LandingSixthSection from "./LandingSixthSectionComponent";
-import LandingSeventhSection from "./LandingSeventhSectionComponent copy";
+import LandingSeventhSection from "./LandingSeventhSectionComponent";
+import LandingFooterComponent from "./LandingFooterComponent";
 
 export default function Landing() {
   return (
@@ -20,6 +21,7 @@ export default function Landing() {
       <LandingFifthSection />
       <LandingSixthSection />
       <LandingSeventhSection />
+      <LandingFooterComponent />
       <HomeModalDisclaimer />
     </>
   );

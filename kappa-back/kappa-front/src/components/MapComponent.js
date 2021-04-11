@@ -8,6 +8,8 @@ import {
 } from "../redux/ActionCreators";
 import "leaflet/dist/leaflet.css";
 
+import LandingFooterAll from "./LandingFooterAllComponent";
+
 export default function Map() {
   const [data, setData] = useState([]);
   let info = "";
