@@ -194,14 +194,15 @@ Instalación de NODE.JS y express-generator
 ```
 su -
 apt update
+apt instal curl
 curl -fsSL https://deb.nodesource.com/setup_12.x | bash -
-apt install nodejs npm
+apt install nodejs
 npm install express-generator -g
-express app-tets
 ```
 
 Se instalan las dependencias de express-generator (como usuario regular)
 ```
+express app-test
 cd app-test
 npm install
 ```
