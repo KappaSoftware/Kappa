@@ -4,7 +4,6 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
-var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var categoriesRouter = require("./routes/categories");
 var subcategoriesRouter = require("./routes/subcategories");
@@ -23,12 +22,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "kappa-front/build")));
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/kappa/users", usersRouter);
 app.use("/kappa/categories", categoriesRouter);
 app.use("/kappa/subcategories", subcategoriesRouter);
 app.use("/kappa/data", dataRouter);
 app.use("/kappa/bot", botRouter);
+
+/* GET build index */
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "kappa-front/build", "index.html"));
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
