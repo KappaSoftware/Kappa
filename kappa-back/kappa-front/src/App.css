@@ -465,6 +465,30 @@ Landing
   padding: 6px 0px 6px 0px;
 }
 
+/**
+Mapa
+*/
+.header-menu {
+  border-bottom: 1px solid #2b5566;
+  margin-bottom: 2px;
+}
+
+.header-menu span {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 0px 20px 5px 20px;
+  display: inline-block;
+  border-bottom: 2px solid #2b5566;
+}
+
+.sidebar-menu-loading span {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 15px 20px 5px 20px;
+  display: inline-block;
+  border-bottom: 2px solid #2b5566;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
