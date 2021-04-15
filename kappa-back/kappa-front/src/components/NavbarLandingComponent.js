@@ -9,8 +9,14 @@ import { NavLink } from "react-router-dom";
 export default function NavbarLanding() {
   return (
     <header>
-      <Navbar collapseOnSelect expand="sm" bg="gray" variant="light">
-        <Navbar.Brand href="#home">
+      <Navbar
+        collapseOnSelect
+        expand="sm"
+        bg="gray"
+        variant="light"
+        fixed="top"
+      >
+        <Navbar.Brand href="/home">
           <img
             src="/kappaLogo.png"
             width="40"
@@ -22,34 +28,29 @@ export default function NavbarLanding() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <NavLink className="nav-link" to="/home">
+            <a className="nav-link" href="#ldFirstSec">
               Home
-            </NavLink>
-            <NavLink className="nav-link" to="#ldThirdSec">
+            </a>
+            <a className="nav-link" href="#ldFourthSec">
               Product
-            </NavLink>
-            <NavLink className="nav-link" to="/map">
-              Map
-            </NavLink>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            </a>
+            <NavDropdown title="More options" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#ldSixthSec">More info</NavDropdown.Item>
+              <NavDropdown.Item href="#ldSeventhSec">About us</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+              <NavDropdown.Item href="/disclaimer">Disclaimer</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
-            <NavLink to="#deets">
-              <Button variant="primary" className="Landing-navbar-buttonLogIn">
-                Log In
+            <NavLink to="/map">
+              <Button
+                variant="primary mr-4"
+                className="Landing-navbar-buttonLogIn"
+              >
+                Map
               </Button>
             </NavLink>
-            <NavLink eventKey={2} to="#memes">
+            <NavLink eventKey={2} to="/signup">
               <Button variant="light" className="Landing-navbar-buttonSignUp">
                 Sign Up
               </Button>
