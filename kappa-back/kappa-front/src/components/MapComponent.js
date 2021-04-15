@@ -7,6 +7,8 @@ import {
   fetchDataPoints,
 } from "../redux/ActionCreators";
 import "leaflet/dist/leaflet.css";
+import MarkerClusterGroup from "react-leaflet-markercluster";
+require('react-leaflet-markercluster/dist/styles.min.css');
 
 export default function Map() {
   const [data, setData] = useState([]);
@@ -57,33 +59,35 @@ export default function Map() {
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {data.map((item) => {
-          if (subcategoriesMap[item.properties.Subcategory[0]._id] === true) {
-            return (
-              <Marker
-                key={item._id}
-                icon={L.icon({
-                  iconUrl:
-                    "assets/images/" + item.properties.Subcategory[0].Icon,
-                  iconSize: [25, 25],
-                  popupAnchor: [0, -10],
-                  shadowUrl: null,
-                  shadowSize: null,
-                  shadowAnchor: null,
-                })}
-                position={[
-                  item.geometry.coordinates[1],
-                  item.geometry.coordinates[0],
-                ]}
-              >
-                <Popup>
-                  <span>{item.properties.Popup_en}</span>
-                </Popup>
-              </Marker>
-            );
-          }
-          return <span key={item._id}></span>;
-        })}
+        <MarkerClusterGroup>
+          {data.map((item) => {
+            if (subcategoriesMap[item.properties.Subcategory[0]._id] === true) {
+              return (
+                <Marker
+                  key={item._id}
+                  icon={L.icon({
+                    iconUrl:
+                      "assets/images/" + item.properties.Subcategory[0].Icon,
+                    iconSize: [25, 25],
+                    popupAnchor: [0, -10],
+                    shadowUrl: null,
+                    shadowSize: null,
+                    shadowAnchor: null,
+                  })}
+                  position={[
+                    item.geometry.coordinates[1],
+                    item.geometry.coordinates[0],
+                  ]}
+                >
+                  <Popup>
+                    <span>{item.properties.Popup_en}</span>
+                  </Popup>
+                </Marker>
+              );
+            }
+            return <span key={item._id}></span>;
+          })}
+        </MarkerClusterGroup>
       </MapContainer>
     </div>
   );
