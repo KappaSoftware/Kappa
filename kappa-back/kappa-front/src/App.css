@@ -84,8 +84,19 @@ Landing
   padding-bottom: 0.5vw;
 }
 
+.Landing-navbar-buttonLogIn:focus {
+  color: #fff;
+  background-color: #2b5566ce;
+}
+
 .Landing-navbar-buttonLogIn:hover {
   background-color: #2b5566ce;
+  border-color: #2b5566;
+}
+
+.Landing-navbar-buttonLogIn:active {
+  background-color: #2b5566ce !important;
+  border-color: #2b5566 !important;
 }
 
 .Landing-navbar-buttonSignUp {
@@ -98,8 +109,17 @@ Landing
   padding-bottom: 0.5vw;
 }
 
+.Landing-navbar-buttonSignUp:focus {
+  background-color: #cea04ab6;
+}
+
 .Landing-navbar-buttonSignUp:hover {
   background-color: #cea04ab6;
+}
+
+.Landing-navbar-buttonSignUp:active {
+  background-color: #cea04ab6 !important;
+  border-color: #cea04a !important;
 }
 
 /*
