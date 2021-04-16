@@ -1,6 +1,9 @@
 const { mongoUtils, dataBase } = require("../lib/utils/mongo");
 const { ObjectId } = require("mongodb");
+const auth = require("../lib/utils/auth.js");
 const COLLECTION_NAME = "Users";
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 function getUsers() {
   return mongoUtils.conn().then((client) => {
@@ -23,21 +26,49 @@ function getUser(userId) {
   });
 }
 
-function insertUser(newUser) {
-  return mongoUtils.conn().then((client) => {
-    return client
+async function login(user) {
+  return mongoUtils.conn().then(async (client) => {
+    const requestedUser = await client
+      .db(dataBase)
+      .collection(COLLECTION_NAME)
+      .findOne({ username: user.username })
+      .finally(() => client.close());
+    const isValid = await bcrypt.compare(user.password, requestedUser.password);
+    let currentUser = { ...requestedUser };
+    if (isValid) {
+      delete currentUser.password;
+      let token = auth.createToken(currentUser);
+      currentUser.token = token;
+      return currentUser;
+    } else {
+      throw new Error("Authentication failed");
+    }
+  });
+}
+
+async function insertUser(user) {
+  if (user.password) {
+    user.password = await bcrypt.hash(user.password, saltRounds);
+  }
+  if (!user.tACTelegram) {
+    user.tACTelegram = false;
+  }
+  return mongoUtils.conn().then(async (client) => {
+    const newUser = await client
       .db(dataBase)
       .collection(COLLECTION_NAME)
       .insertOne({
-        username: newUser.username,
-        passwd: newUser.passwd,
+        username: user.username,
+        password: user.password,
         tACWeb: false,
         tACWebBefore: false,
-        tACTelegram: newUser.tACTelegram,
+        tACTelegram: user.tACTelegram,
         tACTelegramBefore: false,
         creationDate: new Date(),
       })
       .finally(() => client.close());
+    newUser && newUser.ops ? delete newUser.ops[0].password : newUser;
+    return newUser.ops[0];
   });
 }
 
@@ -53,7 +84,7 @@ function updateUser(userId, body) {
         {
           $set: {
             username: body.username,
-            passwd: body.passwd,
+            password: body.password,
             tACWeb: body.tACWeb,
             tACWebBefore: body.tACWebBefore,
             tACTelegram: body.tACTelegram,
@@ -75,4 +106,4 @@ function deleteUser(userId) {
   });
 }
 
-module.exports = [getUsers, getUser, insertUser, updateUser, deleteUser];
+module.exports = [getUsers, getUser, login, insertUser, updateUser, deleteUser];
