@@ -4,12 +4,25 @@ var router = express.Router();
 var [
   getUsers,
   getUser,
+  login,
   insertUser,
   updateUser,
   deleteUser,
 ] = require("../controllers/user");
 
 const userLogic = require("../logic/userLogic");
+
+router.post("/login", async function (req, res, next) {
+  try {
+    const authUser = await login(req.body);
+    res.send(authUser);
+  } catch (error) {
+    res.status(403).json({
+      success: false,
+      message: "Incorrect username or password",
+    });
+  }
+});
 
 router.get("/", async function (req, res, next) {
   const users = await getUsers();
