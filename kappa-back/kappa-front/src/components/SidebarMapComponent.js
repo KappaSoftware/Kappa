@@ -15,14 +15,7 @@ import {
   SidebarFooter,
   SidebarContent,
 } from "react-pro-sidebar";
-import {
-  FaTachometerAlt,
-  FaGem,
-  FaList,
-  FaGithub,
-  FaRegLaughWink,
-  FaHeart,
-} from "react-icons/fa";
+import { FaGithub, FaRegLaughWink } from "react-icons/fa";
 import Switch from "react-switch";
 
 export default function SidebarMap({
@@ -50,7 +43,11 @@ export default function SidebarMap({
   let dataCatAndSub;
 
   if (dataCategoriesAndSubcategories.isLoading) {
-    dataCatAndSub = <h4>Cargando...</h4>;
+    dataCatAndSub = (
+      <li className="sidebar-menu-loading">
+        <span>Cargando...</span>
+      </li>
+    );
   } else if (dataCategoriesAndSubcategories.errMess) {
     dataCatAndSub = <h4>{dataCategoriesAndSubcategories.errMess}</h4>;
   } else {
@@ -179,64 +176,10 @@ export default function SidebarMap({
           </MenuItem>
         </Menu>
         <Menu iconShape="circle">
+          <li className="header-menu">
+            <span>Categorías</span>
+          </li>
           {dataCatAndSub}
-
-          <MenuItem
-            icon={<FaTachometerAlt />}
-            suffix={
-              <span className="badge red">
-                {intl.formatMessage({ id: "new" })}
-              </span>
-            }
-          >
-            {intl.formatMessage({ id: "dashboard" })}
-          </MenuItem>
-          <MenuItem icon={<FaGem />}>
-            {" "}
-            {intl.formatMessage({ id: "components" })}
-          </MenuItem>
-        </Menu>
-        <Menu iconShape="circle">
-          <SubMenu
-            suffix={<span className="badge yellow">3</span>}
-            title={intl.formatMessage({ id: "withSuffix" })}
-            icon={<FaRegLaughWink />}
-          >
-            <MenuItem>{intl.formatMessage({ id: "submenu" })} 1</MenuItem>
-            <MenuItem>{intl.formatMessage({ id: "submenu" })} 2</MenuItem>
-            <MenuItem>{intl.formatMessage({ id: "submenu" })} 3</MenuItem>
-          </SubMenu>
-          <SubMenu
-            prefix={<span className="badge gray">3</span>}
-            title={intl.formatMessage({ id: "withPrefix" })}
-            icon={<FaHeart />}
-          >
-            <MenuItem>{intl.formatMessage({ id: "submenu" })} 1</MenuItem>
-            <MenuItem>{intl.formatMessage({ id: "submenu" })} 2</MenuItem>
-            <MenuItem>{intl.formatMessage({ id: "submenu" })} 3</MenuItem>
-          </SubMenu>
-          <SubMenu
-            title={intl.formatMessage({ id: "multiLevel" })}
-            icon={<FaList />}
-          >
-            <MenuItem>{intl.formatMessage({ id: "submenu" })} 1 </MenuItem>
-            <MenuItem>{intl.formatMessage({ id: "submenu" })} 2 </MenuItem>
-            <SubMenu title={`${intl.formatMessage({ id: "submenu" })} 3`}>
-              <MenuItem>{intl.formatMessage({ id: "submenu" })} 3.1 </MenuItem>
-              <MenuItem>{intl.formatMessage({ id: "submenu" })} 3.2 </MenuItem>
-              <SubMenu title={`${intl.formatMessage({ id: "submenu" })} 3.3`}>
-                <MenuItem>
-                  {intl.formatMessage({ id: "submenu" })} 3.3.1{" "}
-                </MenuItem>
-                <MenuItem>
-                  {intl.formatMessage({ id: "submenu" })} 3.3.2{" "}
-                </MenuItem>
-                <MenuItem>
-                  {intl.formatMessage({ id: "submenu" })} 3.3.3{" "}
-                </MenuItem>
-              </SubMenu>
-            </SubMenu>
-          </SubMenu>
         </Menu>
       </SidebarContent>
 
