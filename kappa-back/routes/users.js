@@ -49,13 +49,9 @@ router.get("/:id", async function (req, res, next) {
 router.post("/username", async function (req, res, next) {
   const user = await getUserByUsername(req.body);
   if (user === null)
-    return res
-      .status(404)
-      .send(
-        "The user with the given username was not found. " +
-          req.params.id +
-          typeof req.params.id
-      );
+    return res.status(404).send({
+      exists: false,
+    });
 
   res.send(user);
 });

@@ -27,12 +27,14 @@ function getUser(userId) {
 }
 
 async function getUserByUsername(body) {
-  return mongoUtils.conn().then((client) => {
-    return client
+  return mongoUtils.conn().then(async (client) => {
+    const user = await client
       .db(dataBase)
       .collection(COLLECTION_NAME)
       .findOne({ username: body.username })
       .finally(() => client.close());
+    user ? delete user.password : user;
+    return user;
   });
 }
 
