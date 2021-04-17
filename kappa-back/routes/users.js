@@ -52,7 +52,7 @@ router.post("/username", async function (req, res, next) {
     return res.status(404).send({
       exists: false,
     });
-
+  user.exists = true;
   res.send(user);
 });
 
