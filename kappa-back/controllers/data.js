@@ -93,7 +93,7 @@ function insertData(newData) {
         },
         geometry: {
           type: "Point",
-          coordinates: newData.properties.coordinates,
+          coordinates: newData.geometry.coordinates,
         },
         complaints: 0,
         creationDate: new Date(),

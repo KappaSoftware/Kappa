@@ -272,6 +272,17 @@ Landing
   height: 100%;
 }
 
+.landing-fourthsection-btnGitHub {
+  color: white;
+  background-color: gray;
+  padding: 0.7vw;
+  border-radius: 12%;
+}
+
+.landing-fourthsection-btnGitHub:hover {
+  color: rgb(228, 227, 227);
+}
+
 /*
 * Landing fifth section
 */
