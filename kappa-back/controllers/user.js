@@ -26,6 +26,18 @@ function getUser(userId) {
   });
 }
 
+async function getUserByUsername(body) {
+  return mongoUtils.conn().then(async (client) => {
+    const user = await client
+      .db(dataBase)
+      .collection(COLLECTION_NAME)
+      .findOne({ username: body.username })
+      .finally(() => client.close());
+    user ? delete user.password : user;
+    return user;
+  });
+}
+
 async function login(user) {
   return mongoUtils.conn().then(async (client) => {
     const requestedUser = await client
@@ -33,6 +45,9 @@ async function login(user) {
       .collection(COLLECTION_NAME)
       .findOne({ username: user.username })
       .finally(() => client.close());
+    if (requestedUser === null) {
+      throw new Error("No existe el usuario");
+    }
     const isValid = await bcrypt.compare(user.password, requestedUser.password);
     let currentUser = { ...requestedUser };
     if (isValid) {
@@ -41,12 +56,16 @@ async function login(user) {
       currentUser.token = token;
       return currentUser;
     } else {
-      throw new Error("Authentication failed");
+      throw new Error("Contraseña incorrecta");
     }
   });
 }
 
 async function insertUser(user) {
+  const requestedUser = await getUserByUsername(user.username);
+  if (requestedUser !== null) {
+    throw new Error("El usuario ya existe");
+  }
   if (user.password) {
     user.password = await bcrypt.hash(user.password, saltRounds);
   }
@@ -106,4 +125,12 @@ function deleteUser(userId) {
   });
 }
 
-module.exports = [getUsers, getUser, login, insertUser, updateUser, deleteUser];
+module.exports = [
+  getUsers,
+  getUser,
+  getUserByUsername,
+  login,
+  insertUser,
+  updateUser,
+  deleteUser,
+];
