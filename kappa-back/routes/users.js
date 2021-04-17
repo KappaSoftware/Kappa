@@ -4,6 +4,7 @@ var router = express.Router();
 var [
   getUsers,
   getUser,
+  getUserByUsername,
   login,
   insertUser,
   updateUser,
@@ -15,11 +16,12 @@ const userLogic = require("../logic/userLogic");
 router.post("/login", async function (req, res, next) {
   try {
     const authUser = await login(req.body);
+    authUser.success = true;
     res.send(authUser);
   } catch (error) {
     res.status(403).json({
       success: false,
-      message: "Incorrect username or password",
+      message: error.message,
     });
   }
 });
@@ -44,6 +46,16 @@ router.get("/:id", async function (req, res, next) {
   res.send(user);
 });
 
+router.post("/username", async function (req, res, next) {
+  const user = await getUserByUsername(req.body);
+  if (user === null)
+    return res.status(404).send({
+      exists: false,
+    });
+
+  res.send(user);
+});
+
 router.post("/", async function (req, res, next) {
   const { error } = userLogic.validateUser(req.body);
 
@@ -51,8 +63,16 @@ router.post("/", async function (req, res, next) {
     return res.status(400).send(error);
   }
 
-  const newUser = await insertUser(req.body);
-  res.send(newUser);
+  try {
+    const newUser = await insertUser(req.body);
+    newUser.create = true;
+    res.send(newUser);
+  } catch (error) {
+    res.status(403).json({
+      create: false,
+      message: error.message,
+    });
+  }
 });
 
 router.put("/:id", async function (req, res) {
