@@ -49,7 +49,7 @@ router.get("/:id", async function (req, res, next) {
 router.post("/username", async function (req, res, next) {
   const user = await getUserByUsername(req.body);
   if (user === null)
-    return res.status(404).send({
+    return res.status(200).send({
       exists: false,
     });
   user.exists = true;

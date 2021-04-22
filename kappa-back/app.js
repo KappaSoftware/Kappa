@@ -6,6 +6,7 @@ var logger = require("morgan");
 var auth = require("./lib/utils/auth");
 
 var usersRouter = require("./routes/users");
+var telegramUsersRouter = require("./routes/telegramUsers");
 var categoriesRouter = require("./routes/categories");
 var subcategoriesRouter = require("./routes/subcategories");
 var dataRouter = require("./routes/data");
@@ -24,6 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "kappa-front/build")));
 
 app.use("/kappa/users", usersRouter);
+app.use("/kappa/telegramusers", telegramUsersRouter);
 app.use("/kappa/categories", categoriesRouter);
 app.use("/kappa/subcategories", subcategoriesRouter);
 app.use("/kappa/data", dataRouter);
