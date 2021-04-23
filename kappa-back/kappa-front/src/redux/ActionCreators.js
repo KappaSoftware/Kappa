@@ -30,7 +30,7 @@ export const loadedCategoriesAndSubcategories = (
   payload: loadedCategoriesAndSubcategories,
 });
 
-// MAP
+// Map
 
 export const postSubcategoryMap = (id, value) => (dispatch) => {
   const newSubcategoryMap = {
@@ -71,3 +71,15 @@ export const loadedDataPoints = (loadedDataPoints) => ({
   type: ActionTypes.DATA_POINTS_LOADED,
   payload: loadedDataPoints,
 });
+
+// Users
+export const loginUser = (data) => (dispatch) => {
+  const infoLoginUser = {
+    username: data.username,
+    password: data.password,
+  };
+
+  return axios
+    .post("kappa/users/login", infoLoginUser)
+    .catch((error) => console.log("Problema al hacer login: " + error));
+};
