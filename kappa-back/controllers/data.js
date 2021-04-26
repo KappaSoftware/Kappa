@@ -19,7 +19,7 @@ function getDataFiltered() {
     return client
       .db(dataBase)
       .collection(COLLECTION_NAME)
-      .find({ "properties.Subcategory": ObjectId(subcategoryId) })
+      .find({ complaints: { $lt: 3 } })
       .toArray()
       .finally(() => client.close());
   });
@@ -63,7 +63,10 @@ function getDataWithSubcategoryLookupSubcategory(subcategoryId) {
       .collection(COLLECTION_NAME)
       .aggregate([
         {
-          $match: { "properties.Subcategory": ObjectId(subcategoryId) },
+          $match: {
+            "properties.Subcategory": ObjectId(subcategoryId),
+            complaints: { $lt: 3 },
+          },
         },
         {
           $lookup: {
@@ -107,6 +110,7 @@ function insertData(newData) {
           coordinates: newData.geometry.coordinates,
         },
         complaints: 0,
+        complaintsUsers: [],
         creationDate: new Date(),
       })
       .finally(() => client.close());
@@ -154,6 +158,7 @@ function deleteData(dataId) {
 
 module.exports = [
   getTotalData,
+  getDataFiltered,
   getTotalDataLookupSubcategory,
   getDataWithSubcategory,
   getDataWithSubcategoryLookupSubcategory,

@@ -8,10 +8,15 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import DialogLogin from "./DialogLoginComponent";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../redux/ActionCreators";
 
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
+  },
+  marginUsername: {
+    marginRight: theme.spacing(2),
   },
 }));
 
@@ -26,6 +31,12 @@ export default function NavbarMap({ handleToggleSidebar }) {
     setOpenDialog(true);
   };
 
+  const dispatch = useDispatch();
+
+  const handleClickClose = () => {
+    dispatch(logoutUser());
+  };
+
   let buttonLoginOrUsername = (
     <Button variant="outlined" color="primary" onClick={handleClickOpenDialog}>
       Login
@@ -37,7 +48,18 @@ export default function NavbarMap({ handleToggleSidebar }) {
 
   if (dataLogin.token !== "") {
     buttonLoginOrUsername = (
-      <Typography variant="h6">Bienvenido {dataLogin.username}</Typography>
+      <>
+        <Typography
+          variant="body1"
+          component="span"
+          className={classes.marginUsername}
+        >
+          Bienvenido {dataLogin.username}
+        </Typography>
+        <Button variant="outlined" color="primary" onClick={handleClickClose}>
+          Log out
+        </Button>
+      </>
     );
   }
 
