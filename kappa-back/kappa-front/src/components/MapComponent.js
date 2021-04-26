@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import L from "leaflet";
 import { useDispatch, useSelector } from "react-redux";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
@@ -8,9 +9,20 @@ import {
 } from "../redux/ActionCreators";
 import "leaflet/dist/leaflet.css";
 import MarkerClusterGroup from "react-leaflet-markercluster";
-require('react-leaflet-markercluster/dist/styles.min.css');
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+
+require("react-leaflet-markercluster/dist/styles.min.css");
+
+const useStyles = makeStyles((theme) => ({
+  centerTextPopup: {
+    textAlign: "center",
+  },
+}));
 
 export default function Map() {
+  const classes = useStyles();
+
   const [data, setData] = useState([]);
   let info = "";
   const dispatch = useDispatch();
@@ -19,6 +31,16 @@ export default function Map() {
   const subcategoriesMapCharge = useSelector(
     (state) => state.subcategoriesMapCharge
   );
+
+  const dataLogin = useSelector((state) => state.login);
+
+  const tokenUser = dataLogin.token;
+
+  const handleClickButtonReport = (data) => {
+    console.log(data);
+  };
+
+  let reportUbication = <> </>;
 
   const dataPoints = useSelector((state) => state.dataPoints);
 
@@ -34,7 +56,6 @@ export default function Map() {
               (keyArr) => keyArr === key
             )
           ) {
-            //arrSubcategoriesMapCharge.push(key);
             dispatch(postSubcategoryMapCharge(key));
             dispatch(fetchDataPoints(key));
           }
@@ -54,7 +75,7 @@ export default function Map() {
 
   return (
     <div>
-      <MapContainer center={[48.312, 70.708]} zoom={5} scrollWheelZoom={true}>
+      <MapContainer center={[4, -70]} zoom={2} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -80,7 +101,30 @@ export default function Map() {
                   ]}
                 >
                   <Popup>
-                    <span>{item.properties.Popup_en}</span>
+                    <span className={classes.centerTextPopup}>
+                      {item.properties.Popup_en}
+                    </span>
+                    <Typography
+                      variant="body1"
+                      component="h6"
+                      className={classes.centerTextPopup}
+                    >
+                      {tokenUser ? (
+                        <IconButton
+                          aria-label="delete"
+                          color="primary"
+                          onClick={() => handleClickButtonReport(item._id)}
+                        >
+                          <img
+                            src="assets/images/error.svg"
+                            height="20px"
+                            alt="Reportar ubicación"
+                          />
+                        </IconButton>
+                      ) : (
+                        <></>
+                      )}
+                    </Typography>
                   </Popup>
                 </Marker>
               );

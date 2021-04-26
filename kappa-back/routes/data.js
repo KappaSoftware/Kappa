@@ -3,6 +3,7 @@ var router = express.Router();
 
 var [
   getTotalData,
+  getDataFiltered,
   getTotalDataLookupSubcategory,
   getDataWithSubcategory,
   getDataWithSubcategoryLookupSubcategory,
@@ -14,6 +15,11 @@ var [
 
 router.get("/", async function (req, res, next) {
   const totalData = await getTotalData();
+  res.send(totalData);
+});
+
+router.get("/filtered", async function (req, res, next) {
+  const totalData = await getDataFiltered();
   res.send(totalData);
 });
 
