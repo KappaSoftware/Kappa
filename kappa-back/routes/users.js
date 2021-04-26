@@ -19,7 +19,7 @@ router.post("/login", async function (req, res, next) {
     authUser.success = true;
     res.send(authUser);
   } catch (error) {
-    res.status(403).json({
+    res.status(200).json({
       success: false,
       message: error.message,
     });

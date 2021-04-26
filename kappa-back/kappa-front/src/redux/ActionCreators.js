@@ -30,7 +30,7 @@ export const loadedCategoriesAndSubcategories = (
   payload: loadedCategoriesAndSubcategories,
 });
 
-// MAP
+// Map
 
 export const postSubcategoryMap = (id, value) => (dispatch) => {
   const newSubcategoryMap = {
@@ -70,4 +70,56 @@ export const dataPointsFailed = (errmess) => ({
 export const loadedDataPoints = (loadedDataPoints) => ({
   type: ActionTypes.DATA_POINTS_LOADED,
   payload: loadedDataPoints,
+});
+
+// Users
+export const loginUser = (data) => async (dispatch) => {
+  dispatch(requestLogin(true));
+
+  const infoLoginUser = {
+    username: data.username,
+    password: data.password,
+  };
+
+  let respuesta;
+
+  await axios
+    .post("kappa/users/login", infoLoginUser)
+    .then((response) => {
+      console.log(response.data);
+      if (response.data.success) {
+        dispatch(loginSuccess(response.data));
+        localStorage.setItem("currentUserKappa", JSON.stringify(response.data));
+      }
+      respuesta = response;
+    })
+    .catch((error) => {
+      dispatch(loginError(error.message));
+      respuesta = error;
+    });
+
+  return respuesta;
+};
+
+const requestLogin = () => ({
+  type: ActionTypes.REQUEST_LOGIN,
+});
+
+const loginSuccess = (loginInfo) => ({
+  type: ActionTypes.LOGIN_SUCCESS,
+  payload: loginInfo,
+});
+
+const loginError = (errmess) => ({
+  type: ActionTypes.LOGIN_ERROR,
+  error: errmess,
+});
+
+export const logoutUser = () => (dispatch) => {
+  dispatch(logout());
+  localStorage.removeItem("currentUserKappa");
+};
+
+const logout = () => ({
+  type: ActionTypes.LOGOUT,
 });

@@ -14,6 +14,17 @@ function getTotalData() {
   });
 }
 
+function getDataFiltered() {
+  return mongoUtils.conn().then((client) => {
+    return client
+      .db(dataBase)
+      .collection(COLLECTION_NAME)
+      .find({ complaints: { $lt: 3 } })
+      .toArray()
+      .finally(() => client.close());
+  });
+}
+
 function getTotalDataLookupSubcategory() {
   return mongoUtils.conn().then((client) => {
     return client
@@ -52,7 +63,10 @@ function getDataWithSubcategoryLookupSubcategory(subcategoryId) {
       .collection(COLLECTION_NAME)
       .aggregate([
         {
-          $match: { "properties.Subcategory": ObjectId(subcategoryId) },
+          $match: {
+            "properties.Subcategory": ObjectId(subcategoryId),
+            complaints: { $lt: 3 },
+          },
         },
         {
           $lookup: {
@@ -85,9 +99,9 @@ function insertData(newData) {
       .db(dataBase)
       .collection(COLLECTION_NAME)
       .insertOne({
-        type: newData.Name_en,
+        type: "Feature",
         properties: {
-          Subcategory: newData.properties.Subcategory,
+          Subcategory: ObjectId(newData.properties.Subcategory),
           Popup_en: newData.properties.Popup_en,
           Popup_es: newData.properties.Popup_es,
         },
@@ -96,6 +110,7 @@ function insertData(newData) {
           coordinates: newData.geometry.coordinates,
         },
         complaints: 0,
+        complaintsUsers: [],
         creationDate: new Date(),
       })
       .finally(() => client.close());
@@ -143,6 +158,7 @@ function deleteData(dataId) {
 
 module.exports = [
   getTotalData,
+  getDataFiltered,
   getTotalDataLookupSubcategory,
   getDataWithSubcategory,
   getDataWithSubcategoryLookupSubcategory,
