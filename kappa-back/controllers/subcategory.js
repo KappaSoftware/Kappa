@@ -61,7 +61,7 @@ function updateSubcategory(subcategoryId, body) {
         },
         {
           $set: {
-            Category: body.Category,
+            Category: ObjectId(body.Category),
             Name_en: body.Name_en,
             Name_es: body.Name_es,
             Icon: body.Icon,

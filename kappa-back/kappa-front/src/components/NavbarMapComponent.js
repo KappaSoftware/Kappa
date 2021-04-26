@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import DialogLogin from "./DialogLoginComponent";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -17,11 +18,28 @@ const useStyles = makeStyles((theme) => ({
 export default function NavbarMap({ handleToggleSidebar }) {
   const classes = useStyles();
 
+  const dataLogin = useSelector((state) => state.login);
+
   const [openDialog, setOpenDialog] = useState(false);
 
   const handleClickOpenDialog = () => {
     setOpenDialog(true);
   };
+
+  let buttonLoginOrUsername = (
+    <Button variant="outlined" color="primary" onClick={handleClickOpenDialog}>
+      Login
+    </Button>
+  );
+
+  console.log(dataLogin.token);
+  console.log(dataLogin);
+
+  if (dataLogin.token !== "") {
+    buttonLoginOrUsername = (
+      <Typography variant="h6">Bienvenido {dataLogin.username}</Typography>
+    );
+  }
 
   return (
     <>
@@ -39,13 +57,7 @@ export default function NavbarMap({ handleToggleSidebar }) {
           <Typography variant="h6" className={classes.title}>
             Map
           </Typography>
-          <Button
-            variant="outlined"
-            color="primary"
-            onClick={handleClickOpenDialog}
-          >
-            Login
-          </Button>
+          {buttonLoginOrUsername}
         </Toolbar>
       </AppBar>
       <DialogLogin openDialog={openDialog} setOpenDialog={setOpenDialog} />

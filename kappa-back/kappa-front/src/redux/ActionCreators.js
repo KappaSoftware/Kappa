@@ -73,13 +73,53 @@ export const loadedDataPoints = (loadedDataPoints) => ({
 });
 
 // Users
-export const loginUser = (data) => (dispatch) => {
+export const loginUser = (data) => async (dispatch) => {
+  dispatch(requestLogin(true));
+
   const infoLoginUser = {
     username: data.username,
     password: data.password,
   };
 
-  return axios
+  let respuesta;
+
+  await axios
     .post("kappa/users/login", infoLoginUser)
-    .catch((error) => console.log("Problema al hacer login: " + error));
+    .then((response) => {
+      console.log(response.data);
+      if (response.data.success) {
+        dispatch(loginSuccess(response.data));
+        localStorage.setItem("currentUserKappa", JSON.stringify(response.data));
+      }
+      respuesta = response;
+    })
+    .catch((error) => {
+      dispatch(loginError(error.message));
+      respuesta = error;
+    });
+
+  return respuesta;
 };
+
+const requestLogin = () => ({
+  type: ActionTypes.REQUEST_LOGIN,
+});
+
+const loginSuccess = (loginInfo) => ({
+  type: ActionTypes.LOGIN_SUCCESS,
+  payload: loginInfo,
+});
+
+const loginError = (errmess) => ({
+  type: ActionTypes.LOGIN_ERROR,
+  error: errmess,
+});
+
+export const logoutUser = () => (dispatch) => {
+  dispatch(logout());
+  localStorage.removeItem("currentUserKappa");
+};
+
+const logout = () => ({
+  type: ActionTypes.LOGOUT,
+});

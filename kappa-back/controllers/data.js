@@ -14,6 +14,17 @@ function getTotalData() {
   });
 }
 
+function getDataFiltered() {
+  return mongoUtils.conn().then((client) => {
+    return client
+      .db(dataBase)
+      .collection(COLLECTION_NAME)
+      .find({ "properties.Subcategory": ObjectId(subcategoryId) })
+      .toArray()
+      .finally(() => client.close());
+  });
+}
+
 function getTotalDataLookupSubcategory() {
   return mongoUtils.conn().then((client) => {
     return client
@@ -85,9 +96,9 @@ function insertData(newData) {
       .db(dataBase)
       .collection(COLLECTION_NAME)
       .insertOne({
-        type: newData.Name_en,
+        type: "Feature",
         properties: {
-          Subcategory: newData.properties.Subcategory,
+          Subcategory: ObjectId(newData.properties.Subcategory),
           Popup_en: newData.properties.Popup_en,
           Popup_es: newData.properties.Popup_es,
         },
