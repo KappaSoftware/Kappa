@@ -94,8 +94,8 @@ export default function Map() {
                     shadowAnchor: null,
                   })}
                   position={[
-                    item.geometry.coordinates[1],
                     item.geometry.coordinates[0],
+                    item.geometry.coordinates[1],
                   ]}
                 >
                   <Popup>
