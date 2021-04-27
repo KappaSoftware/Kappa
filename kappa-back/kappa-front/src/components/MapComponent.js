@@ -40,8 +40,6 @@ export default function Map() {
     console.log(data);
   };
 
-  let reportUbication = <> </>;
-
   const dataPoints = useSelector((state) => state.dataPoints);
 
   let loadingData = "Loading data";

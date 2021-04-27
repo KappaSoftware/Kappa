@@ -28,15 +28,19 @@ export default function NavbarLanding() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <a className="nav-link" href="#ldFirstSec">
+            <a className="nav-link" href="/home/#ldFirstSec">
               Home
             </a>
-            <a className="nav-link" href="#ldFourthSec">
+            <a className="nav-link" href="/home/#ldFourthSec">
               Product
             </a>
             <NavDropdown title="More options" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#ldSixthSec">More info</NavDropdown.Item>
-              <NavDropdown.Item href="#ldSeventhSec">About us</NavDropdown.Item>
+              <NavDropdown.Item href="/home/#ldSixthSec">
+                More info
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/home/#ldSeventhSec">
+                About us
+              </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/disclaimer">Disclaimer</NavDropdown.Item>
             </NavDropdown>
