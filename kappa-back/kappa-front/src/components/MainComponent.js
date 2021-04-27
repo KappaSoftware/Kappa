@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import DisclaimerComponent from "./DisclaimerComponent";
 
 import Landing from "./LandingComponent";
 import Layout from "./LayoutComponent";
@@ -10,6 +11,9 @@ function Main({ setLocale }) {
       <Switch>
         <Route path="/home">
           <Landing />
+        </Route>
+        <Route exact path="/disclaimer">
+          <DisclaimerComponent />
         </Route>
         <Route exact path="/map">
           <Layout setLocale={setLocale} />

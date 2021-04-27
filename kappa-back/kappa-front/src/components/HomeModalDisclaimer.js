@@ -7,7 +7,7 @@ import { useHistory } from "react-router";
 
 const axios = require("axios");
 const urlDisclaimer =
-  "https://gist.githubusercontent.com/DavidMS73/2a81d86375b6b8ff078fe41d1f58893b/raw/46d6f261cdc66be0d70e632c6cfbde83d02a4e43/disclaimerKappa.html";
+  "https://gist.githubusercontent.com/DavidMS73/2a81d86375b6b8ff078fe41d1f58893b/raw/disclaimerKappa.html";
 
 export default function ModalDisclaimer() {
   let history = useHistory();
