@@ -3,7 +3,7 @@
 
 Estudiosa profesional de los fenómenos naturales y amateur de los fenómenos sociales. Admiradora fervorosa de las artes y la psicología humana. Amante del aprendizaje voluntario. Crítica asidua de todo proyecto que contribuya al aumento de la desigualdad social y/o la discriminación de las minorías. Entusiasta de un modelo educativo que incentive el desarrollo de los talentos naturales y los gustos personales de los alumnos, y de un ambiente laboral en el que se dé prioridad a las personas más que al dinero. 
 
-Investigadora científica de los fenómenos electromagnéticos en sólidos cristalinos, Científica de Datos  y Programadora Python Júnior, estudiante vitalicia de mi própio “saber vivir”.
+Investigadora científica de los fenómenos electromagnéticos en sólidos cristalinos, Científica de Datos  y Programadora Python Júnior, estudiante vitalicia de mi propio “saber vivir”.
 
 
 ***Jully P. P. Pacheco*** <br/>
