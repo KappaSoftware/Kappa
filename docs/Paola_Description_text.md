@@ -6,7 +6,7 @@ Estudiosa profesional de los fenómenos naturales y amateur de los fenómenos so
 Investigadora científica de los fenómenos electromagnéticos en sólidos cristalinos, Científica de Datos  y Programadora Python Júnior, estudiante vitalicia de mi própio “saber vivir”.
 
 
-***Jully P. P. Pacheco*** 
+***Jully P. P. Pacheco*** <br/>
 Ph.D en Ciencias Físicas
 
 # Paola
@@ -15,5 +15,5 @@ A professional researcher of natural phenomena, but only an amateur in the socia
 
 Scientific researcher of electromagnetic phenomena in crystal solids, junior Data Scientist and Python developer, and a forever student of my own “know how to live”. 
 
-***Jully P. P. Pacheco*** 
+***Jully P. P. Pacheco*** <br/>
 Ph.D en Ciencias Físicas
