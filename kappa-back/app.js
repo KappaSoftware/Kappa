@@ -10,7 +10,6 @@ var telegramUsersRouter = require("./routes/telegramUsers");
 var categoriesRouter = require("./routes/categories");
 var subcategoriesRouter = require("./routes/subcategories");
 var dataRouter = require("./routes/data");
-var botRouter = require("./routes/bot");
 
 var app = express();
 
@@ -29,7 +28,6 @@ app.use("/kappa/telegramusers", telegramUsersRouter);
 app.use("/kappa/categories", categoriesRouter);
 app.use("/kappa/subcategories", subcategoriesRouter);
 app.use("/kappa/data", dataRouter);
-app.use("/kappa/bot", botRouter);
 
 /* GET build index */
 app.get("/*", function (req, res) {
