@@ -18,6 +18,7 @@ import {
 import { FaGithub, FaRegLaughWink } from "react-icons/fa";
 import Switch from "react-switch";
 import { NavLink } from "react-router-dom";
+import Typography from "@material-ui/core/Typography";
 
 export default function SidebarMap({
   collapsed,
@@ -187,6 +188,13 @@ export default function SidebarMap({
       </SidebarContent>
 
       <SidebarFooter style={{ textAlign: "center" }}>
+        <Typography variant="body2" component="span">
+          Al usar la aplicación Kappa estás aceptando nuestras políticas y
+          restricciones. Puedes leerlas
+        </Typography>{" "}
+        <NavLink to="/disclaimer" style={{ color: "#f50057" }}>
+          aquí
+        </NavLink>
         <div
           className="sidebar-btn-wrapper"
           style={{

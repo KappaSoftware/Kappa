@@ -147,12 +147,12 @@ export default function Map() {
         </MarkerClusterGroup>
       </MapContainer>
       <Typography
-        variant="body1"
+        variant="body2"
         component="span"
         className={clsx(classes.centerTextPopup, classes.paddingAccept)}
       >
-        Al usar la aplicación Kappa estás aceptando nuestras políticas y
-        restricciones, las cuales puedes leer
+        Al usar la aplicación Kappa aceptas nuestras políticas y restricciones.
+        Puedes leerlas
       </Typography>{" "}
       <NavLink to="/disclaimer" style={{ color: "#f50057" }}>
         aquí
