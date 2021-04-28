@@ -11,12 +11,17 @@ import "leaflet/dist/leaflet.css";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
+import clsx from "clsx";
+import { NavLink } from "react-router-dom";
 
 require("react-leaflet-markercluster/dist/styles.min.css");
 
 const useStyles = makeStyles((theme) => ({
   centerTextPopup: {
     textAlign: "center",
+  },
+  paddingAccept: {
+    paddingLeft: theme.spacing(2),
   },
 }));
 
@@ -131,6 +136,17 @@ export default function Map() {
           })}
         </MarkerClusterGroup>
       </MapContainer>
+      <Typography
+        variant="body1"
+        component="span"
+        className={clsx(classes.centerTextPopup, classes.paddingAccept)}
+      >
+        Al usar la aplicación Kappa estás aceptando nuestras políticas y
+        restricciones, las cuales puedes leer
+      </Typography>{" "}
+      <NavLink to="/disclaimer" style={{ color: "#f50057" }}>
+        aquí
+      </NavLink>
     </div>
   );
 }

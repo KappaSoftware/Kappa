@@ -8,9 +8,10 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { useForm, Controller } from "react-hook-form";
-import { loginUser } from "../redux/ActionCreators";
+import { loginUser, createUser } from "../redux/ActionCreators";
 import { useDispatch } from "react-redux";
 import Typography from "@material-ui/core/Typography";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   marginButton: {
@@ -22,9 +23,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DialogLogin(props) {
+export default function DialogSignUp(props) {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [userError, setUserError] = useState("");
 
@@ -32,10 +34,12 @@ export default function DialogLogin(props) {
     props.setOpenDialog(false);
   };
 
-  const handleSubmitLogin = async (data) => {
-    const userData = await dispatch(loginUser(data));
-    if (userData.data.success === true) {
+  const handleSubmitSignUp = async (data) => {
+    const userData = await dispatch(createUser(data));
+    if (userData.data.create === true) {
       props.setOpenDialog(false);
+      await dispatch(loginUser(data));
+      history.push("/map");
     } else {
       await setUserError(userData.data.message);
     }
@@ -54,11 +58,11 @@ export default function DialogLogin(props) {
         onClose={handleCloseDialog}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Login</DialogTitle>
+        <DialogTitle id="form-dialog-title">Sign Up</DialogTitle>
         <DialogContent>
           <form
             noValidate
-            onSubmit={handleSubmit((data) => handleSubmitLogin(data))}
+            onSubmit={handleSubmit((data) => handleSubmitSignUp(data))}
           >
             <Controller
               control={control}
@@ -110,7 +114,7 @@ export default function DialogLogin(props) {
               variant="contained"
               className={classes.marginButton}
             >
-              Ingresar{" "}
+              Crear usuario
             </Button>
           </form>
         </DialogContent>

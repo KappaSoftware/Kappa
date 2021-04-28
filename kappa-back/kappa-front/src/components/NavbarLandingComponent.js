@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
-
+import DialogSignUp from "./DialogSignUpComponent";
 import { NavLink } from "react-router-dom";
 
 export default function NavbarLanding() {
+  const [openDialogSignUp, setOpenDialogSignUp] = useState(false);
+
+  const handleClickOpenDialogSignUp = () => {
+    setOpenDialogSignUp(true);
+  };
+
   return (
     <header>
       <Navbar
@@ -51,14 +57,20 @@ export default function NavbarLanding() {
                 Map
               </Button>
             </NavLink>
-            <NavLink eventKey={2} to="/signup">
-              <Button variant="light" className="Landing-navbar-buttonSignUp">
-                Sign Up
-              </Button>
-            </NavLink>
+            <Button
+              variant="light"
+              className="Landing-navbar-buttonSignUp"
+              onClick={handleClickOpenDialogSignUp}
+            >
+              Sign Up
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      <DialogSignUp
+        openDialog={openDialogSignUp}
+        setOpenDialog={setOpenDialogSignUp}
+      />
     </header>
   );
 }

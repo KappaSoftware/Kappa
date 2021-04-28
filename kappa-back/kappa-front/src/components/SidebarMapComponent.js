@@ -17,6 +17,7 @@ import {
 } from "react-pro-sidebar";
 import { FaGithub, FaRegLaughWink } from "react-icons/fa";
 import Switch from "react-switch";
+import { NavLink } from "react-router-dom";
 
 export default function SidebarMap({
   collapsed,
@@ -133,7 +134,9 @@ export default function SidebarMap({
               whiteSpace: "nowrap",
             }}
           >
-            {intl.formatMessage({ id: "sidebarTitle" })}
+            <NavLink to="/home" style={{ color: "white" }}>
+              {intl.formatMessage({ id: "sidebarTitle" })}
+            </NavLink>
           </div>
         )}
       </SidebarHeader>
