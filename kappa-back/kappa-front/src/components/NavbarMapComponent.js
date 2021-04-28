@@ -64,8 +64,6 @@ export default function NavbarMap({ handleToggleSidebar }) {
     </>
   );
 
-  console.log(dataLogin);
-
   if (dataLogin.token !== "") {
     buttonLoginOrUsername = (
       <>

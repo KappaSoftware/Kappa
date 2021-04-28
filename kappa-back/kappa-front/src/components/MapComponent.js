@@ -6,6 +6,8 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import {
   postSubcategoryMapCharge,
   fetchDataPoints,
+  sendReport,
+  logoutUser,
 } from "../redux/ActionCreators";
 import "leaflet/dist/leaflet.css";
 import MarkerClusterGroup from "react-leaflet-markercluster";
@@ -41,8 +43,16 @@ export default function Map() {
 
   const tokenUser = dataLogin.token;
 
-  const handleClickButtonReport = (data) => {
-    console.log(data);
+  const handleClickButtonReport = async (data) => {
+    const report = await dispatch(sendReport(data, tokenUser));
+    if (report.data.success !== undefined) {
+      console.log("Problemas con la autenticación");
+      dispatch(logoutUser());
+    } else if (report.data.edited) {
+      console.log("Perfect");
+    } else {
+      console.log(report.data.message);
+    }
   };
 
   const dataPoints = useSelector((state) => state.dataPoints);
