@@ -88,7 +88,6 @@ function getOneData(dataId) {
       .db(dataBase)
       .collection(COLLECTION_NAME)
       .findOne({ _id: ObjectId(dataId) })
-      .toArray()
       .finally(() => client.close());
   });
 }
@@ -117,14 +116,32 @@ function insertData(newData) {
   });
 }
 
-function updateData(categoryId, body) {
+async function insertComplaint(dataId, userReportId) {
+  const data = await getOneData(dataId);
+
+  data.complaints += 1;
+  if (userReportId === undefined) {
+    throw new Error("El usuario que reporta no puede estar vacío");
+  }
+
+  data.complaintsUsers.forEach((element) => {
+    if (element.toString() === userReportId) {
+      throw new Error("Un usuario no puede reportar 2 veces el mismo punto");
+    }
+  });
+  data.complaintsUsers.push(ObjectId(userReportId));
+
+  return updateData(dataId, data);
+}
+
+function updateData(dataId, body) {
   return mongoUtils.conn().then((client) => {
     return client
       .db(dataBase)
       .collection(COLLECTION_NAME)
       .updateOne(
         {
-          _id: ObjectId(categoryId),
+          _id: ObjectId(dataId),
         },
         {
           $set: {
@@ -138,7 +155,8 @@ function updateData(categoryId, body) {
               type: "Point",
               coordinates: body.properties.coordinates,
             },
-            compliants: body.compliants,
+            complaints: body.complaints,
+            complaintsUsers: body.complaintsUsers,
           },
         }
       )
@@ -164,6 +182,7 @@ module.exports = [
   getDataWithSubcategoryLookupSubcategory,
   getOneData,
   insertData,
+  insertComplaint,
   updateData,
   deleteData,
 ];

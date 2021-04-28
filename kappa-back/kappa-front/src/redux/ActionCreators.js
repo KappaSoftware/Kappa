@@ -31,7 +31,6 @@ export const loadedCategoriesAndSubcategories = (
 });
 
 // Map
-
 export const postSubcategoryMap = (id, value) => (dispatch) => {
   const newSubcategoryMap = {
     id: id,
@@ -71,6 +70,19 @@ export const loadedDataPoints = (loadedDataPoints) => ({
   type: ActionTypes.DATA_POINTS_LOADED,
   payload: loadedDataPoints,
 });
+
+// Report a point in the map
+export const sendReport = (idData, token) => async (dispatch) => {
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  let respuesta;
+  await axios
+    .post("kappa/data/complaint/" + idData, {}, config)
+    .then((response) => (respuesta = response))
+    .catch((error) => (respuesta = error.response));
+  return respuesta;
+};
 
 // Users
 export const loginUser = (data) => async (dispatch) => {
