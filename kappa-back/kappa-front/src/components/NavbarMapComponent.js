@@ -68,7 +68,7 @@ export default function NavbarMap({ handleToggleSidebar }) {
     buttonLoginOrUsername = (
       <>
         <Typography
-          variant="body1"
+          variant="h6"
           component="span"
           className={classes.marginRightButtonUsername}
         >
