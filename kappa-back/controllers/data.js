@@ -153,7 +153,7 @@ function updateData(dataId, body) {
             },
             geometry: {
               type: "Point",
-              coordinates: body.properties.coordinates,
+              coordinates: body.geometry.coordinates,
             },
             complaints: body.complaints,
             complaintsUsers: body.complaintsUsers,
