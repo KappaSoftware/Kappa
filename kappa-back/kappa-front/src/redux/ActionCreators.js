@@ -86,7 +86,6 @@ export const loginUser = (data) => async (dispatch) => {
   await axios
     .post("kappa/users/login", infoLoginUser)
     .then((response) => {
-      console.log(response.data);
       if (response.data.success) {
         dispatch(loginSuccess(response.data));
         localStorage.setItem("currentUserKappa", JSON.stringify(response.data));
@@ -122,4 +121,44 @@ export const logoutUser = () => (dispatch) => {
 
 const logout = () => ({
   type: ActionTypes.LOGOUT,
+});
+
+export const createUser = (data) => async (dispatch) => {
+  dispatch(requestSignUp(true));
+
+  const infoCreateUser = {
+    username: data.username,
+    password: data.password,
+  };
+
+  let respuesta;
+
+  await axios
+    .post("kappa/users", infoCreateUser)
+    .then((response) => {
+      if (response.data.success) {
+        dispatch(signUpSuccess(response.data));
+      }
+      respuesta = response;
+    })
+    .catch((error) => {
+      dispatch(signUpError(error.message));
+      respuesta = error;
+    });
+
+  return respuesta;
+};
+
+const requestSignUp = () => ({
+  type: ActionTypes.REQUEST_SIGNUP,
+});
+
+const signUpSuccess = (signUpInfo) => ({
+  type: ActionTypes.SIGNUP_SUCCESS,
+  payload: signUpInfo,
+});
+
+const signUpError = (errmess) => ({
+  type: ActionTypes.SIGNUP_ERROR,
+  error: errmess,
 });
