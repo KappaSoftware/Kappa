@@ -157,14 +157,9 @@ db.createUser(
   }
 )
 
-
-
-Password: 123
-
+Password: <pass>
 db.adminCommand( { shutdown: 1 } )
-
 nohup mongod --auth --port 27017 --dbpath /var/lib/mongodb --bind_ip 0.0.0.0 &
-
 
 Conectarse CLI:
 
@@ -176,19 +171,28 @@ Conexión desde NODE.JS:
 mongo mongodb://myUserAdmin:123@192.168.17.103:27017/?authSource=admin
 mongo mongodb://myUserAdmin:123@mongo-kappa.gnuve.org:27017/?authSource=admin
 
-
 ```
 
 **NOTA:** esto es un fix inicial, la configuración de control de acceso debe hacerse mediante "Usuarios y Roles":
 
-	- https://docs.mongodb.com/manual/tutorial/enable-authentication/
-	- https://docs.mongodb.com/manual/tutorial/manage-users-and-roles/
+ * https://docs.mongodb.com/manual/tutorial/enable-authentication/
+ * https://docs.mongodb.com/manual/tutorial/manage-users-and-roles/
 
-**TODO: Cluster**
 
-## Backend: NodeJS
+## NodeJS: Backend + Frontend
+
+Para colocar en producción a Kappa, sólo es necesario descargarse el repositorio en Github y ejecutar los siguientes pasos:
+
+```
+git pull
+npm install
+npm run-script buildFront
+npm start
+```
 
 **Instrucciones para instalar el Backend en DEBIAN 10 (buster):**
+
+Esta sección es OPCIONAL, se creó con la finalidad de documentar el proceso de creación del ámbito de desarrollo para Kappa:
 
 Instalación de NODE.JS y express-generator
 ```
@@ -282,51 +286,19 @@ vim package.json
 
 ```
 
-## Frontend: React + Leaflet
-
-
-
-
 ## Telegram BOT
 
 **TODO**
 
 ## DNS
 
+Actualmente sólo se usa una dirección IP para resolver todos los registros DNS (190.94.243.13) pero es posible y transparente asignar distintas direcciones a los subdominios creados.
 
+Los registros para la resolución de nombres de Kappa son los siguientes:
 
+kappa.gnuve.org 		registro principal
+kappafront.gnuve.org 	frontend
+kappaback.gnuve.org 	backend
+kappadb.gnuve.org 		base de datos
 
-
-
-
-
-
-## NOTAS (sección temporal)
-
-Comandos para importar/exportar la BD actual:
-
-```bash
-
-mongodump --uri mongodb+srv://admin:XV1CLDFp7dumBnEn@kappa.qosht.mongodb.net/KappaDB?authSource=admin  --out dump
-
-mongorestore dump --port 27017  --authenticationDatabase "admin" -u "myUserAdmin"
-
-```
-
-
-Conectado a la instancia remota usando el siguiente comando:
-
-```bash
-mongo mongodb+srv://admin:XV1CLDFp7dumBnEn@kappa.qosht.mongodb.net/KappaDB?authSource=admin
-
-mongo mongodb://myUserAdmin:123@127.0.0.1:27017/?authSource=admin
-mongo mongodb://myUserAdmin:123@192.168.17.103:27017/?authSource=admin
-mongo mongodb://myUserAdmin:123@mongo-kappa.gnuve.org:27017/?authSource=admin
-
-```
-
-Solicitando status de la replica:
-```
-MongoDB > rs.status()
-```
 
