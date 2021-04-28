@@ -10,12 +10,13 @@ import DialogLogin from "./DialogLoginComponent";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../redux/ActionCreators";
+import DialogSignUp from "./DialogSignUpComponent";
 
 const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-  marginUsername: {
+  marginRightButtonUsername: {
     marginRight: theme.spacing(2),
   },
 }));
@@ -31,6 +32,12 @@ export default function NavbarMap({ handleToggleSidebar }) {
     setOpenDialog(true);
   };
 
+  const [openDialogSignUp, setOpenDialogSignUp] = useState(false);
+
+  const handleClickOpenDialogSignUp = () => {
+    setOpenDialogSignUp(true);
+  };
+
   const dispatch = useDispatch();
 
   const handleClickClose = () => {
@@ -38,12 +45,25 @@ export default function NavbarMap({ handleToggleSidebar }) {
   };
 
   let buttonLoginOrUsername = (
-    <Button variant="outlined" color="primary" onClick={handleClickOpenDialog}>
-      Login
-    </Button>
+    <>
+      <Button
+        variant="outlined"
+        color="primary"
+        onClick={handleClickOpenDialog}
+        className={classes.marginRightButtonUsername}
+      >
+        Login
+      </Button>
+      <Button
+        variant="outlined"
+        color="secondary"
+        onClick={handleClickOpenDialogSignUp}
+      >
+        Sign Up
+      </Button>
+    </>
   );
 
-  console.log(dataLogin.token);
   console.log(dataLogin);
 
   if (dataLogin.token !== "") {
@@ -52,7 +72,7 @@ export default function NavbarMap({ handleToggleSidebar }) {
         <Typography
           variant="body1"
           component="span"
-          className={classes.marginUsername}
+          className={classes.marginRightButtonUsername}
         >
           Bienvenido {dataLogin.username}
         </Typography>
@@ -83,6 +103,10 @@ export default function NavbarMap({ handleToggleSidebar }) {
         </Toolbar>
       </AppBar>
       <DialogLogin openDialog={openDialog} setOpenDialog={setOpenDialog} />
+      <DialogSignUp
+        openDialog={openDialogSignUp}
+        setOpenDialog={setOpenDialogSignUp}
+      />
     </>
   );
 }

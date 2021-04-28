@@ -68,7 +68,7 @@ router.post("/", async function (req, res, next) {
     newUser.create = true;
     res.send(newUser);
   } catch (error) {
-    res.status(403).json({
+    res.status(200).json({
       create: false,
       message: error.message,
     });
