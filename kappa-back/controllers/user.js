@@ -62,9 +62,7 @@ async function login(user) {
 }
 
 async function insertUser(user) {
-  console.log(user);
   const requestedUser = await getUserByUsername(user);
-  console.log(requestedUser);
   if (requestedUser !== null) {
     throw new Error("El usuario ya existe");
   }
