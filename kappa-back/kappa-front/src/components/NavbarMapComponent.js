@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../redux/ActionCreators";
 import DialogSignUp from "./DialogSignUpComponent";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -18,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
   },
   marginRightButtonUsername: {
     marginRight: theme.spacing(2),
+  },
+  alignRight: {
+    textAlign: "right",
   },
 }));
 
@@ -68,9 +72,12 @@ export default function NavbarMap({ handleToggleSidebar }) {
     buttonLoginOrUsername = (
       <>
         <Typography
-          variant="h6"
+          variant="subtitle1"
           component="span"
-          className={classes.marginRightButtonUsername}
+          className={clsx(
+            classes.marginRightButtonUsername,
+            classes.alignRight
+          )}
         >
           Bienvenido {dataLogin.username}
         </Typography>
