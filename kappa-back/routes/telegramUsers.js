@@ -17,14 +17,12 @@ router.get("/:id", async function (req, res, next) {
   const user = await getTelegramUserId(req.params.id);
 
   if (user === null)
-    return res
-      .status(404)
-      .send(
-        "The user with the given id was not found. " +
-          req.params.id +
-          typeof req.params.id
-      );
+    return res.status(200).send({
+      message: "The user with the given id was not found",
+      exists: false,
+    });
 
+  user.exist = true;
   res.send(user);
 });
 
