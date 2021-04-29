@@ -3,7 +3,7 @@ import SidebarMap from "./SidebarMapComponent";
 import "react-pro-sidebar/dist/css/styles.css";
 import MainSidebar from "./MainSidebarComponent";
 
-export default function Layout({ setLocale, categoriesAndSubcategories }) {
+export default function Layout({ setLocale }) {
   const [rtl, setRtl] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
