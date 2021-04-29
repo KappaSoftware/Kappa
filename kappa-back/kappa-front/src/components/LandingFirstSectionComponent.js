@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
+import { NavLink } from "react-router-dom";
 
 export default function LandingFirstSection() {
   return (
@@ -40,12 +41,14 @@ export default function LandingFirstSection() {
               <h1 className="text-color-white landing-firstsection-titleText">
                 Find your locations by categories
               </h1>
-              <Button
-                variant="outline-light"
-                className="landing-firstsection-buttonSignUp"
-              >
-                Sign Up
-              </Button>
+              <NavLink to="/map" style={{ color: "#f50057" }}>
+                <Button
+                  variant="outline-light"
+                  className="landing-firstsection-buttonSignUp"
+                >
+                  Map
+                </Button>
+              </NavLink>
             </div>
           </Col>
         </Row>
