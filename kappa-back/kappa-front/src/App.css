@@ -74,7 +74,11 @@ Landing
   height: 60px;
 }
 
-.Landing-navbar-buttonLogIn {
+.Landing-navbar-navlink-map {
+  padding-bottom: 1vw;
+}
+
+.Landing-navbar-buttonMap {
   background-color: #2b5566;
   border-color: #2b5566;
   border-radius: 2vw;
@@ -82,19 +86,20 @@ Landing
   padding-right: 2vw;
   padding-top: 0.5vw;
   padding-bottom: 0.5vw;
+  width: 100%;
 }
 
-.Landing-navbar-buttonLogIn:focus {
+.Landing-navbar-buttonMap:focus {
   color: #fff;
   background-color: #2b5566ce;
 }
 
-.Landing-navbar-buttonLogIn:hover {
+.Landing-navbar-buttonMap:hover {
   background-color: #2b5566ce;
   border-color: #2b5566;
 }
 
-.Landing-navbar-buttonLogIn:active {
+.Landing-navbar-buttonMap:active {
   background-color: #2b5566ce !important;
   border-color: #2b5566 !important;
 }
@@ -525,6 +530,11 @@ Mapa
 
   .landing-seventhsection-text {
     font-size: 25px;
+  }
+
+  .Landing-navbar-navlink-map {
+    padding-right: 1vw;
+    padding-bottom: 0;
   }
 }
 

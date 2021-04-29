@@ -22,9 +22,6 @@ const useStyles = makeStyles((theme) => ({
   centerTextPopup: {
     textAlign: "center",
   },
-  paddingAccept: {
-    paddingLeft: theme.spacing(2),
-  },
 }));
 
 export default function Map() {
@@ -146,17 +143,12 @@ export default function Map() {
           })}
         </MarkerClusterGroup>
       </MapContainer>
-      <Typography
-        variant="body2"
-        component="span"
-        className={clsx(classes.centerTextPopup, classes.paddingAccept)}
-      >
-        Al usar la aplicación Kappa aceptas nuestras políticas y restricciones.
-        Puedes leerlas
-      </Typography>{" "}
-      <NavLink to="/disclaimer" style={{ color: "#f50057" }}>
-        aquí
-      </NavLink>
+      <Typography variant="body2" className={clsx(classes.centerTextPopup)}>
+        Al usar Kappa aceptas nuestras políticas y restricciones. Puedes leerlas{" "}
+        <NavLink to="/disclaimer" style={{ color: "#f50057" }}>
+          aquí
+        </NavLink>
+      </Typography>
     </div>
   );
 }

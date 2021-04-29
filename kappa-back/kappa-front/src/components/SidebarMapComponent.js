@@ -188,13 +188,13 @@ export default function SidebarMap({
       </SidebarContent>
 
       <SidebarFooter style={{ textAlign: "center" }}>
-        <Typography variant="body2" component="span">
-          Al usar la aplicación Kappa estás aceptando nuestras políticas y
-          restricciones. Puedes leerlas
-        </Typography>{" "}
-        <NavLink to="/disclaimer" style={{ color: "#f50057" }}>
-          aquí
-        </NavLink>
+        <Typography variant="body2">
+          Al usar Kappa aceptas nuestras políticas y restricciones. Puedes
+          leerlas{" "}
+          <NavLink to="/disclaimer" style={{ color: "#f50057" }}>
+            aquí
+          </NavLink>
+        </Typography>
         <div
           className="sidebar-btn-wrapper"
           style={{

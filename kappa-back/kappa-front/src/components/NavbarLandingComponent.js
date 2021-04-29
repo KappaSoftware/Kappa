@@ -52,8 +52,8 @@ export default function NavbarLanding() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <NavLink to="/map" className="mr-4">
-              <Button variant="primary" className="Landing-navbar-buttonLogIn">
+            <NavLink to="/map" className="Landing-navbar-navlink-map">
+              <Button variant="primary" className="Landing-navbar-buttonMap">
                 Map
               </Button>
             </NavLink>
