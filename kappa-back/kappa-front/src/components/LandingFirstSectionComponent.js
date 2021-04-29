@@ -41,7 +41,7 @@ export default function LandingFirstSection() {
               <h1 className="text-color-white landing-firstsection-titleText">
                 Find your locations by categories
               </h1>
-              <NavLink to="/map" style={{ color: "#f50057" }}>
+              <NavLink to="/map">
                 <Button
                   variant="outline-light"
                   className="landing-firstsection-buttonSignUp"
