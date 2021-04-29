@@ -15,6 +15,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
+import SnackbarComponent from "./SnackbarComponent";
 
 require("react-leaflet-markercluster/dist/styles.min.css");
 
@@ -28,6 +29,14 @@ export default function Map() {
   const classes = useStyles();
 
   const [data, setData] = useState([]);
+
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+
+  const [infoSnackbar, setInfoSnackbar] = useState({
+    message: "",
+    severity: "success",
+  });
+
   let info = "";
   const dispatch = useDispatch();
 
@@ -43,13 +52,23 @@ export default function Map() {
   const handleClickButtonReport = async (data) => {
     const report = await dispatch(sendReport(data, tokenUser));
     if (report.data.success !== undefined) {
-      console.log("Problemas con la autenticación");
+      await setInfoSnackbar({
+        message: "Problemas con la autenticación. Inicia sesión nuevamente",
+        severity: "warning",
+      });
       dispatch(logoutUser());
     } else if (report.data.edited) {
-      console.log("Perfect");
+      await setInfoSnackbar({
+        message: report.data.message,
+        severity: "success",
+      });
     } else {
-      console.log(report.data.message);
+      await setInfoSnackbar({
+        message: report.data.message,
+        severity: "error",
+      });
     }
+    await setOpenSnackbar(true);
   };
 
   const dataPoints = useSelector((state) => state.dataPoints);
@@ -149,6 +168,11 @@ export default function Map() {
           aquí
         </NavLink>
       </Typography>
+      <SnackbarComponent
+        openSnackbar={openSnackbar}
+        setOpenSnackbar={setOpenSnackbar}
+        infoSnackbar={infoSnackbar}
+      />
     </div>
   );
 }
