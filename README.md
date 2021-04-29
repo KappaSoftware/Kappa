@@ -76,6 +76,18 @@ A continuación se presentan las etapas de desarrollo del proyecto:
 - Definición de filtros de texto para la categoria Eventos 
 - Implementación de filtros para lenguaje inapropiado
 
+### Sprint 
+
+### Sprint 7 (De 26 Abril al 7 de Mayo)
+- Etapa de Desarrollo
+- Funcionalidades básicas completas
+
+### Sprint 8 (De 10 a 21 de Mayo)
+- Pruebas finales
+- Publicación
+
+### Sprint 9 
+
 
 ## Documentos Clave <a name = "Documentos_Clave"></a>
 - [Código de conducta][1]: lineamientos de conducta a seguir por los contribuidores del proyecto.
