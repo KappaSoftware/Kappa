@@ -10,10 +10,10 @@ import LandingSeventhSection from "./LandingSeventhSectionComponent";
 import LandingFooterComponent from "./LandingFooterComponent";
 import Toolbar from "@material-ui/core/Toolbar";
 
-export default function Landing() {
+export default function Landing({ language, setLanguage }) {
   return (
     <>
-      <NavbarLanding />
+      <NavbarLanding language={language} setLanguage={setLanguage} />
       <Toolbar />
       <LandingFirstSection />
       <LandingSecondSection />

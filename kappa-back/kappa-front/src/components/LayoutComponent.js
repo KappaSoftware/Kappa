@@ -3,7 +3,7 @@ import SidebarMap from "./SidebarMapComponent";
 import "react-pro-sidebar/dist/css/styles.css";
 import MainSidebar from "./MainSidebarComponent";
 
-export default function Layout({ setLocale }) {
+export default function Layout({ language, setLanguage }) {
   const [rtl, setRtl] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
@@ -14,7 +14,10 @@ export default function Layout({ setLocale }) {
 
   const handleRtlChange = (checked) => {
     setRtl(checked);
-    setLocale(checked ? "es" : "en");
+  };
+
+  const handleLanguageChange = (newLanguage) => {
+    setLanguage(newLanguage);
   };
 
   const handleToggleSidebar = (value) => {
@@ -27,11 +30,16 @@ export default function Layout({ setLocale }) {
         toggled={toggled}
         collapsed={collapsed}
         rtl={rtl}
+        language={language}
         handleToggleSidebar={handleToggleSidebar}
         handleCollapsedChange={handleCollapsedChange}
         handleRtlChange={handleRtlChange}
       />
-      <MainSidebar handleToggleSidebar={handleToggleSidebar} />
+      <MainSidebar
+        language={language}
+        handleToggleSidebar={handleToggleSidebar}
+        handleLanguageChange={handleLanguageChange}
+      />
     </div>
   );
 }

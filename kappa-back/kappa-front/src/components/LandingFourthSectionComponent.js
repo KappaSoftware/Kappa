@@ -13,22 +13,19 @@ export default function LandingFourthSection() {
         <Row>
           <Col xl={6} md={12}>
             <div className="landing-fourthsection-divText">
-              <h2>Find specific maps</h2>
+              <h2>
+                {intl.formatMessage({ id: "landing_fourth_section_title" })}
+              </h2>
               <br />
               <p>
-                Kappa es una iniciativa académica de impacto social liderada por
-                un equipo multidisciplinar que tiene como objeto brindar al
-                usuario una plataforma de georreferenciación basada en
-                tecnologías libres y abiertas. En su versión actual, Kappa
-                permite la georreferenciación de huecos o baches de carretera,
-                centros de vacunación (COVID-19) y eventos (conciertos, actos
-                públicos, manifestaciones, etc.). Mediante el bot de Telegram,
-                los usuarios pueden agregar al mapa ubicaciones de lugares o
-                eventos en las categorías mencionadas.
+                {intl.formatMessage({
+                  id: "landing_fourth_section_description_one",
+                })}
               </p>
               <p>
-                Kappa es Software Libre y cualquier interesado puede contribuir
-                desde nuestro repositorio en GitHub.
+                {intl.formatMessage({
+                  id: "landing_fourth_section_description_two",
+                })}
               </p>
               <div
                 className="sidebar-btn-wrapper"

@@ -2,13 +2,19 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import { useIntl } from "react-intl";
 
 export default function LandingSeventhSection() {
+  const intl = useIntl();
   return (
     <section className="landing-seventhsection" id="ldSeventhSec">
       <Container fluid>
         <Row className="landing-seventhsection-row">
-          <h2 className="landing-seventhsection-text">About us</h2>
+          <h2 className="landing-seventhsection-text">
+            {intl.formatMessage({
+              id: "landing_seventh_section_title",
+            })}
+          </h2>
         </Row>
         <hr className="landing-seventhsection-hr" />
         <Row className="landing-seventhsection-row2">

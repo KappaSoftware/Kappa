@@ -5,8 +5,11 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
 import { NavLink } from "react-router-dom";
+import { useIntl } from "react-intl";
 
 export default function LandingFirstSection() {
+  const intl = useIntl();
+
   return (
     <section className="landing-firstsection" id="ldFirstSec">
       <Container fluid>
@@ -39,14 +42,14 @@ export default function LandingFirstSection() {
             </div>
             <div className="landing-firstsection-divText">
               <h1 className="text-color-white landing-firstsection-titleText">
-                Find your locations by categories
+                {intl.formatMessage({ id: "landing_first_section_title" })}
               </h1>
               <NavLink to="/map">
                 <Button
                   variant="outline-light"
                   className="landing-firstsection-buttonSignUp"
                 >
-                  Map
+                  {intl.formatMessage({ id: "landing_first_section_button" })}
                 </Button>
               </NavLink>
             </div>
