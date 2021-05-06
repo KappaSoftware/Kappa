@@ -61,7 +61,7 @@ Cualquiera sea el modo en el cual se atiendan peticiones en paralelo en un host,
 ![NodeJS Horizontral](https://miro.medium.com/max/796/1*ryiL00dESNJTL_jRnUyAyA.png)
 
 
-## Telegram Bot
+## Clusterización del Bot de Telegram
 
 El desarrollo del bot de telegram usa Python3 como lenguaje de programación y la librería (https://github.com/python-telegram-bot/python-telegram-bot) la cual contiene las funciones para la integración con la API de Telegram. Esto condiciona especialmente el diseño de funcionamiento para trabajar en cluster, ya que explícitamente se restringe la ejecución simultánea de mas de una instancia vinculada a la API de esta red social (ver https://telegram.org/faq#p-puedo-ejecutar-telegram-usando-mi-propio-servidor).
 
@@ -286,9 +286,31 @@ vim package.json
 
 ```
 
-## Telegram BOT
+## Desarrollo del BOT de Telegram
 
-**TODO**
+Como dicho antes, el BOT de Telegram es desarrollado completamente en Python3. Para contribuir con el desarrollo de esta instancia del proyecto, el código debe ser clonado de nuestro perfil en GitHub, el cual está disponible a través de este enlace: https://github.com/KappaSoftware/ktelegrambot.
+
+Note que el token que aparece en el código de nuestro repositório es el que corresponde a Kappa Bot al cual sólo tienen acceso los desarrolladores iniciales. Para contribuir, usted debe crear un nuevo token. Para eso siga las instrucciones en https://core.telegram.org/bots. Para resumir, los pasos a seguir son:
+
+- A través de tu cuenta de telegram, busca el usuario BotFather
+- Envia /newbot como mensaje para indicar que estás solicitando la creación de un nuevo usuario de tipo bot
+- Sigue las instrucciones de BotFather en las que se te indica dar un nombre y un nombre de usuario 
+- El BotFather creará un token exclusivo para tu bot de test
+- En cualquier momento puedes enviar un /help para conocer las diferentes funcionalidades a las que tienes acceso a través del BotFather
+
+Los pasos para la instalación de Python3 dependen del SO en el cuál este se quiere instalar. La instalación de Python3 y librerias es recomendada usando un ambiente virtual como "venv" o "anaconda". 
+
+Para leer más sobre ambientes virtuales e instalación de paquetes ir a la documentación en https://docs.python.org/3/tutorial/venv.html y https://docs.python.org/3/installing/index.html.
+
+La libreria específica "python_telegram-bot" puede ser instalada ejecutanto en el terminal el comando:
+```
+$ pip install python-telegram-bot --upgrade
+```
+o, con anaconda:
+```
+$ conda install -c conda-forge python-telegram-bot
+```
+Más información sobre la instalación y uso de esta libreria pueden encontrarse en la página fuente: https://github.com/python-telegram-bot/python-telegram-bot
 
 ## DNS
 
