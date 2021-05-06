@@ -16,6 +16,7 @@ import Typography from "@material-ui/core/Typography";
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 import SnackbarComponent from "./SnackbarComponent";
+import { useIntl } from "react-intl";
 
 require("react-leaflet-markercluster/dist/styles.min.css");
 
@@ -25,7 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Map() {
+export default function Map({ language }) {
+  const intl = useIntl();
+
   const classes = useStyles();
 
   const [data, setData] = useState([]);
@@ -53,7 +56,7 @@ export default function Map() {
     const report = await dispatch(sendReport(data, tokenUser));
     if (report.data.success !== undefined) {
       await setInfoSnackbar({
-        message: "Problemas con la autenticación. Inicia sesión nuevamente",
+        message: "Tu sesión ha expirado. Inicia sesión nuevamente",
         severity: "warning",
       });
       dispatch(logoutUser());
@@ -131,7 +134,9 @@ export default function Map() {
                 >
                   <Popup>
                     <span className={classes.centerTextPopup}>
-                      {item.properties.Popup_en}
+                      {language === "es"
+                        ? item.properties.Popup_es
+                        : item.properties.Popup_en}
                     </span>
                     <Typography
                       variant="body1"
@@ -163,9 +168,9 @@ export default function Map() {
         </MarkerClusterGroup>
       </MapContainer>
       <Typography variant="body2" className={clsx(classes.centerTextPopup)}>
-        Al usar Kappa aceptas nuestras políticas y restricciones. Puedes leerlas{" "}
+        {intl.formatMessage({ id: "map_sidebar_footer_title1" })}{" "}
         <NavLink to="/disclaimer" style={{ color: "#f50057" }}>
-          aquí
+          {intl.formatMessage({ id: "map_sidebar_footer_title2" })}
         </NavLink>
       </Typography>
       <SnackbarComponent

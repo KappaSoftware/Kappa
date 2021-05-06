@@ -2,11 +2,19 @@ import React from "react";
 import Map from "./MapComponent";
 import NavbarMap from "./NavbarMapComponent";
 
-const MainSidebar = ({ handleToggleSidebar }) => {
+const MainSidebar = ({
+  language,
+  handleToggleSidebar,
+  handleLanguageChange,
+}) => {
   return (
     <main>
-      <NavbarMap handleToggleSidebar={handleToggleSidebar} />
-      <Map />
+      <NavbarMap
+        language={language}
+        handleToggleSidebar={handleToggleSidebar}
+        handleLanguageChange={handleLanguageChange}
+      />
+      <Map language={language} />
     </main>
   );
 };

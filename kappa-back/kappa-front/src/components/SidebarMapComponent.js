@@ -21,9 +21,10 @@ import { NavLink } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 
 export default function SidebarMap({
+  toggled,
   collapsed,
   rtl,
-  toggled,
+  language,
   handleToggleSidebar,
   handleCollapsedChange,
   handleRtlChange,
@@ -57,7 +58,7 @@ export default function SidebarMap({
       (catAndSub) => (
         <SubMenu
           key={catAndSub._id}
-          title={catAndSub.Name_en}
+          title={language === "es" ? catAndSub.Name_es : catAndSub.Name_en}
           icon={<FaRegLaughWink />}
         >
           {catAndSub.subcategories.map((subcategories) => {
@@ -86,7 +87,9 @@ export default function SidebarMap({
                   offColor="#bbbbbb"
                   className="switch-itemvertical"
                 />{" "}
-                {subcategories.Name_en}
+                {language === "es"
+                  ? subcategories.Name_es
+                  : subcategories.Name_en}
               </MenuItem>
             );
           })}
@@ -136,7 +139,7 @@ export default function SidebarMap({
             }}
           >
             <NavLink to="/home" style={{ color: "white" }}>
-              {intl.formatMessage({ id: "sidebarTitle" })}
+              {intl.formatMessage({ id: "map_sidebar_title" })}
             </NavLink>
           </div>
         )}
@@ -158,7 +161,7 @@ export default function SidebarMap({
               />
             }
           >
-            {intl.formatMessage({ id: "collapsed" })}
+            {intl.formatMessage({ id: "map_sidebar_title_collapse" })}
           </MenuItem>
           <MenuItem
             icon={
@@ -175,13 +178,15 @@ export default function SidebarMap({
             }
           >
             <span onClick={handleRtlChange}>
-              {intl.formatMessage({ id: "rtl" })}
+              {intl.formatMessage({ id: "map_sidebar_title_changeposition" })}
             </span>
           </MenuItem>
         </Menu>
         <Menu iconShape="circle">
           <li className="header-menu">
-            <span>Categorías</span>
+            <span>
+              {intl.formatMessage({ id: "map_sidebar_title_categories" })}
+            </span>
           </li>
           {dataCatAndSub}
         </Menu>
@@ -189,10 +194,9 @@ export default function SidebarMap({
 
       <SidebarFooter style={{ textAlign: "center" }}>
         <Typography variant="body2">
-          Al usar Kappa aceptas nuestras políticas y restricciones. Puedes
-          leerlas{" "}
+          {intl.formatMessage({ id: "map_sidebar_footer_title1" })}{" "}
           <NavLink to="/disclaimer" style={{ color: "#f50057" }}>
-            aquí
+            {intl.formatMessage({ id: "map_sidebar_footer_title2" })}
           </NavLink>
         </Typography>
         <div

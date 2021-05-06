@@ -20,15 +20,17 @@ const theme = createMuiTheme({
 });
 
 function App() {
-  const [locale, setLocale] = useState("en");
+  const [language, setLanguage] = useState(
+    window.navigator.language.startsWith("es") ? "es" : "en"
+  );
 
   return (
     <ThemeProvider theme={theme}>
-      <IntlProvider locale={locale} messages={messages[locale]}>
+      <IntlProvider locale={language} messages={messages[language]}>
         <Provider store={store}>
           <BrowserRouter>
             <div className="App">
-              <MainComponent setLocale={setLocale} />
+              <MainComponent language={language} setLanguage={setLanguage} />
             </div>
           </BrowserRouter>
         </Provider>
