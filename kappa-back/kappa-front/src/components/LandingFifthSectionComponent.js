@@ -2,8 +2,10 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import { useIntl } from "react-intl";
 
 export default function LandingFifththSection() {
+  const intl = useIntl();
   return (
     <section className="landing-fifthsection" id="ldFifthSec">
       <Container fluid>
@@ -11,25 +13,41 @@ export default function LandingFifththSection() {
           <Col xs={12} sm={6} className="p-0">
             <div className="landing-fifthsection-div-first"></div>
             <div className="landing-fifthsection-title">
-              <h3>Potholes</h3>
+              <h3>
+                {intl.formatMessage({
+                  id: "landing_fifth_section_category_one",
+                })}
+              </h3>
             </div>
           </Col>
           <Col xs={12} sm={6} className="p-0">
             <div className="landing-fifthsection-div-second"></div>
             <div className="landing-fifthsection-title">
-              <h3>Health</h3>
+              <h3>
+                {intl.formatMessage({
+                  id: "landing_fifth_section_category_two",
+                })}
+              </h3>
             </div>
           </Col>
           <Col xs={12} sm={6} className="p-0">
             <div className="landing-fifthsection-div-third"></div>
             <div className="landing-fifthsection-title">
-              <h3>Events</h3>
+              <h3>
+                {intl.formatMessage({
+                  id: "landing_fifth_section_category_three",
+                })}
+              </h3>
             </div>
           </Col>
           <Col xs={12} sm={6} className="p-0">
             <div className="landing-fifthsection-div-fourth"></div>
             <div className="landing-fifthsection-title">
-              <h3>Future: recycling points and more!</h3>
+              <h3>
+                {intl.formatMessage({
+                  id: "landing_fifth_section_category_fourth",
+                })}
+              </h3>
             </div>
           </Col>
         </Row>
