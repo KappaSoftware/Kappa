@@ -7,7 +7,7 @@ export default function LandingFooter() {
       <div className="landing-footer-container">
         <h5>Kappa</h5>
         <ul className="list-unstyled">
-          <li>CC</li>
+          <li>CC 4.0 International By</li>
         </ul>
         <LandingFooterAll />
       </div>
