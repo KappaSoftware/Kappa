@@ -11,6 +11,7 @@ import { useForm, Controller } from "react-hook-form";
 import { loginUser } from "../redux/ActionCreators";
 import { useDispatch } from "react-redux";
 import Typography from "@material-ui/core/Typography";
+import { useIntl } from "react-intl";
 
 const useStyles = makeStyles((theme) => ({
   marginButton: {
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
 export default function DialogLogin(props) {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const intl = useIntl();
 
   const [userError, setUserError] = useState("");
 
@@ -54,7 +56,11 @@ export default function DialogLogin(props) {
         onClose={handleCloseDialog}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Login</DialogTitle>
+        <DialogTitle id="form-dialog-title">
+          {intl.formatMessage({
+            id: "map_navbar_title_login",
+          })}
+        </DialogTitle>
         <DialogContent>
           <form
             noValidate
@@ -64,14 +70,20 @@ export default function DialogLogin(props) {
               control={control}
               name="username"
               defaultValue=""
-              rules={{ required: "Requerido" }}
+              rules={{
+                required: intl.formatMessage({
+                  id: "dialog_required",
+                }),
+              }}
               render={({ field }) => (
                 <TextField
                   {...field}
                   autoFocus
                   required
                   margin="dense"
-                  label="Username"
+                  label={intl.formatMessage({
+                    id: "dialog_login_username",
+                  })}
                   fullWidth
                   error={errors.username ? true : false}
                   helperText={errors.username ? errors.username.message : ""}
@@ -82,13 +94,19 @@ export default function DialogLogin(props) {
               control={control}
               name="password"
               defaultValue=""
-              rules={{ required: "Requerido" }}
+              rules={{
+                required: intl.formatMessage({
+                  id: "dialog_required",
+                }),
+              }}
               render={({ field }) => (
                 <TextField
                   {...field}
                   margin="dense"
                   required
-                  label="Contraseña"
+                  label={intl.formatMessage({
+                    id: "dialog_login_password",
+                  })}
                   type="password"
                   fullWidth
                   error={errors.password ? true : false}
@@ -110,13 +128,17 @@ export default function DialogLogin(props) {
               variant="contained"
               className={classes.marginButton}
             >
-              Ingresar{" "}
+              {intl.formatMessage({
+                id: "dialog_login_submit",
+              })}
             </Button>
           </form>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseDialog} color="primary">
-            Cancelar
+            {intl.formatMessage({
+              id: "dialog_login_cancel",
+            })}
           </Button>
         </DialogActions>
       </Dialog>
