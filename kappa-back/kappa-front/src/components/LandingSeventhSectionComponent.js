@@ -22,25 +22,25 @@ export default function LandingSeventhSection() {
             <div className="image--landing-seventhsection">
               <div className="image--landing-David" />
             </div>
-            <p className="">Germán</p>
+            <p className="">Germán Martínez</p>
           </Col>
           <Col xs={6} md={4} className="landing-seventhsection-col">
             <div className="image--landing-seventhsection">
               <div className="image--landing-Piratax" />
             </div>
-            <p className="">Fausto</p>
+            <p className="">Fausto Lagos</p>
           </Col>
           <Col xs={6} md={4} className="landing-seventhsection-col">
             <div className="image--landing-seventhsection">
               <div className="image--landing-Paola" />
             </div>
-            <p className="">Paola</p>
+            <p className="">Paola Peña</p>
           </Col>
           <Col xs={6} md={4} className="landing-seventhsection-col">
             <div className="image--landing-seventhsection">
               <div className="image--landing-Octaviotron" />
             </div>
-            <p className="">Octavio</p>
+            <p className="">Octavio Rosell</p>
           </Col>
           <Col xs={6} md={4} className="landing-seventhsection-col">
             <div className="image--landing-seventhsection">
@@ -52,7 +52,7 @@ export default function LandingSeventhSection() {
             <div className="image--landing-seventhsection">
               <div className="image--landing-Jorge" />
             </div>
-            <p className="">Jorge</p>
+            <p className="">Jorge Ardila</p>
           </Col>
         </Row>
       </Container>
