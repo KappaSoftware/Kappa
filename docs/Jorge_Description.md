@@ -4,3 +4,4 @@ Mi nombre es **Jorge Ardila**, me gradué como Ing. de Sistemas de la Universida
 Aunque tengo poco que decir o mostrar, me encuentran en twiter en @joardilam
 
 **Éxitos para todos!!**
+;)
