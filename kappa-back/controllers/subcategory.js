@@ -40,7 +40,7 @@ function insertSubcategory(newSubcategory) {
       .db(dataBase)
       .collection(COLLECTION_NAME)
       .insertOne({
-        Category: newSubcategory.Category,
+        Category: ObjectId(newSubcategory.Category),
         Name_en: newSubcategory.Name_en,
         Name_es: newSubcategory.Name_es,
         Icon: newSubcategory.Icon,

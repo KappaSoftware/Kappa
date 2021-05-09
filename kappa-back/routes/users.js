@@ -60,7 +60,10 @@ router.post("/", async function (req, res, next) {
   const { error } = userLogic.validateUser(req.body);
 
   if (error) {
-    return res.status(400).send(error);
+    return res.status(200).send({
+      create: false,
+      message: error.details[0].message,
+    });
   }
 
   try {

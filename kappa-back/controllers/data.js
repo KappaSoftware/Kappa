@@ -147,7 +147,7 @@ function updateData(dataId, body) {
           $set: {
             type: body.Name_en,
             properties: {
-              Subcategory: body.properties.Subcategory,
+              Subcategory: ObjectId(body.properties.Subcategory),
               Popup_en: body.properties.Popup_en,
               Popup_es: body.properties.Popup_es,
             },
