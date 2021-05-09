@@ -64,7 +64,7 @@ async function login(user) {
 async function insertUser(user) {
   const requestedUser = await getUserByUsername(user);
   if (requestedUser !== null) {
-    throw new Error("El usuario ya existe");
+    throw new Error("The user already exists.\n\nEl usuario ya existe.");
   }
   if (user.password) {
     user.password = await bcrypt.hash(user.password, saltRounds);

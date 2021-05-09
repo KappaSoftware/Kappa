@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   textError: {
     marginTop: theme.spacing(2),
     color: "#d32f2f",
+    whiteSpace: "pre-wrap",
   },
 }));
 
@@ -29,6 +30,7 @@ export default function DialogSignUp(props) {
   const dispatch = useDispatch();
   const history = useHistory();
   const intl = useIntl();
+  const password = useRef({});
 
   const [userError, setUserError] = useState("");
 
@@ -51,7 +53,10 @@ export default function DialogSignUp(props) {
     handleSubmit,
     control,
     formState: { errors },
+    watch,
   } = useForm();
+
+  password.current = watch("password", "");
 
   return (
     <div>
@@ -78,6 +83,18 @@ export default function DialogSignUp(props) {
                 required: intl.formatMessage({
                   id: "dialog_required",
                 }),
+                minLength: {
+                  value: 5,
+                  message: intl.formatMessage({
+                    id: "dialog_signup_username_min",
+                  }),
+                },
+                maxLength: {
+                  value: 30,
+                  message: intl.formatMessage({
+                    id: "dialog_signup_username_max",
+                  }),
+                },
               }}
               render={({ field }) => (
                 <TextField
@@ -102,10 +119,23 @@ export default function DialogSignUp(props) {
                 required: intl.formatMessage({
                   id: "dialog_required",
                 }),
+                minLength: {
+                  value: 5,
+                  message: intl.formatMessage({
+                    id: "dialog_signup_password_min",
+                  }),
+                },
+                maxLength: {
+                  value: 30,
+                  message: intl.formatMessage({
+                    id: "dialog_signup_password_max",
+                  }),
+                },
               }}
               render={({ field }) => (
                 <TextField
                   {...field}
+                  ref={password}
                   margin="dense"
                   required
                   label={intl.formatMessage({
@@ -118,6 +148,46 @@ export default function DialogSignUp(props) {
                 />
               )}
             />
+            <Controller
+              control={control}
+              name="repeat_password"
+              defaultValue=""
+              rules={{
+                required: intl.formatMessage({
+                  id: "dialog_required",
+                }),
+                minLength: {
+                  value: 5,
+                  message: intl.formatMessage({
+                    id: "dialog_signup_password_min",
+                  }),
+                },
+                maxLength: {
+                  value: 30,
+                  message: intl.formatMessage({
+                    id: "dialog_signup_password_max",
+                  }),
+                },
+                validate: (value) =>
+                  value === password.current || "The passwords do not match",
+              }}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  margin="dense"
+                  required
+                  label={intl.formatMessage({
+                    id: "dialog_signup_password_again",
+                  })}
+                  type="password"
+                  fullWidth
+                  error={errors.repeat_password ? true : false}
+                  helperText={
+                    errors.repeat_password ? errors.repeat_password.message : ""
+                  }
+                />
+              )}
+            />
 
             <Typography
               variant="body1"
@@ -126,6 +196,7 @@ export default function DialogSignUp(props) {
             >
               {userError}
             </Typography>
+
             <Button
               type="submit"
               color="secondary"
