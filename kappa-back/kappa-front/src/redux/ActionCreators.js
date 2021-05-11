@@ -175,3 +175,27 @@ const signUpError = (errmess) => ({
   type: ActionTypes.SIGNUP_ERROR,
   error: errmess,
 });
+
+// Landing stats
+export const fetchLandingStats = () => (dispatch) => {
+  dispatch(landingStatsLoading(true));
+
+  return axios
+    .get("kappa/landing_stats")
+    .then((response) => dispatch(landingStatsLoaded(response.data)))
+    .catch((error) => dispatch(landingStatsFailed(error.message)));
+};
+
+export const landingStatsLoading = () => ({
+  type: ActionTypes.LANDING_STATS_LOADING,
+});
+
+export const landingStatsFailed = (errmess) => ({
+  type: ActionTypes.LANDING_STATS_FAILED,
+  payload: errmess,
+});
+
+export const landingStatsLoaded = (landingStatsLoaded) => ({
+  type: ActionTypes.LANDING_STATS_LOADED,
+  payload: landingStatsLoaded,
+});

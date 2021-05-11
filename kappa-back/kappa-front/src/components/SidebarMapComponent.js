@@ -193,7 +193,7 @@ export default function SidebarMap({
       </SidebarContent>
 
       <SidebarFooter style={{ textAlign: "center" }}>
-        <Typography variant="body2">
+        <Typography variant="body2" style={{ marginTop: "5px" }}>
           {intl.formatMessage({ id: "map_sidebar_footer_title1" })}{" "}
           <NavLink to="/disclaimer" style={{ color: "#f50057" }}>
             {intl.formatMessage({ id: "map_sidebar_footer_title2" })}
