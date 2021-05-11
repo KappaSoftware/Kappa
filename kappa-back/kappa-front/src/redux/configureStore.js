@@ -5,6 +5,7 @@ import { SubcategoriesMapCharge } from "./subcategoriesMapCharge";
 import { DataPoints } from "./dataPoints";
 import { login } from "./login";
 import { signup } from "./signup";
+import { LandingStats } from "./landingStats";
 import thunkMiddleware from "redux-thunk";
 import logger from "redux-logger";
 
@@ -17,6 +18,7 @@ export const ConfigureStore = () => {
       dataPoints: DataPoints,
       login: login,
       signup: signup,
+      landingStats: LandingStats,
     }),
     applyMiddleware(thunkMiddleware, logger)
   );

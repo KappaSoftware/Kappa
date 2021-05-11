@@ -26,7 +26,7 @@ router.post("/login", async function (req, res, next) {
   }
 });
 
-router.get("/", async function (req, res, next) {
+/**router.get("/", async function (req, res, next) {
   const users = await getUsers();
   res.send(users);
 });
@@ -44,9 +44,9 @@ router.get("/:id", async function (req, res, next) {
       );
 
   res.send(user);
-});
+});*/
 
-router.post("/username", async function (req, res, next) {
+router.get("/username", async function (req, res, next) {
   const user = await getUserByUsername(req.body);
   if (user === null)
     return res.status(200).send({
@@ -78,7 +78,7 @@ router.post("/", async function (req, res, next) {
   }
 });
 
-router.put("/:id", async function (req, res) {
+/*router.put("/:id", async function (req, res) {
   const { error } = userLogic.validateUser(req.body);
 
   if (error) {
@@ -100,6 +100,6 @@ router.delete("/:id", async function (req, res) {
 
   const delUser = await deleteUser(req.params.id);
   res.status(204).send();
-});
+});*/
 
 module.exports = router;
