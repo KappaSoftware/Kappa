@@ -30,7 +30,7 @@ export default function LandingThirdSection({ categories, points, users }) {
               </p>
             </div>
           </Col>
-          <Col xs={6} md={4} className="landing-thirdsection-col">
+          <Col xs={12} md={4} className="landing-thirdsection-col">
             <div className="landing-thirdsection-divText">
               <div className="landing-thirdsection-circle">
                 <h2>{categories}</h2>
