@@ -26,18 +26,18 @@ export default function Landing({ language, setLanguage }) {
 
   if (landingStats.isLoading) {
     dataLandingStats = (
-      <LandingThirdSection categories="···" subcategories="···" users="···" />
+      <LandingThirdSection categories="···" points="···" users="···" />
     );
   } else if (landingStats.errMess) {
     dataLandingStats = (
-      <LandingThirdSection categories="-" subcategories="-" users="-" />
+      <LandingThirdSection categories="-" points="-" users="-" />
     );
   } else {
     let arrayStats = landingStats.landingStats;
     dataLandingStats = (
       <LandingThirdSection
         categories={arrayStats.categories}
-        subcategories={arrayStats.subcategories}
+        points={arrayStats.points}
         users={arrayStats.users}
       />
     );

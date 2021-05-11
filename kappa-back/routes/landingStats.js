@@ -4,18 +4,18 @@ var router = express.Router();
 var [
   getUsersNumber,
   getCategoriesNumber,
-  getSubcategoriesNumber,
+  getDataNumber,
 ] = require("../controllers/landingStat");
 
 router.get("/", async function (req, res, next) {
   const usersNumber = await getUsersNumber();
   const categoriesNumber = await getCategoriesNumber();
-  const subcategoriesNumber = await getSubcategoriesNumber();
+  const dataNumber = await getDataNumber();
 
   res.send({
     users: usersNumber,
     categories: categoriesNumber,
-    subcategories: subcategoriesNumber,
+    points: dataNumber,
   });
 });
 

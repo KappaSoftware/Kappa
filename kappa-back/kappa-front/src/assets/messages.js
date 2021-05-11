@@ -13,7 +13,7 @@ export default {
     landing_first_section_title: "Encuentras tus ubicaciones por categorías",
     landing_first_section_button: "Mapa",
     landing_third_section_first: "Usuarios",
-    landing_third_section_second: "Tipos de mapas",
+    landing_third_section_second: "Ubicaciones",
     landing_third_section_third: "Categorías",
     landing_fourth_section_title: "Encuentra mapas específicos",
     landing_fourth_section_description_one:
@@ -78,7 +78,7 @@ export default {
     landing_first_section_title: "Find your locations by categories",
     landing_first_section_button: "Map",
     landing_third_section_first: "Users",
-    landing_third_section_second: "Map types",
+    landing_third_section_second: "Locations",
     landing_third_section_third: "Categories",
     landing_fourth_section_title: "Find specific maps",
     landing_fourth_section_description_one:
