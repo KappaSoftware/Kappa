@@ -511,6 +511,24 @@ Mapa
   }
 }
 
+.map-icon-background {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  left: -1rem;
+  top: -0.8rem;
+  position: relative;
+  border-radius: 3rem 3rem 0;
+  transform: rotate(45deg);
+  border: 1px solid #ffffff;
+}
+
+.map-icon-background-image {
+  width: 1.4rem;
+  transform: rotate(-45deg);
+  margin: 0.25rem;
+}
+
 /**
   Pantallas a partir de 576px
 */
