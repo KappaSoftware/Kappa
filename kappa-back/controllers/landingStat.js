@@ -1,6 +1,6 @@
 const { mongoUtils, dataBase } = require("../lib/utils/mongo");
 const COLLECTION_CATEGORY_NAME = "Categories";
-const COLLECTION_SUBCATEGORY_NAME = "Subcategories";
+const COLLECTION_DATA_NAME = "Data";
 const COLLECTION_USERS_NAME = "Users";
 
 function getUsersNumber() {
@@ -25,15 +25,15 @@ function getCategoriesNumber() {
   });
 }
 
-function getSubcategoriesNumber() {
+function getDataNumber() {
   return mongoUtils.conn().then((client) => {
     return client
       .db(dataBase)
-      .collection(COLLECTION_SUBCATEGORY_NAME)
+      .collection(COLLECTION_DATA_NAME)
       .find({})
       .count()
       .finally(() => client.close());
   });
 }
 
-module.exports = [getUsersNumber, getCategoriesNumber, getSubcategoriesNumber];
+module.exports = [getUsersNumber, getCategoriesNumber, getDataNumber];
