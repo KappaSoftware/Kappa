@@ -43,7 +43,7 @@ function insertSubcategory(newSubcategory) {
         Category: ObjectId(newSubcategory.Category),
         Name_en: newSubcategory.Name_en,
         Name_es: newSubcategory.Name_es,
-        Icon: newSubcategory.Icon,
+        Color: newSubcategory.Color,
         creationDate: new Date(),
       })
       .finally(() => client.close());
@@ -64,7 +64,7 @@ function updateSubcategory(subcategoryId, body) {
             Category: ObjectId(body.Category),
             Name_en: body.Name_en,
             Name_es: body.Name_es,
-            Icon: body.Icon,
+            Color: body.Color,
           },
         }
       )

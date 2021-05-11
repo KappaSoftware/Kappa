@@ -61,14 +61,14 @@ export default function SidebarMap({
           title={language === "es" ? catAndSub.Name_es : catAndSub.Name_en}
           icon={<FaRegLaughWink />}
         >
-          {catAndSub.subcategories.map((subcategories) => {
-            let isChecked = subcategoriesMap[subcategories._id];
+          {catAndSub.subcategories.map((subcategory) => {
+            let isChecked = subcategoriesMap[subcategory._id];
             if (typeof isChecked === "undefined") {
-              dispatch(postSubcategoryMap(subcategories._id, false));
+              dispatch(postSubcategoryMap(subcategory._id, false));
               isChecked = false;
             }
             return (
-              <MenuItem key={subcategories._id}>
+              <MenuItem key={subcategory._id}>
                 <Switch
                   height={16}
                   width={30}
@@ -77,19 +77,17 @@ export default function SidebarMap({
                   onChange={() => {
                     dispatch(
                       postSubcategoryMap(
-                        subcategories._id,
-                        !subcategoriesMap[subcategories._id]
+                        subcategory._id,
+                        !subcategoriesMap[subcategory._id]
                       )
                     );
                   }}
                   checked={isChecked}
-                  onColor="#009696"
+                  onColor={subcategory.Color}
                   offColor="#bbbbbb"
                   className="switch-itemvertical"
                 />{" "}
-                {language === "es"
-                  ? subcategories.Name_es
-                  : subcategories.Name_en}
+                {language === "es" ? subcategory.Name_es : subcategory.Name_en}
               </MenuItem>
             );
           })}

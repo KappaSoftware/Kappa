@@ -10,6 +10,15 @@ var [
   deleteSubcategory,
 ] = require("../controllers/subcategory");
 
+function getRandomColor() {
+  var letters = "0123456789ABCDEF";
+  var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 router.get("/", async function (req, res, next) {
   const categories = await getSubcategories();
   res.send(categories);
@@ -46,7 +55,9 @@ router.get("/:id", async function (req, res, next) {
 });
 
 router.post("/", async function (req, res, next) {
-  const newSubcategory = await insertSubcategory(req.body);
+  const newSub = req.body;
+  newSub.Color = await getRandomColor();
+  const newSubcategory = await insertSubcategory(newSub);
   res.send(newSubcategory);
 });
 
@@ -55,7 +66,9 @@ router.put("/:id", async function (req, res) {
   if (subcategory === null)
     return res.status(404).send("The subcategory was not found.");
 
-  const newSubcategory = await updateSubcategory(req.params.id, req.body);
+  const newSub = req.body;
+  newSub.Color = await getRandomColor();
+  const newSubcategory = await updateSubcategory(req.params.id, newSub);
   res.send({ subcategory: "Subcategory updated" });
 });
 
