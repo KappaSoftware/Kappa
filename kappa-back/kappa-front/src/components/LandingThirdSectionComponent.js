@@ -4,11 +4,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { useIntl } from "react-intl";
 
-export default function LandingThirdSection({
-  categories,
-  subcategories,
-  users,
-}) {
+export default function LandingThirdSection({ categories, points, users }) {
   const intl = useIntl();
   return (
     <section className="landing-thirdsection" id="ldThirdSec">
@@ -27,7 +23,7 @@ export default function LandingThirdSection({
           <Col xs={6} md={4} className="landing-thirdsection-col">
             <div className="landing-thirdsection-divText">
               <div className="landing-thirdsection-circle">
-                <h2>{subcategories}</h2>
+                <h2>{points}</h2>
               </div>
               <p className="landing-thirdsection-titleText">
                 {intl.formatMessage({ id: "landing_third_section_second" })}
