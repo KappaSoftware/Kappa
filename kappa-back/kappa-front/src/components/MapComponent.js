@@ -115,17 +115,16 @@ export default function Map({ language }) {
         <MarkerClusterGroup>
           {data.map((item) => {
             if (subcategoriesMap[item.properties.Subcategory[0]._id] === true) {
+              const markerHtmlStyles = `background-color: ${item.properties.Subcategory[0].Color};`;
+
               return (
                 <Marker
                   key={item._id}
-                  icon={L.icon({
-                    iconUrl:
-                      "assets/images/" + item.properties.Subcategory[0].Icon,
-                    iconSize: [25, 25],
-                    popupAnchor: [0, -10],
-                    shadowUrl: null,
-                    shadowSize: null,
-                    shadowAnchor: null,
+                  icon={L.divIcon({
+                    iconAnchor: [0, 24],
+                    labelAnchor: [-6, 0],
+                    popupAnchor: [0, -36],
+                    html: `<span style="${markerHtmlStyles}" class="map-icon-background"><img class="map-icon-background-image" src="kappaLogo.png"/><div/>`,
                   })}
                   position={[
                     item.geometry.coordinates[0],
