@@ -3,13 +3,13 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var auth = require("./lib/utils/auth");
 
 var usersRouter = require("./routes/users");
 var telegramUsersRouter = require("./routes/telegramUsers");
 var categoriesRouter = require("./routes/categories");
 var subcategoriesRouter = require("./routes/subcategories");
 var dataRouter = require("./routes/data");
+var landingStatsRouter = require("./routes/landingStats");
 
 var app = express();
 
@@ -28,6 +28,7 @@ app.use("/kappa/telegramusers", telegramUsersRouter);
 app.use("/kappa/categories", categoriesRouter);
 app.use("/kappa/subcategories", subcategoriesRouter);
 app.use("/kappa/data", dataRouter);
+app.use("/kappa/landing_stats", landingStatsRouter);
 
 /* GET build index */
 app.get("/*", function (req, res) {
