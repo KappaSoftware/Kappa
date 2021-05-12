@@ -290,17 +290,17 @@ vim package.json
 
 Como dicho antes, el BOT de Telegram es desarrollado completamente en Python3. Para contribuir con el desarrollo de esta instancia del proyecto, el código debe ser clonado de nuestro perfil en GitHub, el cual está disponible a través de este enlace: https://github.com/KappaSoftware/ktelegrambot.
 
-Note que el token que aparece en el código de nuestro repositório es el que corresponde a Kappa Bot al cual sólo tienen acceso los desarrolladores iniciales. Para contribuir, usted debe crear un nuevo token. Para eso siga las instrucciones en https://core.telegram.org/bots. Para resumir, los pasos a seguir son:
+Nota que en el código de nuestro repositório no aparece el token del robot de Kappa Software, al cual sólo tienen acceso los desarrolladores iniciales. Para contribuir con nuevas funcionalidades en el Bot, o corregir parte de las existentes, se debe crear un nuevo token para hacer las respectivas pruebas. Ese token debe substituirse por 'YOUR_TOKEN_HERE' en el Updater del código. Crear un token implica crear un robot de Telegram. Un conjunto completo de instrucciones para hacer esto puede encontrarse en https://core.telegram.org/bots. Un resumen de los pasos a seguir para la creación de un bot de Telegram son:
 
-- A través de tu cuenta de telegram, busca el usuario BotFather
+- En tu cuenta de telegram, busca el usuario BotFather
 - Envia /newbot como mensaje para indicar que estás solicitando la creación de un nuevo usuario de tipo bot
 - Sigue las instrucciones de BotFather en las que se te indica dar un nombre y un nombre de usuario 
 - El BotFather creará un token exclusivo para tu bot de test
 - En cualquier momento puedes enviar un /help para conocer las diferentes funcionalidades a las que tienes acceso a través del BotFather
 
-Los pasos para la instalación de Python3 dependen del SO en el cuál este se quiere instalar. La instalación de Python3 y librerias es recomendada usando un ambiente virtual como "venv" o "anaconda". 
+Los pasos para la instalación de Python3 dependen del SO en el cual este se quiere instalar. La instalación de Python3 y librerías es recomendada usando un ambiente virtual como "venv" o "anaconda", este último cual ofrece un ambiente virtual y un gestor de paquetes a la vez. 
 
-Para leer más sobre ambientes virtuales e instalación de paquetes ir a la documentación en https://docs.python.org/3/tutorial/venv.html y https://docs.python.org/3/installing/index.html.
+Para leer más sobre ambientes virtuales e instalación de paquetes puede verse la documentación disponible en https://docs.python.org/3/tutorial/venv.html y https://docs.python.org/3/installing/index.html.
 
 La libreria específica "python_telegram-bot" puede ser instalada ejecutanto en el terminal el comando:
 ```
@@ -310,7 +310,9 @@ o, con anaconda:
 ```
 $ conda install -c conda-forge python-telegram-bot
 ```
-Más información sobre la instalación y uso de esta libreria pueden encontrarse en la página fuente: https://github.com/python-telegram-bot/python-telegram-bot
+Más información sobre la instalación y uso de esta librería pueden encontrarse en la página fuente: https://github.com/python-telegram-bot/python-telegram-bot
+
+El bot de Telegram de Kappa Software cuenta con un filtro de lenguage inapropiado en lenguas inglesa y española, el cual es implementado a través de la función  "bad_language_filter". Para esto fueron utilizadas listas de malas palabras disponibles en https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/blob/master/README.md (Creative Commons Attribution 4.0 International).
 
 ## DNS
 
