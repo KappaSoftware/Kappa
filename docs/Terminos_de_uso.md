@@ -8,7 +8,7 @@ Las características del servicio de la herramienta pueden ser consultados en el
 **Kappa** puede ser utilizado por cualquier persona bajo las condiciones del beneficio social primando los derechos fundamentales. 
 
 # Condiciones de uso
-Al instalar el bot aceptas las condiciones y código de buena conducta de Telegram
+Al instalar el bot aceptas las condiciones de uso de Telegram
 Para nosotros el respeto por los derechos fundamentales está por encima de cualquier interés y por tal razón Kappa se reserva el derecho de cancelar publicaciones y la cuenta origen que transgredan los dichos derechos o que de cualquier manera puedan dañar a alguien.
 Como grupo no hacemos parte de ningún grupo político, religioso o social y somos respetuosos de las ideologías existente y por lo mismo no representamos o apoyamos ningúna tipo de maniestación.
 
