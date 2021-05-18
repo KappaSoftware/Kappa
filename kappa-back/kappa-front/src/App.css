@@ -279,7 +279,7 @@ Landing
 .landing-fourthsection-btnGitHub {
   color: white;
   background-color: gray;
-  padding: 0.7vw;
+  padding: 13px;
   border-radius: 12%;
 }
 
@@ -487,12 +487,12 @@ Landing
 }
 
 .landing-footer-btnGitHub {
-  width: 2vw;
+  width: 35px;
   margin: 0vw 2vw 0vw 2vw;
 }
 
 .landing-footer-btnTelegram {
-  width: 2vw;
+  width: 35px;
   margin: 0vw 2vw 0vw 2vw;
 }
 
