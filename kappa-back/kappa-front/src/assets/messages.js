@@ -23,7 +23,7 @@ export default {
     landing_fifth_section_category_one: "Baches",
     landing_fifth_section_category_two: "Salud",
     landing_fifth_section_category_three: "Eventos",
-    landing_fifth_section_category_fourth: "Futuro: puntos de reciclage y más",
+    landing_fifth_section_category_fourth: "Futuro: puntos de reciclaje y más",
     landing_sixth_section_description:
       "Kappa te da ubicaciones de tu interés rápida e intuitivamente",
     landing_seventh_section_title: "Sobre nosotros",

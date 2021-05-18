@@ -10,13 +10,13 @@ export default function LandingSecondSection() {
         <Row>
           <div className="hidden-xs col-sm-2" />
           <Col className="landing-secondsection-col">
-            <img src="/assets/images/Blog.jpg" alt="Blog" />
+            <img src="/assets/images/agpl.png" alt="AGPL" />
           </Col>
           <Col className="landing-secondsection-col">
-            <img src="/assets/images/Blog.jpg" alt="Blog" />
+            <img src="/assets/images/cc-by-sa.png" alt="CC-BY-SA" />
           </Col>
           <Col className="landing-secondsection-col">
-            <img src="/assets/images/Blog.jpg" alt="Blog" />
+            <img src="/assets/images/kappa.png" alt="Kappa" />
           </Col>
           <div className="hidden-xs col-sm-2" />
         </Row>
