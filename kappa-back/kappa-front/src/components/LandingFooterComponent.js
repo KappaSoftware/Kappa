@@ -1,4 +1,5 @@
 import React from "react";
+import { FaGithub } from "react-icons/fa";
 import LandingFooterAll from "./LandingFooterAllComponent";
 
 export default function LandingFooter() {
@@ -9,8 +10,36 @@ export default function LandingFooter() {
         <ul className="list-unstyled">
           <li>CC 4.0 International By</li>
         </ul>
-        <LandingFooterAll />
+
+        <img
+          src="/assets/images/cc-by-sa-svg.svg"
+          className="landing-footer-ccbysa"
+          alt="CC-BY-SA"
+        />
+        <a
+          href="https://github.com/KappaSoftware/Kappa"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="/assets/images/github.png"
+            className="landing-footer-btnGitHub"
+            alt="Github"
+          />
+        </a>
+        <a
+          href="https://github.com/KappaSoftware/Kappa"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="/assets/images/telegram.png"
+            className="landing-footer-btnTelegram"
+            alt="Telegram"
+          />
+        </a>
       </div>
+      <LandingFooterAll />
     </section>
   );
 }
