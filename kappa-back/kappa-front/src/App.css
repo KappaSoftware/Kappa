@@ -200,7 +200,6 @@ Landing
 }
 
 .landing-secondsection-col > img {
-  background-color: white;
   width: 16vw;
   height: 16vw;
 }
@@ -460,12 +459,12 @@ Landing
 */
 .landing-footer {
   background-color: #efefef;
-  padding: 20px 0px 0px 0px;
 }
 
 .landing-footer-container {
   justify-content: center;
   text-align: center;
+  padding: 20px 0px 20px 0px;
 }
 
 .landing-footer-container > h5 {
@@ -479,6 +478,22 @@ Landing
 .landing-footer-year {
   background-color: #dfdfdf;
   padding: 6px 0px 6px 0px;
+  justify-content: center;
+  text-align: center;
+}
+
+.landing-footer-ccbysa {
+  margin: 0vw 2vw 0vw 2vw;
+}
+
+.landing-footer-btnGitHub {
+  width: 2vw;
+  margin: 0vw 2vw 0vw 2vw;
+}
+
+.landing-footer-btnTelegram {
+  width: 2vw;
+  margin: 0vw 2vw 0vw 2vw;
 }
 
 /**
