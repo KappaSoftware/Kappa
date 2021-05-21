@@ -11,26 +11,16 @@ const validateUser = (user) => {
     password: Joi.string()
       .pattern(new RegExp("^[a-zA-Z0-9#?!@$%^&*-]{5,30}$"))
       .required()
-      .error((errors) => {
-        errors.forEach((err) => {
-          switch (err.code) {
-            case "string.pattern.base":
-              err.message =
-                "Incorrect password pattern. You must only use letters, numbers or special characters (#?!@$%^&*-) and you must use between 3 and 30 characters. \n\nPatrón de contraseña incorrecto. Solo debe usar letras, números o caracteres especiales (#?!@$%^&*-) y debe usar entre 3 y 30 caracteres.";
-              break;
-            default:
-              break;
-          }
-        });
-        return errors;
+      .messages({
+        "string.pattern.base":
+          "Incorrect password pattern. You must only use letters, numbers or special characters (#?!@$%^&*-) and you must use between 5 and 30 characters. \n\nPatrón de contraseña incorrecto. Solo debe usar letras, números o caracteres especiales (#?!@$%^&*-) y debe usar entre 3 y 30 caracteres.",
       }),
     repeat_password: Joi.ref("password"),
     tACTelegram: Joi.optional(),
   })
     .with("password", "repeat_password")
     .messages({
-      "object.with":
-        "Passwords must match. \n\nLas contraseñas deben coincidir.",
+      "any.only": "Passwords must match. \n\nLas contraseñas deben coincidir.",
     });
 
   return schema.validate(user);

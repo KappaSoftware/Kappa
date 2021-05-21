@@ -1,5 +1,4 @@
 import React from "react";
-import { FaGithub } from "react-icons/fa";
 import LandingFooterAll from "./LandingFooterAllComponent";
 
 export default function LandingFooter() {

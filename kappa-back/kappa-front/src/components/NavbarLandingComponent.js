@@ -119,6 +119,11 @@ export default function NavbarLanding({ language, setLanguage }) {
                 })}
               </NavDropdown.Item>
             </NavDropdown>
+            <a className="nav-link" href="/help">
+              {intl.formatMessage({
+                id: "landing_navbar_title_help",
+              })}
+            </a>
           </Nav>
           <Nav>
             <ButtonGroup
