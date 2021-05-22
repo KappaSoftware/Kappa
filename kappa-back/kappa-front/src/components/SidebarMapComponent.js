@@ -184,7 +184,7 @@ export default function SidebarMap({
           </MenuItem>
           <MenuItem>
             <a className="nav-link" href="/help">
-              {"-> " +
+              {"• " +
                 intl.formatMessage({
                   id: "landing_navbar_title_help",
                 })}
