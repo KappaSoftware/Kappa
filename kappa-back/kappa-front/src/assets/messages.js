@@ -10,6 +10,7 @@ export default {
     landing_navbar_title_sixth: "Términos y condiciones",
     landing_navbar_title_seventh: "Mapa",
     landing_navbar_title_eight: "Registrarse",
+    landing_navbar_title_help: "Ayuda",
     landing_first_section_title: "Encuentras tus ubicaciones por categorías",
     landing_first_section_button: "Mapa",
     landing_third_section_first: "Usuarios",
@@ -56,14 +57,20 @@ export default {
     dashboard: "Tablero",
     components: "Componentes",
     dropdown: "Desplegable",
-    submenu: "Submenu",
-    multiLevel: "Multinivel",
-    rtl: "",
-    image: "Imagen de fondo",
-    new: "Nuevo",
-    withPrefix: "Con prefijo",
-    withSuffix: "Con sufijo",
-    viewSource: "Ver fuente",
+    landing_help_all:
+      "Puedes encontrar la documentación completa en nuestro repositorio ",
+    landing_help_warning:
+      "Te recordamos una vez más que al usar la aplicación Kappa estás aceptando nuestros términos y condiciones. Puedes leerlos ",
+    landing_help_warning_here: "aquí",
+    landing_help_first_question: "¿Cómo puedo ver ubicaciones?",
+    landing_help_first_answer:
+      "¡Es muy fácil! Primero, tienes que dar click en el botón mapa en la página principal. Luego sólo tienes que dar click en la categoría que quieras ver y se desplegarán todas las subcategorías disponibles. Una vez allí sólo tienes que darle click al deslizador para encender/apagar las ubicaciones relacionadas a esa subcategoría e incluso, ¡se te marcará con el color que aparecerá en el mapa!",
+    landing_help_second_question: "¿Cómo puedo añadir ubicaciones de interés?",
+    landing_help_second_answer:
+      "Por ahora únicamente se pueden agregar ubicaciones por medio de nuestro bot en Telegram. Allí encontrarás botones especializados para agregar categorías, subcategorías y ubicaciones de una forma rápida e intuitiva. Sólo respóndele al bot lo que te va preguntando y él se encargará del resto. ¡Es así de sencillo!",
+    landing_help_third_question: "¿Cómo puedo reportar ubicaciones?",
+    landing_help_third_answer:
+      "Únicamente puedes reportar ubicaciones si estás registrado y logueado en la aplicación. Luego de cierto número de reportes de varios usuarios la ubicación pasará a estar en revisión. Por ahora no tienes que dar ningún detalle de tu reporte, veremos si en un futuro es necesario añadir esta opción. Te pedimos que uses el servicio muy responsablemente y no reportes ubicaciones que sí son correctas.",
   },
   en: {
     title: "Kappa",
@@ -75,6 +82,7 @@ export default {
     landing_navbar_title_sixth: "Disclaimer",
     landing_navbar_title_seventh: "Map",
     landing_navbar_title_eight: "Sign Up",
+    landing_navbar_title_help: "Help",
     landing_first_section_title: "Find your locations by categories",
     landing_first_section_button: "Map",
     landing_third_section_first: "Users",
@@ -119,16 +127,19 @@ export default {
     dialog_signup_submit: "Create user",
     dialog_signup_cancel: "Cancel",
     dialog_required: "Required",
-    dashboard: "Dashboard",
-    components: "Components",
-    dropdown: "Dropdown",
-    submenu: "Submenu",
-    multiLevel: "Multi Level",
-    rtl: "",
-    image: "Background image",
-    new: "NEW",
-    withPrefix: "With Prefix",
-    withSuffix: "With Suffix",
-    viewSource: "View Source",
+    landing_help_all:
+      "You can find the complete documentation in our repository ",
+    landing_help_warning:
+      "We remind you once again that by using the Kappa app you are accepting our terms and conditions. You can read them ",
+    landing_help_warning_here: "here",
+    landing_help_first_question: "How can I see locations?",
+    landing_help_first_answer:
+      "Too easy! First, you have to click on the map button on the main page. Then you just have to click on the category you want to see and all the available subcategories will be displayed. Once there, you just have to click on the slider to turn on / off the locations related to that subcategory and it will even be marked with the color that will appear on the map!",
+    landing_help_second_question: "How can I add locations of interest?",
+    landing_help_second_answer:
+      "For now you can only add locations through our bot in Telegram. There you will find specialized buttons to add categories, subcategories and locations in a fast and intuitive way. Just answer the bot what it asks you and it will take care of the rest. It's that simple!",
+    landing_help_third_question: "How can I report locations?",
+    landing_help_third_answer:
+      "You can only report locations if you are registered and logged into the application. After a certain number of reports from various users, the location will be under review. For now you do not have to give any details of your report, we will see if in the future it is necessary to add this option. We ask that you use the service very responsibly and do not report locations that are correct.",
   },
 };
