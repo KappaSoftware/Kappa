@@ -54,46 +54,49 @@ export default function SidebarMap({
   } else if (dataCategoriesAndSubcategories.errMess) {
     dataCatAndSub = <h4>{dataCategoriesAndSubcategories.errMess}</h4>;
   } else {
-    dataCatAndSub = dataCategoriesAndSubcategories.categoriesAndSubcategories.map(
-      (catAndSub) => (
-        <SubMenu
-          key={catAndSub._id}
-          title={language === "es" ? catAndSub.Name_es : catAndSub.Name_en}
-          icon={<FaRegLaughWink />}
-        >
-          {catAndSub.subcategories.map((subcategory) => {
-            let isChecked = subcategoriesMap[subcategory._id];
-            if (typeof isChecked === "undefined") {
-              dispatch(postSubcategoryMap(subcategory._id, false));
-              isChecked = false;
-            }
-            return (
-              <MenuItem key={subcategory._id}>
-                <Switch
-                  height={16}
-                  width={30}
-                  checkedIcon={false}
-                  uncheckedIcon={false}
-                  onChange={() => {
-                    dispatch(
-                      postSubcategoryMap(
-                        subcategory._id,
-                        !subcategoriesMap[subcategory._id]
-                      )
-                    );
-                  }}
-                  checked={isChecked}
-                  onColor={subcategory.Color}
-                  offColor="#bbbbbb"
-                  className="switch-itemvertical"
-                />{" "}
-                {language === "es" ? subcategory.Name_es : subcategory.Name_en}
-              </MenuItem>
-            );
-          })}
-        </SubMenu>
-      )
-    );
+    dataCatAndSub =
+      dataCategoriesAndSubcategories.categoriesAndSubcategories.map(
+        (catAndSub) => (
+          <SubMenu
+            key={catAndSub._id}
+            title={language === "es" ? catAndSub.Name_es : catAndSub.Name_en}
+            icon={<FaRegLaughWink />}
+          >
+            {catAndSub.subcategories.map((subcategory) => {
+              let isChecked = subcategoriesMap[subcategory._id];
+              if (typeof isChecked === "undefined") {
+                dispatch(postSubcategoryMap(subcategory._id, false));
+                isChecked = false;
+              }
+              return (
+                <MenuItem key={subcategory._id}>
+                  <Switch
+                    height={16}
+                    width={30}
+                    checkedIcon={false}
+                    uncheckedIcon={false}
+                    onChange={() => {
+                      dispatch(
+                        postSubcategoryMap(
+                          subcategory._id,
+                          !subcategoriesMap[subcategory._id]
+                        )
+                      );
+                    }}
+                    checked={isChecked}
+                    onColor={subcategory.Color}
+                    offColor="#bbbbbb"
+                    className="switch-itemvertical"
+                  />{" "}
+                  {language === "es"
+                    ? subcategory.Name_es
+                    : subcategory.Name_en}
+                </MenuItem>
+              );
+            })}
+          </SubMenu>
+        )
+      );
   }
 
   return (
@@ -178,6 +181,14 @@ export default function SidebarMap({
             <span onClick={handleRtlChange}>
               {intl.formatMessage({ id: "map_sidebar_title_changeposition" })}
             </span>
+          </MenuItem>
+          <MenuItem>
+            <a className="nav-link" href="/help">
+              {"-> " +
+                intl.formatMessage({
+                  id: "landing_navbar_title_help",
+                })}
+            </a>
           </MenuItem>
         </Menu>
         <Menu iconShape="circle">
