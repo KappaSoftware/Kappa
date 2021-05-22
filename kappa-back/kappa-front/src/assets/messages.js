@@ -11,7 +11,8 @@ export default {
     landing_navbar_title_seventh: "Mapa",
     landing_navbar_title_eight: "Registrarse",
     landing_navbar_title_help: "Ayuda",
-    landing_first_section_title: "Encuentras tus ubicaciones por categorías",
+    landing_first_section_title:
+      "Georreferencia tus puntos de interés desde tu celular. Kappa te ayuda.",
     landing_first_section_button: "Mapa",
     landing_third_section_first: "Usuarios",
     landing_third_section_second: "Ubicaciones",
@@ -83,7 +84,8 @@ export default {
     landing_navbar_title_seventh: "Map",
     landing_navbar_title_eight: "Sign Up",
     landing_navbar_title_help: "Help",
-    landing_first_section_title: "Find your locations by categories",
+    landing_first_section_title:
+      "Georeference your points of interest from your cell phone. Kappa helps you.",
     landing_first_section_button: "Map",
     landing_third_section_first: "Users",
     landing_third_section_second: "Locations",
