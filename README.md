@@ -86,7 +86,7 @@ A continuación se presentan las etapas de desarrollo del proyecto:
 - Pruebas finales
 - Publicación
 
-### Sprint 9 
+### Sprint 9 (De 24 de Mayo a 4 de Junio)
 
 
 ## Documentos Clave <a name = "Documentos_Clave"></a>
