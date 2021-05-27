@@ -20,6 +20,7 @@ To use Kappa Software Web services, the only technical need is access to the Int
 Kappa Software is committed to offering functional tools, but we have the compromise, together with the users, to review the possible non-operational functions to try to improve our products.
 
 
+
 # Términos de Uso de Kappa Software
 
 # Propietario del sitio 
