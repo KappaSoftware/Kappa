@@ -1,8 +1,8 @@
 # Propietario del sitio 
-**Kappa Software** es conformado por un equipo interdisciplinario que comenzó este proyecto con fines educativos y un objetivo social, puedes conocer de nosotros en la sección "_about us_" de nuestro sitio Web http://frontkappa.gnuve.org/home/#ldSeventhSec.
+**Kappa Software** es conformado por un equipo interdisciplinario que comenzó este proyecto con fines educativos y un objetivo social, puedes conocer de nosotros en la sección "_about us_" de nuestro sitio Web http://frontkappa.gnuve.org/home.
 
 Los desarrolladores iniciales de **Kappa Software** son entusiastas de las herramientas del Software Libre y sus libertades de manera que el producto final del ejercicio académico está enmarcado en la licencia GPL3. 
-Las características generales del proyecto Kappa pueden ser consultados aqui http://frontkappa.gnuve.org/home/#ldFirstSec.
+Las características generales del proyecto Kappa pueden ser consultados aqui http://frontkappa.gnuve.org/home.
 
 # Quién puede usar el servicio
 Los servicios de **Kappa Software** puede ser utilizado por cualquier persona que acepte nuestros Términos de Uso y Política de Privacidad, respetando el objetivo social y siempre primando los derechos fundamentales. 
