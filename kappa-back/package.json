@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "buildFront": "cd kappa-front && npm install && npm run build",
-    "heroku-postbuild": "cd front && npm install && npm run build"
+    "heroku-postbuild": "cd kappa-front && npm install && npm run build"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
