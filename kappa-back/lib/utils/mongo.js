@@ -1,5 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
-const url = "mongodb://myUserAdmin:123@aion.gnuve.org:27017/?authSource=admin";
+const url = process.env.DB_URL;
 
 const dataBase = "KappaDB";
 
