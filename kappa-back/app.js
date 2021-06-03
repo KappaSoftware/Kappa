@@ -3,6 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+require("dotenv").config();
 
 var usersRouter = require("./routes/users");
 var telegramUsersRouter = require("./routes/telegramUsers");
@@ -12,6 +13,8 @@ var dataRouter = require("./routes/data");
 var landingStatsRouter = require("./routes/landingStats");
 
 var app = express();
+console.log("The value of PORT is:", process.env.PORT);
+console.log("The env is:", process.env.NODE_ENV);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
