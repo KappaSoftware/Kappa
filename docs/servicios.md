@@ -302,7 +302,11 @@ Los pasos para la instalación de Python3 dependen del SO en el cual este se qui
 
 Para leer más sobre ambientes virtuales e instalación de paquetes puede verse la documentación disponible en https://docs.python.org/3/tutorial/venv.html y https://docs.python.org/3/installing/index.html.
 
-La libreria específica "python_telegram-bot" puede ser instalada ejecutanto en el terminal el comando:
+### Requerimientos
+
+Para contribuir al desarrollo de esta herramienta deben instalarse las librerias "python_telegram-bot" y "folium". Las instrucciones de instalación de estas librerias se describen brevemente a seguir.
+
+- La libreria "python_telegram-bot" puede ser instalada ejecutanto en el terminal el comando:
 ```
 $ pip install python-telegram-bot --upgrade
 ```
@@ -311,6 +315,16 @@ o, con anaconda:
 $ conda install -c conda-forge python-telegram-bot
 ```
 Más información sobre la instalación y uso de esta librería pueden encontrarse en la página fuente: https://github.com/python-telegram-bot/python-telegram-bot
+
+- La libreria Folium, que es necesária para crear el mapa que se muestra en la opción "Búsqueda" del bot, puede instalarse ejecutando el comando
+```
+$ pip install folium
+```
+o, con anaconda:
+```
+$ conda install -c conda-forge folium
+```
+Más información sobre esta libreria puede encontrarse en https://pypi.org/project/folium/.
 
 El bot de Telegram de Kappa Software cuenta con un filtro de lenguage inapropiado en lenguas inglesa y española, el cual es implementado a través de la función  "bad_language_filter". Para esto fueron utilizadas listas de malas palabras disponibles en https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/blob/master/README.md (Creative Commons Attribution 4.0 International).
 
