@@ -13,14 +13,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function HelpComponent() {
+export default function HelpComponent({ language, setLanguage }) {
   const intl = useIntl();
 
   const classes = useStyles();
 
   return (
     <>
-      <NavbarLanding />
+      <NavbarLanding language={language} setLanguage={setLanguage} />
       <Toolbar />
       <Container fixed className={classes.paddingContainer}>
         <h2>
