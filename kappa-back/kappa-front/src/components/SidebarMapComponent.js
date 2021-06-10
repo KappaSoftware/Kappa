@@ -15,7 +15,7 @@ import {
   SidebarFooter,
   SidebarContent,
 } from "react-pro-sidebar";
-import { FaGithub, FaRegLaughWink } from "react-icons/fa";
+import { FaGithub, FaRegLaughWink, FaHandsHelping } from "react-icons/fa";
 import Switch from "react-switch";
 import { NavLink } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
@@ -122,7 +122,7 @@ export default function SidebarMap({
               src="/kappaLogo.png"
               width="30"
               height="30"
-              className="d-inline-block align-top"
+              className="d-inline-block align-center"
               alt="React Bootstrap logo"
             />
           </div>
@@ -139,7 +139,16 @@ export default function SidebarMap({
               whiteSpace: "nowrap",
             }}
           >
-            <NavLink to="/home" style={{ color: "white" }}>
+            <NavLink to="/home">
+              <img
+                src="/kappaLogo.png"
+                width="30"
+                height="30"
+                className="d-inline-block align-center"
+                alt="React Bootstrap logo"
+              />
+            </NavLink>
+            <NavLink to="/home" style={{ color: "white", paddingLeft: "10px" }}>
               {intl.formatMessage({ id: "map_sidebar_title" })}
             </NavLink>
           </div>
@@ -182,20 +191,23 @@ export default function SidebarMap({
               {intl.formatMessage({ id: "map_sidebar_title_changeposition" })}
             </span>
           </MenuItem>
-          <MenuItem>
+          <MenuItem icon={<FaHandsHelping />}>
             <a className="nav-link" href="/help">
-              {"• " +
-                intl.formatMessage({
-                  id: "landing_navbar_title_help",
-                })}
+              {intl.formatMessage({
+                id: "landing_navbar_title_help",
+              })}
             </a>
           </MenuItem>
         </Menu>
         <Menu iconShape="circle">
           <li className="header-menu">
-            <span>
-              {intl.formatMessage({ id: "map_sidebar_title_categories" })}
-            </span>
+            {collapsed ? (
+              <span>Cat.</span>
+            ) : (
+              <span>
+                {intl.formatMessage({ id: "map_sidebar_title_categories" })}
+              </span>
+            )}
           </li>
           {dataCatAndSub}
         </Menu>
