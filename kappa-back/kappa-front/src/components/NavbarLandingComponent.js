@@ -1,11 +1,10 @@
 import React, { useState, useRef } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
 import { Button as ButtonReact } from "@material-ui/core";
 import DialogSignUp from "./DialogSignUpComponent";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link as LinkReactDom, useLocation } from "react-router-dom";
 import { useIntl } from "react-intl";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
@@ -16,6 +15,7 @@ import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-scroll";
 
 const options = ["Español", "English"];
 
@@ -30,6 +30,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NavbarLanding({ language, setLanguage }) {
   const intl = useIntl();
+
+  const location = useLocation();
 
   const classes = useStyles();
 
@@ -69,12 +71,12 @@ export default function NavbarLanding({ language, setLanguage }) {
     <header>
       <Navbar
         collapseOnSelect
-        expand="sm"
+        expand="lg"
         bg="gray"
         variant="light"
         fixed="top"
       >
-        <Navbar.Brand href="/home">
+        <Navbar.Brand as={LinkReactDom} to="/home">
           <img
             src="/kappaLogo.png"
             width="40"
@@ -86,44 +88,60 @@ export default function NavbarLanding({ language, setLanguage }) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <a className="nav-link" href="/home/#ldFirstSec">
+            {location.pathname === "/home" ? (
+              <>
+                <Link
+                  className="nav-link"
+                  to="ldFirstSec"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  {intl.formatMessage({
+                    id: "landing_navbar_title_first",
+                  })}
+                </Link>
+                <Link
+                  className="nav-link"
+                  to="ldFourthSec"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  {intl.formatMessage({
+                    id: "landing_navbar_title_second",
+                  })}
+                </Link>
+                <Link
+                  className="nav-link"
+                  to="ldSixthSec"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                >
+                  {intl.formatMessage({
+                    id: "landing_navbar_title_fourth",
+                  })}
+                </Link>
+              </>
+            ) : (
+              <NavLink to="/home" className="nav-link">
+                {intl.formatMessage({
+                  id: "landing_navbar_title_first",
+                })}
+              </NavLink>
+            )}
+
+            <NavLink to="/disclaimer" className="nav-link">
               {intl.formatMessage({
-                id: "landing_navbar_title_first",
+                id: "landing_navbar_title_sixth",
               })}
-            </a>
-            <a className="nav-link" href="/home/#ldFourthSec">
-              {intl.formatMessage({
-                id: "landing_navbar_title_second",
-              })}
-            </a>
-            <NavDropdown
-              title={intl.formatMessage({
-                id: "landing_navbar_title_third",
-              })}
-              id="collasible-nav-dropdown"
-            >
-              <NavDropdown.Item href="/home/#ldSixthSec">
-                {intl.formatMessage({
-                  id: "landing_navbar_title_fourth",
-                })}
-              </NavDropdown.Item>
-              <NavDropdown.Item href="/home/#ldSeventhSec">
-                {intl.formatMessage({
-                  id: "landing_navbar_title_fiveth",
-                })}
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/disclaimer">
-                {intl.formatMessage({
-                  id: "landing_navbar_title_sixth",
-                })}
-              </NavDropdown.Item>
-            </NavDropdown>
-            <a className="nav-link" href="/help">
+            </NavLink>
+            <NavLink to="/help" className="nav-link">
               {intl.formatMessage({
                 id: "landing_navbar_title_help",
               })}
-            </a>
+            </NavLink>
           </Nav>
           <Nav>
             <ButtonGroup

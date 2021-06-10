@@ -6,8 +6,7 @@ export default {
     landing_navbar_title_second: "Producto",
     landing_navbar_title_third: "Más opciones",
     landing_navbar_title_fourth: "Más info",
-    landing_navbar_title_fiveth: "Sobre nosotros",
-    landing_navbar_title_sixth: "Términos y condiciones",
+    landing_navbar_title_sixth: "Política y términos de uso",
     landing_navbar_title_seventh: "Mapa",
     landing_navbar_title_eight: "Registrarse",
     landing_navbar_title_help: "Ayuda",
@@ -46,6 +45,10 @@ export default {
     dialog_login_submit: "Ingresar",
     dialog_login_cancel: "Cancelar",
     dialog_signup_username: "Nombre de usuario",
+    dialog_signup_username_min:
+      "El nombre de usuario debe tener al menos 5 caracteres",
+    dialog_signup_username_max:
+      "El nombre de usuario debe tener máximo 30 caracteres",
     dialog_signup_password: "Contraseña",
     dialog_signup_password_min:
       "La contraseña debe tener al menos 5 caracteres",
@@ -79,8 +82,7 @@ export default {
     landing_navbar_title_second: "Product",
     landing_navbar_title_third: "More options",
     landing_navbar_title_fourth: "More info",
-    landing_navbar_title_fiveth: "About us",
-    landing_navbar_title_sixth: "Disclaimer",
+    landing_navbar_title_sixth: "Privacy Policy & Terms of Use",
     landing_navbar_title_seventh: "Map",
     landing_navbar_title_eight: "Sign Up",
     landing_navbar_title_help: "Help",
