@@ -19,10 +19,10 @@ const theme = createMuiTheme({
   },
 });
 
+const lengInitial = window.navigator.language.startsWith("es") ? "es" : "en";
+
 function App() {
-  const [language, setLanguage] = useState(
-    window.navigator.language.startsWith("es") ? "es" : "en"
-  );
+  const [language, setLanguage] = useState(lengInitial);
 
   return (
     <ThemeProvider theme={theme}>

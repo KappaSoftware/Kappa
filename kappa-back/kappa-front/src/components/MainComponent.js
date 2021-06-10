@@ -14,10 +14,10 @@ function Main({ language, setLanguage }) {
           <Landing language={language} setLanguage={setLanguage} />
         </Route>
         <Route exact path="/disclaimer">
-          <DisclaimerComponent />
+          <DisclaimerComponent language={language} setLanguage={setLanguage} />
         </Route>
         <Route exact path="/help">
-          <HelpComponent />
+          <HelpComponent language={language} setLanguage={setLanguage} />
         </Route>
         <Route exact path="/map">
           <Layout language={language} setLanguage={setLanguage} />
