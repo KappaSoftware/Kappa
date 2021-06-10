@@ -7,7 +7,6 @@ import { login } from "./login";
 import { signup } from "./signup";
 import { LandingStats } from "./landingStats";
 import thunkMiddleware from "redux-thunk";
-import logger from "redux-logger";
 
 export const ConfigureStore = () => {
   const store = createStore(
@@ -20,7 +19,7 @@ export const ConfigureStore = () => {
       signup: signup,
       landingStats: LandingStats,
     }),
-    applyMiddleware(thunkMiddleware, logger)
+    applyMiddleware(thunkMiddleware)
   );
 
   return store;

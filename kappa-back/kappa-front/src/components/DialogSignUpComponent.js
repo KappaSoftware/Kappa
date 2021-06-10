@@ -14,6 +14,8 @@ import Typography from "@material-ui/core/Typography";
 import { useHistory } from "react-router";
 import { useIntl } from "react-intl";
 
+var Recaptcha = require("react-recaptcha");
+
 const useStyles = makeStyles((theme) => ({
   marginButton: {
     marginTop: theme.spacing(2),
@@ -25,6 +27,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+let recaptchaInstance;
+
+const resetRecaptcha = () => {
+  recaptchaInstance.reset();
+};
+
 export default function DialogSignUp(props) {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -34,19 +42,12 @@ export default function DialogSignUp(props) {
 
   const [userError, setUserError] = useState("");
 
+  const [token, setToken] = useState("");
+
+  const [showCreate, setShowCreate] = useState(false);
+
   const handleCloseDialog = () => {
     props.setOpenDialog(false);
-  };
-
-  const handleSubmitSignUp = async (data) => {
-    const userData = await dispatch(createUser(data));
-    if (userData.data.create === true) {
-      props.setOpenDialog(false);
-      await dispatch(loginUser(data));
-      history.push("/map");
-    } else {
-      await setUserError(userData.data.message);
-    }
   };
 
   const {
@@ -54,9 +55,37 @@ export default function DialogSignUp(props) {
     control,
     formState: { errors },
     watch,
+    reset,
   } = useForm();
 
-  password.current = watch("password", "");
+  const handleSubmitSignUp = async (data) => {
+    data.token = token;
+    const userData = await dispatch(createUser(data));
+    if (userData.data.create === true) {
+      props.setOpenDialog(false);
+      reset("username", "password", "repeat_password");
+      await setToken("");
+      await dispatch(loginUser(data));
+      await setShowCreate(false);
+      history.push("/map");
+    } else {
+      await setUserError(userData.data.message);
+      await resetRecaptcha();
+    }
+  };
+
+  password.current = watch("password");
+
+  // Función que se ejecutará después de recibir el token.
+  var callback = function () {
+    console.log("Token created");
+  };
+
+  // Recibimos el token y almacenamos su respuesta en un estado con el hook useState.
+  var verifyCallback = function (response) {
+    setToken(response);
+    setShowCreate(true);
+  };
 
   return (
     <div>
@@ -197,16 +226,28 @@ export default function DialogSignUp(props) {
               {userError}
             </Typography>
 
-            <Button
-              type="submit"
-              color="secondary"
-              variant="contained"
-              className={classes.marginButton}
-            >
-              {intl.formatMessage({
-                id: "dialog_signup_submit",
-              })}
-            </Button>
+            <Recaptcha
+              sitekey="6LdAqyMbAAAAAP7can-YZ7mZJHIvgE-FOQKIIcvl"
+              theme="dark"
+              verifyCallback={verifyCallback}
+              onloadCallback={callback}
+              ref={(e) => (recaptchaInstance = e)}
+            />
+
+            {showCreate ? (
+              <Button
+                type="submit"
+                color="secondary"
+                variant="contained"
+                className={classes.marginButton}
+              >
+                {intl.formatMessage({
+                  id: "dialog_signup_submit",
+                })}
+              </Button>
+            ) : (
+              <></>
+            )}
           </form>
         </DialogContent>
         <DialogActions>
