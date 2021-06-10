@@ -16,6 +16,7 @@ const validateUser = (user) => {
           "Incorrect password pattern. You must only use letters, numbers or special characters (#?!@$%^&*-) and you must use between 5 and 30 characters. \n\nPatrón de contraseña incorrecto. Solo debe usar letras, números o caracteres especiales (#?!@$%^&*-) y debe usar entre 3 y 30 caracteres.",
       }),
     repeat_password: Joi.ref("password"),
+    token: Joi.required(),
     tACTelegram: Joi.optional(),
   })
     .with("password", "repeat_password")

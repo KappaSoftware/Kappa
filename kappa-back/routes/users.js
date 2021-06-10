@@ -13,6 +13,8 @@ var [
 
 const userLogic = require("../logic/userLogic");
 
+const axios = require("axios");
+
 router.post("/login", async function (req, res, next) {
   try {
     const authUser = await login(req.body);
@@ -66,16 +68,30 @@ router.post("/", async function (req, res, next) {
     });
   }
 
-  try {
-    const newUser = await insertUser(req.body);
-    newUser.create = true;
-    res.send(newUser);
-  } catch (error) {
-    res.status(200).json({
-      create: false,
-      message: error.message,
+  const secret_key = process.env.SECRET_CAPTCHA;
+  const token = req.body.token;
+  const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${token}`;
+
+  axios
+    .post(url)
+    .then(async (google_response) => {
+      if (google_response.data.success === true) {
+        const newUser = await insertUser(req.body);
+        newUser.create = true;
+        res.send(newUser);
+      } else {
+        res.status(200).json({
+          create: false,
+          message: "El token ya fue usado, realice el CAPTCHA nuevamente.",
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(200).json({
+        create: false,
+        message: error.message,
+      });
     });
-  }
 });
 
 /*router.put("/:id", async function (req, res) {

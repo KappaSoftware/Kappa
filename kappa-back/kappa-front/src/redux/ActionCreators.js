@@ -142,6 +142,7 @@ export const createUser = (data) => async (dispatch) => {
     username: data.username,
     password: data.password,
     repeat_password: data.repeat_password,
+    token: data.token,
   };
 
   let respuesta;
