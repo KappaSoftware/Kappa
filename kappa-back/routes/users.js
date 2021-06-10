@@ -68,7 +68,7 @@ router.post("/", async function (req, res, next) {
     });
   }
 
-  const secret_key = "6LdAqyMbAAAAAIyx2kgZokKMOQnwGOv09vWyUlCJ";
+  const secret_key = process.env.SECRET_CAPTCHA;
   const token = req.body.token;
   const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${token}`;
 
@@ -76,8 +76,6 @@ router.post("/", async function (req, res, next) {
     .post(url)
     .then(async (google_response) => {
       if (google_response.data.success === true) {
-        console.log(req.body);
-        console.log(google_response);
         const newUser = await insertUser(req.body);
         newUser.create = true;
         res.send(newUser);
