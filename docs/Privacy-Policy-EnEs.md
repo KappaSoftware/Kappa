@@ -1,7 +1,7 @@
 # Kappa Software Privacy Policy (Spanish below)
 Last updated: May 27th, 2021
 
-**Kappa Software** ("we") operates the website http://kappasoftware.org (the "Site") and the Telegram bot **ktelegrambot** (the "Bot"). This page informs you of our policies regarding the collection, use, and disclosure of information we receive from the users of these tools.
+**Kappa Software** ("we") operates the website https://kappasw.org (the "Site") and the Telegram bot **kappasoftwarebot** (the "Bot"). This page informs you of our policies regarding the collection, use, and disclosure of information we receive from the users of these tools.
 
 If we decide to collect Personal Information, it is only for providing and improving Kappa Software's own services. To use the Site and Bot, you must agree with the collection and use of information in accordance with this Policy.
 
@@ -39,7 +39,7 @@ If you have any questions about this Privacy Policy or Terms of Use, please cont
 # Política de privacidad del software Kappa
 Última actualización: Jueves 27 de Mayo de 2021
 
-Kappa Software ("nosotros") opera el sitio web http://kappasoftware.org (el "Sitio") y el bot de Telegram **ktelegrambot** (el "Bot"). En esta página se informan nuestras políticas con respecto a la recopilación, uso y divulgación de la información que recibimos de los usuarios a través de estas dos herramientas.
+Kappa Software ("nosotros") opera el sitio web https://kappasw.org (el "Sitio") y el bot de Telegram **kappasoftwarebot** (el "Bot"). En esta página se informan nuestras políticas con respecto a la recopilación, uso y divulgación de la información que recibimos de los usuarios a través de estas dos herramientas.
 
 Si decidimos recopilar información personal, esto es sólo para alimentar y mejorar los servicios de Kappa Software. Para utilizar el Site y/o el Bot, se debe aceptar la recopilación y el uso de información de acuerdo con los términos aquí establecidos.
 
