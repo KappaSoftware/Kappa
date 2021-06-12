@@ -2,7 +2,7 @@
 
 # The Owner
 
-**Kappa Software** is formed by an interdisciplinary team of professionals that started this project with an educative aim and a social-oriented goal.  A better description of Kappa's project and founders can be found at Kappa’s Website http://frontkappa.gnuve.org/home.
+**Kappa Software** is formed by an interdisciplinary team of professionals that started this project with an educative aim and a social-oriented goal.  A better description of Kappa's project and founders can be found at Kappa’s Website https://kappasw.org/.
 
 **Kappa Software** is a Free Software project and so, its final products are in the frame of a  GPL3 license. 
 
@@ -13,7 +13,7 @@ Kappa Software's services can be used by anyone who accepts our Terms of Use and
 # Use conditions
 For us, the respect for Human Rights is over any interest, and so, **Kappa Software** reserves the right of removing any publication or user account that violates such rights or that can be considered as harmful to the physical or moral integrity of anyone. As a team, we do not participate in any political, religious, or other social organization, and we are respectful of all ideologies; thus, we do not take responsibility or consider ourselves as representing any manifestation that is promoted by Kappa’s users or developers individually. The users who utilize Kappa Software's services through Kappa's Telegram bot (ktelegrambot) are submitted to the conditions of both Kappa Software and Telegram. 
 
-# Acces requirements
+# Access requirements
 To use Kappa Software Web services, the only technical need is access to the Internet. To register a place of interest, a mobile device with Internet access and with a location sharing function is needed. For the rest, it suffices that the user has interest and curiosity about our project and services. To register a place through ktelegrambot requires some data of the mobile device, but not of the user itself. Kappa Software does NOT store any personal data.
 
 # Warranties of the Services
@@ -24,7 +24,7 @@ Kappa Software is committed to offering functional tools, but we have the compro
 # Términos de Uso de Kappa Software
 
 # Propietario del sitio 
-**Kappa Software** está conformado por un equipo interdisciplinario de profesionales quienes iniciaron este proyecto con una finalidad educativa y un objetivo social. Una descripción ampliada del proyecto Kappa y de sus fundadores puede encontrarse en el sitio web http://frontkappa.gnuve.org/home.
+**Kappa Software** está conformado por un equipo interdisciplinario de profesionales quienes iniciaron este proyecto con una finalidad educativa y un objetivo social. Una descripción ampliada del proyecto Kappa y de sus fundadores puede encontrarse en el sitio web https://kappasw.org/.
 
 **Kappa Software** es un proyecto de software libre por lo que sus productos finales se encuentran en el marco de una licencia GPL3.
 
