@@ -35,6 +35,17 @@ export default function HelpComponent({ language, setLanguage }) {
           <a href="https://github.com/KappaSoftware/Kappa"> Kappa</a>.
         </p>
         <p>
+          {intl.formatMessage({
+            id: "landing_help_telegram",
+          })}
+          <a href="https://telegram.me/kappa_software_bot">
+            {intl.formatMessage({
+              id: "landing_help_telegram_here",
+            })}
+          </a>
+          .
+        </p>
+        <p>
           <strong>
             {intl.formatMessage({
               id: "landing_help_warning",

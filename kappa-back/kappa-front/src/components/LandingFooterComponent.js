@@ -27,7 +27,7 @@ export default function LandingFooter() {
           />
         </a>
         <a
-          href="https://github.com/KappaSoftware/Kappa"
+          href="https://t.me/Kappa_PQR"
           target="_blank"
           rel="noopener noreferrer"
         >
