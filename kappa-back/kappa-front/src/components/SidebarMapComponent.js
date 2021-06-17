@@ -219,6 +219,7 @@ export default function SidebarMap({
           <NavLink to="/disclaimer" style={{ color: "#f50057" }}>
             {intl.formatMessage({ id: "map_sidebar_footer_title2" })}
           </NavLink>
+          .
         </Typography>
         <div
           className="sidebar-btn-wrapper"

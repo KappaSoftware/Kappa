@@ -171,6 +171,7 @@ export default function Map({ language }) {
         <NavLink to="/disclaimer" style={{ color: "#f50057" }}>
           {intl.formatMessage({ id: "map_sidebar_footer_title2" })}
         </NavLink>
+        .
       </Typography>
       <SnackbarComponent
         openSnackbar={openSnackbar}

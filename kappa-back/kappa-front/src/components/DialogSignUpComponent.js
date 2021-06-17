@@ -227,7 +227,7 @@ export default function DialogSignUp(props) {
             </Typography>
 
             <Recaptcha
-              sitekey="6LdAqyMbAAAAAP7can-YZ7mZJHIvgE-FOQKIIcvl"
+              sitekey={process.env.REACT_APP_SITEKEY_CAPTCHA}
               theme="dark"
               verifyCallback={verifyCallback}
               onloadCallback={callback}

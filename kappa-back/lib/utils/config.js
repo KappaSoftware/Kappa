@@ -1,3 +1,5 @@
+const secretJWT = process.env.SECRET_JWT;
+
 module.exports = {
-  secret: "kappasecretjwt",
+  secret: secretJWT,
 };
