@@ -10,83 +10,11 @@
 
 Bienvenid@ al proyecto **Kappa**, aquí puede encontrar toda la información sobre el desarrollo y publicación de contenidos.
 
-![coverage](https://img.shields.io/badge/estado-50%25-blue?style=for-the-badge)
+![coverage](https://img.shields.io/badge/estado-100%25-blue?style=for-the-badge)
 
-Kappa es un servicio de GeoRefenciación con objetivos de índole social orientado a brindar un acceso simple y rápido para la consulta de información georeferenciada y la creación de capas y puntos en el mapa de acuerdo a nuestras políticas y objetivos. Utiliza como cliente un bot de Telegram para alimentar las diferentes capas existentes o definir una nueva capa.
+Kappa Software es una aplicación de georreferenciación con enfoque social, tiene como objetivo permitir a cualquiera marcar en el mapa desde eventos (protestas, mitines, etc), puntos de vacunación, baches de carretera desde un bot de telegram. El mapa con todas las categorías y puntos se puede consultar desde la aplicación web (www.kappasw.org) y también desde el bot de telegram (@kappa_software_bot)
 
-## Objetivo <a name = "Objetivo"></a>
-
-Desarrollar la implementación de una herramienta de georeferenciación (Google Maps, OpenStreet Map, Ushahidi) con enfoque social orientada al posicionamiento de recursos (médicos, alimenticios, etc.), instituciones y centros de educación, eventos de seguridad (atracos, hurto, etc.) entre otros.
-
-La implementación consta de dos partes:
-1. Una plataforma de visualización web
-2. Un cliente vía Telegram para el registro o solicitud de ubicaciones de interés
-
-Los *Usuarios* de la plataforma serán clasificados en:
-* **Consultores:** utilizan únicamente la interfaz web para encontrar ubicaciones de interés.
-* **Mapeadores:** utilizan el cliente Telegram para registrar ubicaciones de interés.
-* **Verificadores:** utilizan el cliente Telegram para reportar ubicaciones falsas o problemáticas.
-
-## Categorías v1
-1. Bienes -> alimentos y repuestos
-2. Servicios -> refrigeración, salud, puntos de reciclaje
-3. Ayuda -> alertas, centros de donaciones
-
-## Categorias v2 (a discutir en reunión)
-1. Encontrar cosas (bienes, donde hay?)
-     1.1 Alimentos, 
-     1.2 Medicinas,
-     1.3 Huecos en la via,
-     1.4 Repuestos
-2. Encontrar personas (servicios, donde hacen?)
-     2.1 Manutención de refrigeradores
-     2.2 Aplicación de vacunas
-     2.3 Recolección/Entrega de donaciones
-     2.4 Recolección de material reciclable
-     2.5 Organización de eventos 
-
-A continuación se presentan las etapas de desarrollo del proyecto: 
-
-### Sprint 1 (De 1 a 12 de Febrero de 2021)
-- Consultar API Mapas y conocer el funcionamiento del API: Fausto y Paola
-- Diseño App: Octavio y Germán
-- Consultar API Telegram y conocer el funcionamiento del API: Jorge y Char
-
-### Sprint 2 (De 15 a 26 de Febrero de 2021)
-- Creación de la primera versión de código para presentación de capas en el mapa (Python y React)
-- Redacción de primera versión de la Politica de Privacidad de Kappa Software
-- Revisión de adecuación de los objetivos y políticas de Kappa Software a las politicas de privacidad de Telegram (primera parte)
-- Migración de código del Bot desde su primera versión en Elixir a lenguaje Python
-- Definición de formato de contenido del archivo .json generado a través de Telegram para ser transmitido al backend
-- Definición actualizada de las categorias de busqueda: 
-     - Registro de huecos en carreteras y de eventos como subcategorias de "Bienes"
-     - Registro de puntos de vacunación como subcategoria de "Servicios"
-
-### Sprint 3 (De 1 a 12 de Marzo de 2021)
-- Puesta en marcha de la página web en el servidor 
-      - Definición de secciones y presentación
-- Establecer comunicación Telegram-Node y Node-Mapa
-- Producir primera versión de mapa con iconos "personalizados" utilizando lenguaje React
-- Revisión y definición de asuntos legales relacionados a la adecuación a las politicas de Privacidad de Telegram y Términos de uso
-- Diseño y administración del uso de Máquinas virtuales.
-
-### Sprint 4 (De 15 a 26 de Marzo de 2021)
-- Diseño de funcionalidades del bot 
-- Definición de las políticas de aceptación de usuários por categoria
-- Definición de filtros de texto para la categoria Eventos 
-- Implementación de filtros para lenguaje inapropiado
-
-### Sprint 
-
-### Sprint 7 (De 26 Abril al 7 de Mayo)
-- Etapa de Desarrollo
-- Funcionalidades básicas completas
-
-### Sprint 8 (De 10 a 21 de Mayo)
-- Pruebas finales
-- Publicación
-
-### Sprint 9 (De 24 de Mayo a 4 de Junio)
+Kappa Software no captura ni almacena datos vinculantes de los usuarios - tenemos como principio el respeto a la privacidad de nuestros usuarios -. Al ser un proyecto de Software Libre espera la contribución de la comunidad para poder mantener actualizado el servicio y funcionalidades desarrolladas y por desarrollar.
 
 
 ## Documentos Clave <a name = "Documentos_Clave"></a>
