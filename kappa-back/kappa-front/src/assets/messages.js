@@ -13,6 +13,9 @@ export default {
     landing_first_section_title:
       "Georreferencia tus puntos de interés desde tu celular. Kappa te ayuda.",
     landing_first_section_button: "Mapa",
+    landing_second_section_first: "¡Mira aquí nuestro live!",
+    landing_second_section_first_opt2:
+      "¡Clic aquí para ver nuestra transmisión!",
     landing_third_section_first: "Usuarios",
     landing_third_section_second: "Ubicaciones",
     landing_third_section_third: "Categorías",
@@ -92,6 +95,8 @@ export default {
     landing_first_section_title:
       "Georeference your points of interest from your cell phone. Kappa helps you.",
     landing_first_section_button: "Map",
+    landing_second_section_first: "Click here to watch our live!",
+    landing_second_section_first_opt2: "Click here to watch our live!",
     landing_third_section_first: "Users",
     landing_third_section_second: "Locations",
     landing_third_section_third: "Categories",
