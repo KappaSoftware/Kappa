@@ -228,7 +228,7 @@ export default function SidebarMap({
           }}
         >
           <a
-            href="https://github.com/KappaSoftware/Kappa"
+            href="https://github.com/KappaSoftware/KappaSoftware"
             target="_blank"
             className="sidebar-btn"
             rel="noopener noreferrer"
