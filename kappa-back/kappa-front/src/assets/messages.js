@@ -31,8 +31,8 @@ export default {
     landing_sixth_section_description:
       "Kappa te da ubicaciones de tu interés rápida e intuitivamente",
     landing_seventh_section_title: "Sobre nosotros",
-    map_navbar_title_login: "Ingresar",
-    map_navbar_title_signup: "Registrarse",
+    map_navbar_title_login: "Ingreso",
+    map_navbar_title_signup: "Registro",
     map_navbar_title_welcome: "Bienvenido",
     map_navbar_title_logout: "Cerrar sesión",
     map_navbar_title_map: "Mapa",
