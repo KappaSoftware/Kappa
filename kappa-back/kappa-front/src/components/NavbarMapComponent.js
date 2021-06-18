@@ -27,13 +27,19 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   marginRightButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
   },
   alignRight: {
     textAlign: "right",
   },
   paperOption: {
     zIndex: 500,
+  },
+  marginRightLanguage: {
+    marginRight: theme.spacing(1),
+  },
+  paddingToolbar: {
+    padding: "0px 10px 0px 10px",
   },
 }));
 
@@ -106,7 +112,6 @@ export default function NavbarMap({
         variant="outlined"
         color="secondary"
         onClick={handleClickOpenDialogSignUp}
-        className={classes.marginRightButton}
       >
         {intl.formatMessage({
           id: "map_navbar_title_signup",
@@ -140,7 +145,7 @@ export default function NavbarMap({
   return (
     <>
       <AppBar position="static" color="default">
-        <Toolbar>
+        <Toolbar className={classes.paddingToolbar}>
           <IconButton
             edge="start"
             className={"btn-toggle"}
@@ -161,7 +166,7 @@ export default function NavbarMap({
             color="primary"
             ref={anchorRef}
             aria-label="Language"
-            className={classes.marginRightButton}
+            className={classes.marginRightLanguage}
           >
             <Button>{options[selectedIndex]}</Button>
             <Button
@@ -169,7 +174,7 @@ export default function NavbarMap({
               size="small"
               aria-controls={openOptions ? "Language menu" : undefined}
               aria-expanded={openOptions ? "true" : undefined}
-              aria-label="Select merge strategy"
+              aria-label="Select language"
               aria-haspopup="menu"
               onClick={handleToggleOptions}
             >
@@ -210,7 +215,6 @@ export default function NavbarMap({
               </Grow>
             )}
           </Popper>
-
           {buttonLoginOrUsername}
         </Toolbar>
       </AppBar>
