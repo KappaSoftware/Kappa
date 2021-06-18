@@ -16,7 +16,7 @@ export default function LandingFooter() {
           alt="CC-BY-SA"
         />
         <a
-          href="https://github.com/KappaSoftware/Kappa"
+          href="https://github.com/KappaSoftware/KappaSoftware"
           target="_blank"
           rel="noopener noreferrer"
         >

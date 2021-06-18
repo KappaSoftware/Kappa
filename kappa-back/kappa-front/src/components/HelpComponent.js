@@ -32,7 +32,7 @@ export default function HelpComponent({ language, setLanguage }) {
           {intl.formatMessage({
             id: "landing_help_all",
           })}
-          <a href="https://github.com/KappaSoftware/Kappa"> Kappa</a>.
+          <a href="https://github.com/KappaSoftware/KappaSoftware"> Kappa</a>.
         </p>
         <p>
           {intl.formatMessage({
@@ -41,6 +41,17 @@ export default function HelpComponent({ language, setLanguage }) {
           <a href="https://telegram.me/kappa_software_bot">
             {intl.formatMessage({
               id: "landing_help_telegram_here",
+            })}
+          </a>
+          .
+        </p>
+        <p>
+          {intl.formatMessage({
+            id: "landing_help_faq",
+          })}
+          <a href="https://telegram.me/kappa_software_bot">
+            {intl.formatMessage({
+              id: "landing_help_faq_here",
             })}
           </a>
           .

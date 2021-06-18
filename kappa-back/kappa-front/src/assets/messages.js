@@ -72,6 +72,8 @@ export default {
     landing_help_telegram:
       "Puedes encontrar nuestro bot de Telegram @kappa_software_bot ",
     landing_help_telegram_here: "aquí",
+    landing_help_faq: "Puedes encontrar nuestro grupo de PQR en Telegram ",
+    landing_help_faq_here: "aquí",
     landing_help_first_question: "¿Cómo puedo ver ubicaciones?",
     landing_help_first_answer:
       "¡Es muy fácil! Primero, tienes que dar click en el botón mapa en la página principal. Luego sólo tienes que dar click en la categoría que quieras ver y se desplegarán todas las subcategorías disponibles. Una vez allí sólo tienes que darle click al deslizador para encender/apagar las ubicaciones relacionadas a esa subcategoría e incluso, ¡se te marcará con el color que aparecerá en el mapa!",
@@ -146,6 +148,8 @@ export default {
     landing_help_warning_here: "here",
     landing_help_telegram: "You can find our Telegram bot @kappa_software_bot ",
     landing_help_telegram_here: "here",
+    landing_help_faq: "You can find our FAQ group on Telegram ",
+    landing_help_faq_here: "here",
     landing_help_first_question: "How can I see locations?",
     landing_help_first_answer:
       "Too easy! First, you have to click on the map button on the main page. Then you just have to click on the category you want to see and all the available subcategories will be displayed. Once there, you just have to click on the slider to turn on / off the locations related to that subcategory and it will even be marked with the color that will appear on the map!",
