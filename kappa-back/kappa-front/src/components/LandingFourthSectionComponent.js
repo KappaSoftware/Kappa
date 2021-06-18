@@ -36,7 +36,7 @@ export default function LandingFourthSection() {
                   }}
                 >
                   <a
-                    href="https://github.com/KappaSoftware/Kappa"
+                    href="https://github.com/KappaSoftware/KappaSoftware"
                     target="_blank"
                     className="landing-fourthsection-btnGitHub"
                     rel="noopener noreferrer"
