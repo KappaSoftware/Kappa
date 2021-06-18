@@ -211,6 +211,12 @@ Landing
   text-decoration: none;
 }
 
+.landing-secondsection-col > a > div > svg {
+  width: 40px;
+  height: 40px;
+  color: #ff0000;
+}
+
 /*
 * Landing third section
 */
@@ -647,6 +653,10 @@ Mapa
 
   .landing-secondsection-col > a {
     font-size: 20px;
+  }
+
+  .landing-secondsection-icon {
+    font-size: 40px;
   }
 }
 

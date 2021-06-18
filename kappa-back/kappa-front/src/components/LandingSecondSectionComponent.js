@@ -4,6 +4,9 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import YouTubeIcon from "@material-ui/icons/YouTube";
+import { useIntl } from "react-intl";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles((theme) => ({
   backgroundThird: {
@@ -20,7 +23,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LandingSecondSection() {
   const classes = useStyles();
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
+  const intl = useIntl();
   return (
     <section className="landing-secondsection" id="ldSecondSec">
       <Container fluid>
@@ -33,11 +39,26 @@ export default function LandingSecondSection() {
             <img src="/assets/images/cc-by-sa.png" alt="CC-BY-SA" />
           </Col>
           <Col className="landing-secondsection-col">
-            <a href="https://youtu.be/vVXgsnkYZPs">
+            <a
+              href="https://youtu.be/vVXgsnkYZPs"
+              target="_blank"
+              rel="noreferrer"
+            >
               <div className={classes.backgroundThird}>
-                <p className={classes.noMargin}>¡Gran Lanzamiento!</p>
-                <YouTubeIcon style={{ fontSize: 40, color: "#FF0000" }} />
-                <p className={classes.noMargin}>Click aquí</p>
+                {matches ? (
+                  <p className={classes.noMargin}>
+                    {intl.formatMessage({ id: "landing_second_section_first" })}
+                  </p>
+                ) : (
+                  <>
+                    <p className={classes.noMargin}>
+                      {intl.formatMessage({
+                        id: "landing_second_section_first_opt2",
+                      })}
+                    </p>
+                    <YouTubeIcon />
+                  </>
+                )}
               </div>
             </a>
           </Col>
