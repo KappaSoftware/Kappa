@@ -30,7 +30,7 @@ export default function LandingFourthSection() {
                   })}
                 </p>
                 <div
-                  className="sidebar-btn-wrapper"
+                  className="landing-fourthsection-a"
                   style={{
                     padding: "20px 24px",
                   }}
@@ -41,8 +41,7 @@ export default function LandingFourthSection() {
                     className="landing-fourthsection-btnGitHub"
                     rel="noopener noreferrer"
                   >
-                    <FaGithub />
-                    <span> {intl.formatMessage({ id: "title" })}</span>
+                    <FaGithub /> {intl.formatMessage({ id: "title" })}
                   </a>
                 </div>
               </div>

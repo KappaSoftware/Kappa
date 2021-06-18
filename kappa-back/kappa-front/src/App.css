@@ -197,11 +197,18 @@ Landing
   justify-items: center;
   text-align: center;
   vertical-align: middle;
+  display: flex;
+  align-items: center;
 }
 
 .landing-secondsection-col > img {
   width: 16vw;
   height: 16vw;
+}
+
+.landing-secondsection-col > a {
+  font-size: 10px;
+  text-decoration: none;
 }
 
 /*
@@ -274,6 +281,9 @@ Landing
   background-position: center;
   background-size: cover;
   height: 100%;
+}
+.landing-fourthsection-a > a {
+  text-decoration: none;
 }
 
 .landing-fourthsection-btnGitHub {
@@ -569,6 +579,10 @@ Mapa
     padding-right: 1vw;
     padding-bottom: 0;
   }
+
+  .landing-secondsection-col > a {
+    font-size: 15px;
+  }
 }
 
 /**
@@ -595,6 +609,10 @@ Mapa
   .leaflet-container {
     width: 100%;
     height: 82vh;
+  }
+
+  .landing-secondsection-col > a {
+    font-size: 18px;
   }
 }
 
@@ -625,6 +643,10 @@ Mapa
   .leaflet-container {
     width: 100%;
     height: 85vh;
+  }
+
+  .landing-secondsection-col > a {
+    font-size: 20px;
   }
 }
 
