@@ -1,4 +1,4 @@
-# Contributor Covenant Code of Conduct (Spanish below)
+# Contributor Covenant Code of Conduct (Español abajo)
 
 ## Our Pledge
 
